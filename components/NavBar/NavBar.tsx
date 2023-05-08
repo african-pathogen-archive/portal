@@ -197,6 +197,28 @@ const NavBar = (): ReactElement => {
                 }
               `}
             >
+              Register
+            </StyledLinkAsButton>
+          </InternalLink>
+        </div>}
+        {(token === undefined) && <div>
+        <InternalLink path={INTERNAL_PATHS.LOGIN}>
+            <StyledLinkAsButton
+              css={css`
+                ${theme.typography.button};
+                background-color: ${theme.colors.accent3};
+                border-color: ${theme.colors.accent3};
+                line-height: 20px;
+                margin-right: 15px;
+                padding: 8px 20px;
+                width: fit-content;
+
+                &:hover {
+                  color: ${theme.colors.white};
+                  background-color: ${theme.colors.accent3_dark};
+                }
+              `}
+            >
               Login
             </StyledLinkAsButton>
           </InternalLink>
