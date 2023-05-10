@@ -64,8 +64,14 @@ const Footer = (): ReactElement => {
           }
         `}
       >
-        <a href="https://www.genomecanada.ca/" rel="noopener noreferrer" target="_blank">
-          <img src="/images/sanbi-logo.png" alt="SANBI logo" />
+        <span css={css`
+          font-weight: normal;
+          ${theme.typography.subheading2}
+          color: ${theme.colors.accent_dark};
+        `}>
+          Developed by: </span>
+        <a href="https://www.sanbi.ac.za/" rel="noopener noreferrer" target="_blank">
+          <img src="/images/sanbi-logo.png" alt="SANBI logo" css={css `height: 60px`}/>
         </a>
       </section>
 
@@ -109,11 +115,11 @@ const Footer = (): ReactElement => {
         >
           <li>
             <StyledLink
-              href="https://www.genomecanada.ca/en/cancogen"
+              href="https://ipg.africacdc.org/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              About SANBI
+              About the Africa CDC IPG
             </StyledLink>
           </li>
 

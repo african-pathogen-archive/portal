@@ -80,11 +80,11 @@ const Impact = (): ReactElement => {
           padding: 8px 20px;
           width: fit-content;
         `}
-        href="https://www.sanbi.ac.za"
+        href="https://ipg.africacdc.org/"
         rel="noopener noreferrer"
         target="_blank"
       >
-        Learn more about SANBI
+        Learn more about the Africa CDC IPG
       </StyledLinkAsButton>
     </section>
   );
