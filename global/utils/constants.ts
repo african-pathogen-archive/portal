@@ -32,6 +32,7 @@ export const ROOT_PATH = '/';
 
 export enum INTERNAL_PATHS {
   ACKNOWLEDGEMENTS = '/acknowledgements',
+  APA = '/apa',
   EXPLORER = '/explorer',
   LOGIN = '/login',
   POLICIES = '/policies',
