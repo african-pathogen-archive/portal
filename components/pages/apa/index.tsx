@@ -20,17 +20,24 @@
  */
 
 import React from 'react';
-import { Layout, Space } from 'antd';
+import { Layout, Space, Button } from 'antd';
+
+import SideMenu from '../../SideMenu';
+import { InternalLink } from '@/components/Link';
+import { css } from '@emotion/react';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
 	textAlign: 'center',
-	color: '#fff',
+	color: '#000',
 	height: 64,
 	paddingInline: 50,
 	lineHeight: '64px',
-	backgroundColor: '#7dbcea',
+	backgroundColor: '#ffffff',
+	display: 'flex',
+	justifyItems: 'center',
+	justifyContent: 'space-between',
 };
 
 const contentStyle: React.CSSProperties = {
@@ -38,7 +45,7 @@ const contentStyle: React.CSSProperties = {
 	minHeight: 120,
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#108ee9',
+	backgroundColor: '#F5F5F5',
 };
 
 const siderStyle: React.CSSProperties = {
@@ -51,19 +58,50 @@ const siderStyle: React.CSSProperties = {
 const footerStyle: React.CSSProperties = {
 	textAlign: 'center',
 	color: '#fff',
-	backgroundColor: '#7dbcea',
+	backgroundColor: '#ffffff',
 };
 
 const App: React.FC = () => (
 	<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 		<Layout>
-			<Header style={headerStyle}>Header</Header>
+			<Header style={headerStyle}>
+			<div
+				css={css`
+				display: flex;
+				align-items: center;
+				margin-left: 50px;
+				margin-right: 70px;
+				padding-top: 25px;
+				cursor: pointer;
+				`}
+      		>
+        <InternalLink path={''}>
+          <a
+            css={css`
+              align-items: left;
+              text-decoration: none;
+            `}
+          >
+            <img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
+          </a>
+        </InternalLink>
+      </div>
+	  <div>
+	  	<Button>Login</Button>
+		  <Button type="primary">Register</Button>
+	  </div>
+	  
+			</Header>
 			<Layout>
-				<Sider style={siderStyle}>Sider</Sider>
-				<Content style={contentStyle}>Content</Content>
+				<Sider style={siderStyle}>
+					<SideMenu/>
+				</Sider>
+				<Layout>
+					<Content style={contentStyle}></Content>
+					<Footer style={footerStyle}>Footer</Footer>
+				</Layout>
 			</Layout>
-			<Footer style={footerStyle}>Footer</Footer>
-		</Layout>
+    	</Layout>
 	</Space>
 );
 
