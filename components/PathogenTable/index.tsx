@@ -4,29 +4,29 @@ import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
   key: string;
-  address: string;
-  tags: string[];
+  pathogen: string;
+  numberOfSamples: string[];
 }
 
 const columns: ColumnsType<DataType> = [
  
   {
     title: 'Pathogen',
-    dataIndex: 'address',
-    key: 'address',
+    dataIndex: 'pathogen',
+    key: 'pathogen',
   },
   {
     title: 'No. of samples',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
+    key: 'numberOfSamples',
+    dataIndex: 'numberOfSamples',
+    render: (_, { numberOfSamples }) => (
       <>
-        {tags.map((tag) => {
+        {numberOfSamples.map((sample) => {
           let color = 'blue';
           
           return (
-            <Tag color={color} key={tag}>
-              {tag}
+            <Tag color={color} key={sample}>
+              {sample}
             </Tag>
           );
         })}
@@ -47,23 +47,23 @@ const columns: ColumnsType<DataType> = [
 const data: DataType[] = [
   {
     key: '1',
-    address: 'SARS-cov-2',
-    tags: ['50 new'],
+    pathogen: 'SARS-cov-2',
+    numberOfSamples: ['50 new'],
   },
   {
     key: '2',
-    address: 'Malaria',
-    tags: ['2 new'],
+    pathogen: 'Malaria',
+    numberOfSamples: ['2 new'],
   },
   {
     key: '3',
-    address: 'HIV',
-    tags: [],
+    pathogen: 'HIV',
+    numberOfSamples: [],
   },
   {
     key: '3',
-    address: 'Avery flu',
-    tags: [],
+    pathogen: 'Avery flu',
+    numberOfSamples: [],
   },
 ];
 
