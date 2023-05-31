@@ -25,6 +25,7 @@ import { Layout, Space, Button } from 'antd';
 import SideMenu from '../../SideMenu';
 import { InternalLink } from '@/components/Link';
 import { css } from '@emotion/react';
+import PathogenTable from '@/components/PathogenTable';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -46,6 +47,11 @@ const contentStyle: React.CSSProperties = {
 	lineHeight: '120px',
 	color: '#fff',
 	backgroundColor: '#F5F5F5',
+	display: 'flex',
+	justifyContent: 'center',
+	alignContent: 'center',
+	justifyItems: 'center',
+	paddingTop: '100px',
 };
 
 const siderStyle: React.CSSProperties = {
@@ -97,7 +103,9 @@ const App: React.FC = () => (
 					<SideMenu/>
 				</Sider>
 				<Layout>
-					<Content style={contentStyle}></Content>
+					<Content style={contentStyle}>
+						<PathogenTable />
+					</Content>
 					<Footer style={footerStyle}>Footer</Footer>
 				</Layout>
 			</Layout>

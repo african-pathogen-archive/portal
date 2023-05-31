@@ -33,7 +33,6 @@ const items: MenuProps['items'] = [
 
 const SideMenu: React.FC = () => {
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
   };
 
   return (
