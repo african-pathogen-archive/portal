@@ -39,7 +39,15 @@ const headerStyle: React.CSSProperties = {
 	display: 'flex',
 	justifyItems: 'center',
 	justifyContent: 'space-between',
+	
 };
+
+const headerButtons: React.CSSProperties = {
+	display: 'flex',
+	justifyContent: 'space-around',
+	alignItems: 'center',
+	width: 180,
+}
 
 const contentStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -75,8 +83,6 @@ const App: React.FC = () => (
 				css={css`
 				display: flex;
 				align-items: center;
-				margin-left: 50px;
-				margin-right: 70px;
 				padding-top: 25px;
 				cursor: pointer;
 				`}
@@ -92,9 +98,9 @@ const App: React.FC = () => (
           </a>
         </InternalLink>
       </div>
-	  <div>
+	  <div style={headerButtons}>
 	  	<Button>Login</Button>
-		  <Button type="primary">Register</Button>
+		<Button type="primary">Register</Button>
 	  </div>
 	  
 			</Header>

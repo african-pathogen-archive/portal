@@ -42,6 +42,7 @@ const SideMenu: React.FC = () => {
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['home']}
       mode="inline"
+      inlineCollapsed={false}
       items={items}
     />
   );

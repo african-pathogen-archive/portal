@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -38,7 +39,7 @@ const columns: ColumnsType<DataType> = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-        <a>View</a>
+        <Link href={`/apa/pathogens/${record.key}`}>View</Link>
       </Space>
     ),
   },
@@ -46,22 +47,22 @@ const columns: ColumnsType<DataType> = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    key: 'sars-cov-2',
     pathogen: 'SARS-cov-2',
     numberOfSamples: { count: 145, new: 50 },
   },
   {
-    key: '2',
+    key: 'malaria',
     pathogen: 'Malaria',
     numberOfSamples: { count: 540, new: 2 },
   },
   {
-    key: '3',
+    key: 'hiv',
     pathogen: 'HIV',
     numberOfSamples: { count: 245, new: 0 },
   },
   {
-    key: '3',
+    key: 'avery-flu',
     pathogen: 'Avery flu',
     numberOfSamples: { count: 78, new: 0 },
   },
