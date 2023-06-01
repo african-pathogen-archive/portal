@@ -67,6 +67,7 @@ const siderStyle: React.CSSProperties = {
 	lineHeight: '120px',
 	color: '#fff',
 	backgroundColor: '#3ba0e9',
+	width: 256,
 };
 
 const footerStyle: React.CSSProperties = {

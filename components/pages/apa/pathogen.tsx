@@ -195,9 +195,9 @@ const Pathogen: React.FC = () => {
 	  
 			</Header>
 			<Layout>
-				{/*<Sider style={siderStyle}>
+				<Sider style={siderStyle} collapsed={true}>
                     <SideMenu/>
-    </Sider>*/}
+                </Sider>
 				<Layout>
                     <div style={{color: theme.colors.black, lineHeight: 1}}>
 			{loadingArrangerConfig ? (

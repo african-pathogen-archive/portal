@@ -38,11 +38,10 @@ const SideMenu: React.FC = () => {
   return (
     <Menu
       onClick={onClick}
-      style={{ width: 256, height: '93vh' }}
+      style={{ height: '93vh' }}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['home']}
       mode="inline"
-      inlineCollapsed={false}
       items={items}
     />
   );
