@@ -25,6 +25,8 @@ import { Layout, Space, Button } from 'antd';
 import SideMenu from '../../SideMenu';
 import { InternalLink } from '@/components/Link';
 import { css, useTheme } from '@emotion/react';
+import useAuthContext from '../../../global/hooks/useAuthContext';
+import CurrentUser from '../../NavBar/CurrentUser';
 
 import { ArrangerDataProvider } from '@overture-stack/arranger-components';
 
@@ -118,7 +120,7 @@ const footerStyle: React.CSSProperties = {
 };
 
 const Pathogen: React.FC = () => {
-    
+    const { logout, token, userHasAccessToStudySvc } = useAuthContext();
     const theme = useTheme();
     const {
 		NEXT_PUBLIC_ARRANGER_API,
@@ -195,15 +197,17 @@ const Pathogen: React.FC = () => {
           </a>
         </InternalLink>
       </div>
-	  <div style={headerButtons}>
-	  	<Button href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}>Login</Button>
-		<Button href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`} type="primary">Register</Button>
-	  </div>
-	  
+	  			{(token === undefined) && <div style={headerButtons}>
+					<Button href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}>Login</Button>
+					<Button href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`} type="primary">Register</Button>
+				</div>}
+				{token && <div>
+					<CurrentUser />
+				</div>}
 			</Header>
 			<Layout>
 				<Sider style={siderStyle} collapsed={true}>
-                    <SideMenu/>
+                    <SideMenu selectedKey={'pathogen'}/>
                 </Sider>
 				<Layout>
                     <div style={{color: theme.colors.black, lineHeight: 1}}>

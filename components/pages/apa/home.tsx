@@ -33,7 +33,7 @@ import { getConfig } from '../../../global/config';
 
 
 const { Header, Footer, Sider, Content } = Layout;
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const headerStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -95,7 +95,7 @@ const {
     NEXT_PUBLIC_KEYCLOAK,
   } = getConfig();
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
 	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
@@ -138,21 +138,8 @@ const App: React.FC = () => {
 				</Sider>
 				<Layout>
 					<Content style={contentStyle}>
-						<Title style={{width: '80%'}}>Welcome to APA</Title>
-						<Paragraph style={{width: '80%'}}>The goal of the CanCOGeN VirusSeq project was to sequence up to 150,000 viral samples from Canadians testing positive for COVID-19. The VirusSeq Data Portal is an open-source and open-access data portal for all Canadian SARS-CoV-2 sequences and associated non-personal contextual data. It harmonizes, validates and automates submission to international databases.</Paragraph>
-						<div style={{width: '80%'}}><PartnerLogosBanner /></div>
 						<Title level={4} style={{width: '80%'}}>Pathogen available</Title>
 						<PathogenTable />
-						<div style={descriptiveText}>
-							<div style={{width: '45%'}}>
-								<Title level={3}>What the platform does</Title>
-								<Paragraph>Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna convallis feugiat fames faucibus pellentesque.</Paragraph>
-							</div>
-							<div style={{width: '45%'}}>
-								<Title level={3}>How to use this platform </Title>
-								<Paragraph>Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna convallis feugiat fames faucibus pellentesque.</Paragraph>
-							</div>
-						</div>	
 					</Content>
 					<Footer style={footerStyle}>
 						<div><PartnerLogosBanner /></div>
@@ -163,4 +150,4 @@ const App: React.FC = () => {
 	</Space>
 )};
 
-export default App;
+export default Home;
