@@ -21,26 +21,23 @@
 
 import React, { ReactElement, useEffect, useState } from 'react';
 import { Layout, Space, Button } from 'antd';
-
-import SideMenu from '../../SideMenu';
-import { InternalLink } from '@/components/Link';
 import { css, useTheme } from '@emotion/react';
-import useAuthContext from '../../../global/hooks/useAuthContext';
-import CurrentUser from '../../NavBar/CurrentUser';
-
 import { ArrangerDataProvider } from '@overture-stack/arranger-components';
 
+import { InternalLink } from '@/components/Link';
 import ErrorNotification from '@/components/ErrorNotification';
 import Loader from '@/components/Loader';
 import PageLayout from '@/components/PageLayout';
 import createArrangerFetcher from '@/components/utils/arrangerFetcher';
 import sleep from '@/components/utils/sleep';
 import { getConfig } from '@/global/config';
-import getConfigError from '../explorer/getConfigError';
 import { RepoFiltersType } from '@/global/types/sqon';
+
+import CurrentUser from '../../NavBar/CurrentUser';
+import useAuthContext from '../../../global/hooks/useAuthContext';
+import getConfigError from '../explorer/getConfigError';
+import SideMenu from '../../SideMenu';
 import PageContent from '../explorer/PageContent';
-
-
 
 export interface PageContentProps {
 	sqon: RepoFiltersType;
@@ -70,7 +67,6 @@ const configsQuery = `
   }
 `;
 
-
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
@@ -83,7 +79,6 @@ const headerStyle: React.CSSProperties = {
 	display: 'flex',
 	justifyItems: 'center',
 	justifyContent: 'space-between',
-	
 };
 
 const headerButtons: React.CSSProperties = {
@@ -91,7 +86,7 @@ const headerButtons: React.CSSProperties = {
 	justifyContent: 'space-around',
 	alignItems: 'center',
 	width: 180,
-}
+};
 
 const contentStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -120,19 +115,19 @@ const footerStyle: React.CSSProperties = {
 };
 
 const Pathogen: React.FC = () => {
-    const { logout, token, userHasAccessToStudySvc } = useAuthContext();
-    const theme = useTheme();
-    const {
+	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
+	const theme = useTheme();
+	const {
 		NEXT_PUBLIC_ARRANGER_API,
 		NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE,
 		NEXT_PUBLIC_ARRANGER_INDEX,
-        NEXT_PUBLIC_EGO_API_ROOT,
-        NEXT_PUBLIC_EGO_CLIENT_ID,
-        NEXT_PUBLIC_KEYCLOAK,
+		NEXT_PUBLIC_EGO_API_ROOT,
+		NEXT_PUBLIC_EGO_CLIENT_ID,
+		NEXT_PUBLIC_KEYCLOAK,
 	} = getConfig();
 	const [arrangerHasConfig, setArrangerHasConfig] = useState<boolean>(false);
 	const [loadingArrangerConfig, setLoadingArrangerConfig] = useState<boolean>(true);
-    const [origin, setOrigin] = useState<string>('');
+	const [origin, setOrigin] = useState<string>('');
 
 	useEffect(() => {
 		arrangerFetcher({
@@ -164,7 +159,7 @@ const Pathogen: React.FC = () => {
 			});
 	}, [NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE, NEXT_PUBLIC_ARRANGER_INDEX]);
 
-    useEffect(() => {
+	useEffect(() => {
 		window && setOrigin(window.location.origin);
 	}, []);
 
@@ -174,89 +169,103 @@ const Pathogen: React.FC = () => {
 		documentType: NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE,
 	});
 
-    return (
-	<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
-		<Layout>
-			<Header style={headerStyle}>
-			<div
-				css={css`
-				display: flex;
-				align-items: center;
-				padding-top: 25px;
-				cursor: pointer;
-				`}
-      		>
-        <InternalLink path={''}>
-          <a
-            css={css`
-              align-items: left;
-              text-decoration: none;
-            `}
-          >
-            <img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
-          </a>
-        </InternalLink>
-      </div>
-	  			{(token === undefined) && <div style={headerButtons}>
-					<Button href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}>Login</Button>
-					<Button href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`} type="primary">Register</Button>
-				</div>}
-				{token && <div>
-					<CurrentUser />
-				</div>}
-			</Header>
+	return (
+		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>
-				<Sider style={siderStyle} collapsed={true}>
-                    <SideMenu selectedKey={'pathogen'}/>
-                </Sider>
+				<Header style={headerStyle}>
+					<div
+						css={css`
+							display: flex;
+							align-items: center;
+							padding-top: 25px;
+							cursor: pointer;
+						`}
+					>
+						<InternalLink path={''}>
+							<a
+								css={css`
+									align-items: left;
+									text-decoration: none;
+								`}
+							>
+								<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
+							</a>
+						</InternalLink>
+					</div>
+					{token === undefined && (
+						<div style={headerButtons}>
+							<Button
+								href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}
+							>
+								Login
+							</Button>
+							<Button
+								href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`}
+								type="primary"
+							>
+								Register
+							</Button>
+						</div>
+					)}
+					{token && (
+						<div>
+							<CurrentUser />
+						</div>
+					)}
+				</Header>
 				<Layout>
-                    <div style={{color: theme.colors.black, lineHeight: 1}}>
-			{loadingArrangerConfig ? (
-				<div
-					css={css`
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;
-						background-color: ${theme.colors.grey_2};
-					`}
-				>
-					<Loader />
-				</div>
-			) : ConfigError ? (
-				<ErrorNotification
-					title={'DMS Configuration Error'}
-					size="lg"
-					css={css`
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;
-					`}
-				>
-					{ConfigError}
-				</ErrorNotification>
-			) : (
-				<ArrangerDataProvider
-					apiUrl={NEXT_PUBLIC_ARRANGER_API}
-					customFetcher={arrangerFetcher}
-					documentType={NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE}
-					theme={{
-						colors: {
-							common: {
-								black: theme.colors.black,
-							},
-						},
-					}}
-				>
-                    <PageContent />
-				</ArrangerDataProvider>
-			)}
-            </div>
-					<Footer style={footerStyle}></Footer>
+					<Sider style={siderStyle} collapsed={true}>
+						<SideMenu selectedKey={'pathogen'} />
+					</Sider>
+					<Layout>
+						<div style={{ color: theme.colors.black, lineHeight: 1 }}>
+							{loadingArrangerConfig ? (
+								<div
+									css={css`
+										display: flex;
+										flex-direction: column;
+										justify-content: center;
+										align-items: center;
+										background-color: ${theme.colors.grey_2};
+									`}
+								>
+									<Loader />
+								</div>
+							) : ConfigError ? (
+								<ErrorNotification
+									title={'DMS Configuration Error'}
+									size="lg"
+									css={css`
+										flex-direction: column;
+										justify-content: center;
+										align-items: center;
+									`}
+								>
+									{ConfigError}
+								</ErrorNotification>
+							) : (
+								<ArrangerDataProvider
+									apiUrl={NEXT_PUBLIC_ARRANGER_API}
+									customFetcher={arrangerFetcher}
+									documentType={NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE}
+									theme={{
+										colors: {
+											common: {
+												black: theme.colors.black,
+											},
+										},
+									}}
+								>
+									<PageContent />
+								</ArrangerDataProvider>
+							)}
+						</div>
+						<Footer style={footerStyle}></Footer>
+					</Layout>
 				</Layout>
 			</Layout>
-    	</Layout>
-	</Space>
-)};
+		</Space>
+	);
+};
 
 export default Pathogen;

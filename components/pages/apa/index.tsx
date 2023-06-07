@@ -21,16 +21,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography } from 'antd';
+import { css } from '@emotion/react';
+
+import { InternalLink } from '@/components/Link';
+import PathogenTable from '@/components/PathogenTable';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
-import { InternalLink } from '@/components/Link';
-import { css } from '@emotion/react';
-import PathogenTable from '@/components/PathogenTable';
-import PartnerLogosBanner from './PartnerLogosBanner';
 import { getConfig } from '../../../global/config';
 
+import PartnerLogosBanner from './PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -56,7 +57,7 @@ const headerButtons: React.CSSProperties = {
 	justifyContent: 'space-around',
 	alignItems: 'center',
 	width: 180,
-}
+};
 
 const contentStyle: React.CSSProperties = {
 	textAlign: 'left',
@@ -73,8 +74,8 @@ const contentStyle: React.CSSProperties = {
 const descriptiveText: React.CSSProperties = {
 	width: '80%',
 	display: 'flex',
-	justifyContent: 'space-between'
-}
+	justifyContent: 'space-between',
+};
 
 const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -89,78 +90,110 @@ const footerStyle: React.CSSProperties = {
 	backgroundColor: '#ffffff',
 };
 
-const {
-    NEXT_PUBLIC_EGO_API_ROOT,
-    NEXT_PUBLIC_EGO_CLIENT_ID,
-    NEXT_PUBLIC_KEYCLOAK,
-  } = getConfig();
+const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
 
 const App: React.FC = () => {
 	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
-	  }, []);
+	}, []);
 	return (
-	<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
-		<Layout>
-			<Header style={headerStyle}>
-				<div
-					css={css`
-					display: flex;
-					align-items: center;
-					padding-top: 25px;
-					cursor: pointer;
-					`}
-				>
-					<InternalLink path={''}>
-						<a
-							css={css`
-							align-items: left;
-							text-decoration: none;
-							`}
-						>
-							<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
-						</a>
-					</InternalLink>
-				</div>
-				{(token === undefined) && <div style={headerButtons}>
-					<Button href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}>Login</Button>
-					<Button href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`} type="primary">Register</Button>
-				</div>}
-				{token && <div>
-					<CurrentUser />
-				</div>}
-			</Header>
+		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>
-				<Sider style={siderStyle} width={256}>
-					<SideMenu selectedKey={'home'}/>
-				</Sider>
+				<Header style={headerStyle}>
+					<div
+						css={css`
+							display: flex;
+							align-items: center;
+							padding-top: 25px;
+							cursor: pointer;
+						`}
+					>
+						<InternalLink path={''}>
+							<a
+								css={css`
+									align-items: left;
+									text-decoration: none;
+								`}
+							>
+								<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
+							</a>
+						</InternalLink>
+					</div>
+					{token === undefined && (
+						<div style={headerButtons}>
+							<Button
+								href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}
+							>
+								Login
+							</Button>
+							<Button
+								href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`}
+								type="primary"
+							>
+								Register
+							</Button>
+						</div>
+					)}
+					{token && (
+						<div>
+							<CurrentUser />
+						</div>
+					)}
+				</Header>
 				<Layout>
-					<Content style={contentStyle}>
-						<Title style={{width: '80%'}}>Welcome to APA</Title>
-						<Paragraph style={{width: '80%'}}>The goal of the CanCOGeN VirusSeq project was to sequence up to 150,000 viral samples from Canadians testing positive for COVID-19. The VirusSeq Data Portal is an open-source and open-access data portal for all Canadian SARS-CoV-2 sequences and associated non-personal contextual data. It harmonizes, validates and automates submission to international databases.</Paragraph>
-						<div style={{width: '80%'}}><PartnerLogosBanner /></div>
-						<Title level={4} style={{width: '80%'}}>Pathogen available</Title>
-						<PathogenTable />
-						<div style={descriptiveText}>
-							<div style={{width: '45%'}}>
-								<Title level={3}>What the platform does</Title>
-								<Paragraph>Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna convallis feugiat fames faucibus pellentesque.</Paragraph>
+					<Sider style={siderStyle} width={256}>
+						<SideMenu selectedKey={'home'} />
+					</Sider>
+					<Layout>
+						<Content style={contentStyle}>
+							<Title style={{ width: '80%' }}>Welcome to APA</Title>
+							<Paragraph style={{ width: '80%' }}>
+								The goal of the CanCOGeN VirusSeq project was to sequence up to 150,000 viral
+								samples from Canadians testing positive for COVID-19. The VirusSeq Data Portal is an
+								open-source and open-access data portal for all Canadian SARS-CoV-2 sequences and
+								associated non-personal contextual data. It harmonizes, validates and automates
+								submission to international databases.
+							</Paragraph>
+							<div style={{ width: '80%' }}>
+								<PartnerLogosBanner />
 							</div>
-							<div style={{width: '45%'}}>
-								<Title level={3}>How to use this platform </Title>
-								<Paragraph>Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna convallis feugiat fames faucibus pellentesque.</Paragraph>
+							<Title level={4} style={{ width: '80%' }}>
+								Pathogen available
+							</Title>
+							<PathogenTable />
+							<div style={descriptiveText}>
+								<div style={{ width: '45%' }}>
+									<Title level={3}>What the platform does</Title>
+									<Paragraph>
+										Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum
+										augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut
+										proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna
+										convallis feugiat fames faucibus pellentesque.
+									</Paragraph>
+								</div>
+								<div style={{ width: '45%' }}>
+									<Title level={3}>How to use this platform </Title>
+									<Paragraph>
+										Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum
+										augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut
+										proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna
+										convallis feugiat fames faucibus pellentesque.
+									</Paragraph>
+								</div>
 							</div>
-						</div>	
-					</Content>
-					<Footer style={footerStyle}>
-						<div><PartnerLogosBanner /></div>
-					</Footer>
+						</Content>
+						<Footer style={footerStyle}>
+							<div>
+								<PartnerLogosBanner />
+							</div>
+						</Footer>
+					</Layout>
 				</Layout>
 			</Layout>
-    	</Layout>
-	</Space>
-)};
+		</Space>
+	);
+};
 
 export default App;

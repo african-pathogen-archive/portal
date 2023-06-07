@@ -20,6 +20,7 @@ module.exports = {
 	plugins: ['@typescript-eslint', '@emotion', 'prettier', 'jsx-a11y'],
 	root: true,
 	rules: {
+		'react-hooks/exhaustive-deps': 'off',
 		'no-duplicate-imports': 'warn',
 		'prettier/prettier': [
 			'warn',
@@ -32,6 +33,7 @@ module.exports = {
 			},
 		],
 		'jsx-a11y/href-no-hash': 'off',
+		'import/no-unresolved': 'off',
 		'import/first': ['warn', 'absolute-first'],
 		'import/order': [
 			'warn',
@@ -42,6 +44,7 @@ module.exports = {
 			},
 		],
 		'import/newline-after-import': 'warn',
+		'import/no-named-as-default': 'off',
 		'use-isnan': 'warn',
 		'@emotion/import-from-emotion': 'error',
 		'@emotion/no-vanilla': 'error',
@@ -56,6 +59,10 @@ module.exports = {
 		],
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-var-requires': 'off',
+		'@typescript-eslint/ban-types': 'off',
+		'@typescript-eslint/no-empty-function': 'off',
+		'@typescript-eslint/no-unused-vars': 'off',
+		'@typescript-eslint/no-empty-interface': 'off',
 	},
 	settings: {
 		'import/resolver': {

@@ -21,21 +21,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography, Input } from 'antd';
+import { css } from '@emotion/react';
+
+import { InternalLink } from '@/components/Link';
+import PathogenTable from '@/components/PathogenTable';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
-import { InternalLink } from '@/components/Link';
-import { css } from '@emotion/react';
-import PathogenTable from '@/components/PathogenTable';
-import PartnerLogosBanner from './PartnerLogosBanner';
 import { getConfig } from '../../../global/config';
 
+import PartnerLogosBanner from './PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 const { Search } = Input;
-
 
 const headerStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -58,7 +58,7 @@ const headerButtons: React.CSSProperties = {
 	justifyContent: 'space-around',
 	alignItems: 'center',
 	width: 180,
-}
+};
 
 const contentStyle: React.CSSProperties = {
 	textAlign: 'left',
@@ -75,8 +75,8 @@ const contentStyle: React.CSSProperties = {
 const descriptiveText: React.CSSProperties = {
 	width: '80%',
 	display: 'flex',
-	justifyContent: 'space-between'
-}
+	justifyContent: 'space-between',
+};
 
 const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -89,73 +89,96 @@ const footerStyle: React.CSSProperties = {
 	textAlign: 'center',
 	color: '#fff',
 	backgroundColor: '#ffffff',
-    bottom: 0,
-    height: 64,
-
+	bottom: 0,
+	height: 64,
 };
 
-const {
-    NEXT_PUBLIC_EGO_API_ROOT,
-    NEXT_PUBLIC_EGO_CLIENT_ID,
-    NEXT_PUBLIC_KEYCLOAK,
-  } = getConfig();
+const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
 
 const Pathogens: React.FC = () => {
 	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
-	  }, []);
+	}, []);
 	return (
-	<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
-		<Layout>
-			<Header style={headerStyle}>
-				<div
-					css={css`
-					display: flex;
-					align-items: center;
-					padding-top: 25px;
-					cursor: pointer;
-					`}
-				>
-					<InternalLink path={''}>
-						<a
-							css={css`
-							align-items: left;
-							text-decoration: none;
-							`}
-						>
-							<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
-						</a>
-					</InternalLink>
-				</div>
-				{(token === undefined) && <div style={headerButtons}>
-					<Button href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}>Login</Button>
-					<Button href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`} type="primary">Register</Button>
-				</div>}
-				{token && <div>
-					<CurrentUser />
-				</div>}
-			</Header>
+		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>
-				<Sider style={siderStyle} width={256}>
-					<SideMenu selectedKey={'pathogen'}/>
-				</Sider>
+				<Header style={headerStyle}>
+					<div
+						css={css`
+							display: flex;
+							align-items: center;
+							padding-top: 25px;
+							cursor: pointer;
+						`}
+					>
+						<InternalLink path={''}>
+							<a
+								css={css`
+									align-items: left;
+									text-decoration: none;
+								`}
+							>
+								<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
+							</a>
+						</InternalLink>
+					</div>
+					{token === undefined && (
+						<div style={headerButtons}>
+							<Button
+								href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}
+							>
+								Login
+							</Button>
+							<Button
+								href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`}
+								type="primary"
+							>
+								Register
+							</Button>
+						</div>
+					)}
+					{token && (
+						<div>
+							<CurrentUser />
+						</div>
+					)}
+				</Header>
 				<Layout>
-					<Content style={contentStyle}>
-						<div style={{width: '80%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <Title level={4} >Pathogen available</Title>
-                            <Search style={{width: 300}} placeholder="Search" onSearch={()=>{}} enterButton />
-                        </div>
-						<PathogenTable />
-					</Content>
-					<Footer style={footerStyle}>
-						<div><PartnerLogosBanner /></div>
-					</Footer>
+					<Sider style={siderStyle} width={256}>
+						<SideMenu selectedKey={'pathogen'} />
+					</Sider>
+					<Layout>
+						<Content style={contentStyle}>
+							<div
+								style={{
+									width: '80%',
+									display: 'flex',
+									justifyContent: 'space-between',
+									alignItems: 'center',
+								}}
+							>
+								<Title level={4}>Pathogen available</Title>
+								<Search
+									style={{ width: 300 }}
+									placeholder="Search"
+									onSearch={() => {}}
+									enterButton
+								/>
+							</div>
+							<PathogenTable />
+						</Content>
+						<Footer style={footerStyle}>
+							<div>
+								<PartnerLogosBanner />
+							</div>
+						</Footer>
+					</Layout>
 				</Layout>
 			</Layout>
-    	</Layout>
-	</Space>
-)};
+		</Space>
+	);
+};
 
 export default Pathogens;

@@ -2,15 +2,15 @@
 
 export default App;*/
 
-
-import Pathogen from '../../../components/pages/apa/pathogen';
 import { createPage } from 'global/utils/pages';
 
+import Pathogen from '../../../components/pages/apa/pathogen';
+
 const ApaHome = createPage({
-  getInitialProps: async () => null,
-  isPublic: true,
+	getInitialProps: async () => null,
+	isPublic: true,
 })(() => {
-  return <Pathogen />;
+	return <Pathogen />;
 });
 
 export default ApaHome;
