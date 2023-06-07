@@ -9,7 +9,6 @@ import {
 	ProfileOutlined,
 	UploadOutlined,
 } from '@ant-design/icons';
-//import type {  } from 'antd';
 import { Menu, MenuProps } from 'antd';
 import { useRouter } from 'next/router';
 
