@@ -28,6 +28,7 @@ import SideMenu from '../../SideMenu';
 import { InternalLink } from '@/components/Link';
 import { css } from '@emotion/react';
 import PathogenTable from '@/components/PathogenTable';
+import ProjectsTable from '@/components/ProjectsTable';
 import PartnerLogosBanner from './PartnerLogosBanner';
 import { getConfig } from '../../../global/config';
 
@@ -96,7 +97,7 @@ const {
   } = getConfig();
 
 const Home: React.FC = () => {
-	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
+	const { token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
@@ -138,6 +139,7 @@ const Home: React.FC = () => {
 				</Sider>
 				<Layout>
 					<Content style={contentStyle}>
+						<ProjectsTable />
 						<Title level={4} style={{width: '80%'}}>Pathogen available</Title>
 						<PathogenTable />
 					</Content>
