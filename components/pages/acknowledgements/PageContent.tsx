@@ -24,6 +24,7 @@ import { css, useTheme } from '@emotion/react';
 import { format } from 'date-fns';
 
 import defaultTheme from '../../theme';
+
 import Policy from './Policy';
 import Individuals from './Individuals';
 /* trying without the contrib section

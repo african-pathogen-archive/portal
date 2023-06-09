@@ -33,7 +33,6 @@ module.exports = {
 			},
 		],
 		'jsx-a11y/href-no-hash': 'off',
-		'import/no-unresolved': 'off',
 		'import/first': ['warn', 'absolute-first'],
 		'import/order': [
 			'warn',

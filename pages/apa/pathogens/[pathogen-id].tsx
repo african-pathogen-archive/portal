@@ -2,8 +2,7 @@
 
 export default App;*/
 
-import { createPage } from 'global/utils/pages';
-
+import { createPage } from '../../../global/utils/pages';
 import Pathogen from '../../../components/pages/apa/pathogen';
 
 const ApaHome = createPage({

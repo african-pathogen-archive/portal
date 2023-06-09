@@ -39,7 +39,7 @@ const { Title, Paragraph } = Typography;
 const headerStyle: React.CSSProperties = {
 	textAlign: 'center',
 	color: '#000',
-	height: 64,
+	height: 68,
 	paddingInline: 50,
 	lineHeight: '64px',
 	backgroundColor: '#ffffff',

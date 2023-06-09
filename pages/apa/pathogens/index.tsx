@@ -1,5 +1,4 @@
-import { createPage } from 'global/utils/pages';
-
+import { createPage } from '../../../global/utils/pages';
 import Pathogens from '../../../components/pages/apa/pathogens';
 
 const PathogensPage = createPage({

@@ -2,8 +2,7 @@
 
 export default App;*/
 
-import { createPage } from 'global/utils/pages';
-
+import { createPage } from '../../global/utils/pages';
 import App from '../../components/pages/apa';
 import Home from '../../components/pages/apa/home';
 import useAuthContext from '../../global/hooks/useAuthContext';
