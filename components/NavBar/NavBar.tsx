@@ -177,8 +177,25 @@ const NavBar = (): ReactElement => {
               Data Releases
             </StyledLink>
           </InternalLink>
+
+          <InternalLink path={INTERNAL_PATHS.ONBOARDING_REGISTER}>
+            <StyledLink
+              className={cx({ active: router.asPath.startsWith(INTERNAL_PATHS.ONBOARDING_REGISTER) })}
+            >
+              Onboarding
+            </StyledLink>
+          </InternalLink>
+
+          {/* <InternalLink path={INTERNAL_PATHS.PATHOGENS}>
+            <StyledLink
+              className={cx({ active: router.asPath.startsWith(INTERNAL_PATHS.PATHOGENS) })}
+            >
+              Pathogens
+            </StyledLink>
+          </InternalLink> */}
           
         </div>
+        
         <div>
         <InternalLink path={INTERNAL_PATHS.LOGIN}>
             <StyledLinkAsButton

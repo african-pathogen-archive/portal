@@ -42,6 +42,10 @@ export enum INTERNAL_PATHS {
   TEAM = '/team',
   USER = '/user',
   VISUALIZATION = '/visualization',
+  PATHOGENS = '/pathogens',
+  ONBOARDING_REGISTER = '/onboarding',
+  ONBOARDING_ADMINISTRATOR_DETAILS = '/onboarding/administrator_details',
+  ONBOARDING_REQUEST_SUBMITTED = '/onboarding/request_submitted',
 }
 
 // external docs links
