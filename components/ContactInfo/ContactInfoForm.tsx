@@ -19,18 +19,15 @@
  *
  */
 
-import { createRef, ReactElement } from 'react';
-import { css, useTheme } from '@emotion/react';
+import { ReactElement } from 'react';
+import { useTheme } from '@emotion/react';
 import { useRouter } from 'next/router';
-import cx from 'classnames';
 
 import { useState } from "react";
-import { Button, Form, Input, Col, Row,} from 'antd';
+import { Form, Input } from 'antd';
 
 import useAuthContext from '../../global/hooks/useAuthContext';
 import useTrackingContext from '../../global/hooks/useTrackingContext';
-import { INTERNAL_PATHS, ROOT_PATH } from '../../global/utils/constants';
-import { InternalLink, StyledLinkAsButton } from '../Link';
 import defaultTheme from '../theme';
 
 

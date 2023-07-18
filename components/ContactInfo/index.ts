@@ -19,5 +19,4 @@
  *
  */
 
-export * from './ContactInfoForm';
 export { default } from './ContactInfoForm';
