@@ -20,7 +20,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Layout, Space, Button, Typography, Table, Card, Col, Row, Collapse, Image } from 'antd';
+import { Layout, Space, Button, Typography, Card, Col, Row } from 'antd';
 import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
@@ -36,7 +36,6 @@ import { getConfig } from '../../../global/config';
 import ContactInfoForm from '@/components/ContactInfo/ContactInfoForm';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
-import contact_us_map from './contact_us_map.png'
 
 import {
 	PhoneOutlined,
@@ -45,8 +44,7 @@ import {
 } from '@ant-design/icons';
 
 const { Header, Footer, Sider, Content } = Layout;
-const { Title, Paragraph } = Typography;
-const { Panel } = Collapse
+const { Title } = Typography;
 
 const headerStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -83,24 +81,16 @@ const contentStyle: React.CSSProperties = {
 	alignItems: 'center',
 };
 
-const descriptiveText: React.CSSProperties = {
-	width: '94%',
-	display: 'flex',
-	justifyContent: 'space-between',
-};
-
 const cardDiv: React.CSSProperties = {
 	width: '96%',
 }
 
 const contactCard: React.CSSProperties = {
 	width: '48%',
-	// display: 'flex',
 	display: 'inline-block',
 	justifyContent: 'center',
 	textAlign: 'center',
-	verticalAlign: 'top',
-	// alignItems: 'center',
+	verticalAlign: 'top',	
 };
 
 const contactMap: React.CSSProperties = {
@@ -130,7 +120,7 @@ const ContactInfo: React.FC = () => {
 		router.push(INTERNAL_PATHS.CONTACT)
 	}
 
-	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
+	const { logout, token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
