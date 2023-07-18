@@ -64,7 +64,7 @@ const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('FAQs', 'faqs', <QuestionCircleOutlined />),
 	getItem('Contact', 'contact', <NotificationOutlined />),
 	getItem('Terms & conditions', 'terms', <ProfileOutlined />),
-	getItem('Onboarding Administrators', 'onboarding_administrators', <ProfileOutlined />),
+	// getItem('Onboarding Administrators', 'onboarding_administrators', <ProfileOutlined />),
 ];
 
 const SideMenu = ({
