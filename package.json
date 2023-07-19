@@ -12,17 +12,6 @@
         "format": "prettier --write \"**/*.{js,ts,tsx}\"",
 		"prepare": "husky install"
 	},
-    "husky": {
-        "hooks": {
-          "pre-commit": "lint-staged"
-        }
-      },
-      "lint-staged": {
-        "**/*.{js,ts,tsx}": [
-          "prettier --single-quote --write",
-          "git add"
-        ]
-      },
 	"dependencies": {
 		"@emotion/babel-preset-css-prop": "^11.10.0",
 		"@emotion/react": "^11.10.5",
