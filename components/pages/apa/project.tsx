@@ -20,13 +20,11 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import type { CollapseProps } from 'antd';
-import { Layout, Space, Button, Typography, Input, Breadcrumb, Collapse, Upload } from 'antd';
+import { Layout, Space, Button, Typography, Input, Breadcrumb, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
-import PathogenTable from '@/components/PathogenTable';
 import ProjectsTable from '@/components/ProjectsTable';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
@@ -74,8 +72,8 @@ const contentStyle: React.CSSProperties = {
 	flexDirection: 'column',
 	justifyContent: 'start',
 	alignItems: 'left',
-  paddingLeft: '120px',
-  paddingTop: '50px',
+	paddingLeft: '120px',
+	paddingTop: '50px',
 };
 
 const descriptiveText: React.CSSProperties = {
@@ -106,7 +104,6 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-
 const Project: React.FC = () => {
 	const { token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
@@ -125,12 +122,12 @@ const Project: React.FC = () => {
 						`}
 					>
 						<InternalLink path={''}>
-                            <a
+							<a
 								css={css`
 									align-items: left;
 									text-decoration: none;
-                                    display: flex;
-                                    height: 100%;
+									display: flex;
+									height: 100%;
 								`}
 							>
 								<img src="/images/logo.svg" alt="APA logo" width="180" />
@@ -164,26 +161,26 @@ const Project: React.FC = () => {
 					</Sider>
 					<Layout>
 						<Content style={contentStyle}>
-            <Breadcrumb
-              items={[
-                {
-                  title: 'Projects',
-                },
-                {
-                  title: 'SARS-Cov-2',
-                },
-              ]}
-            />
-            <Title level={4} style={{ width: '80%' }}>Submit your data</Title>
-            <Dragger style={{ width: '80%' }}>
-              <p className="ant-upload-drag-icon">
-                <InboxOutlined />
-              </p>
-              <p className="ant-upload-text">Click or drag file to this area to upload</p>
-              <p className="ant-upload-hint">
-                Support for a single or bulk upload.
-              </p>
-            </Dragger>
+							<Breadcrumb
+								items={[
+									{
+										title: 'Projects',
+									},
+									{
+										title: 'SARS-Cov-2',
+									},
+								]}
+							/>
+							<Title level={4} style={{ width: '80%' }}>
+								Submit your data
+							</Title>
+							<Dragger style={{ width: '80%' }}>
+								<p className="ant-upload-drag-icon">
+									<InboxOutlined />
+								</p>
+								<p className="ant-upload-text">Click or drag file to this area to upload</p>
+								<p className="ant-upload-hint">Support for a single or bulk upload.</p>
+							</Dragger>
 							<ProjectsTable />
 						</Content>
 						<Footer style={footerStyle}>

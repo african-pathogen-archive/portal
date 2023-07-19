@@ -23,13 +23,12 @@ import { ReactElement } from 'react';
 import { useTheme } from '@emotion/react';
 import { useRouter } from 'next/router';
 
-import { useState } from "react";
+import { useState } from 'react';
 import { Form, Input } from 'antd';
 
 import useAuthContext from '../../global/hooks/useAuthContext';
 import useTrackingContext from '../../global/hooks/useTrackingContext';
 import defaultTheme from '../theme';
-
 
 const ContactInfoForm = (): ReactElement => {
 	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
@@ -37,45 +36,35 @@ const ContactInfoForm = (): ReactElement => {
 	const router = useRouter();
 	const theme: typeof defaultTheme = useTheme();
 
-    const [name, setName] = useState(''); 
-    const [email_address, setEmailAddress] = useState(''); 
-    const [your_message, setYourMessage] = useState(''); 
-    
-    const updateName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value);
-    };
+	const [name, setName] = useState('');
+	const [email_address, setEmailAddress] = useState('');
+	const [your_message, setYourMessage] = useState('');
 
+	const updateName = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setName(e.target.value);
+	};
 
-    const updateEmailAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmailAddress(e.target.value);
-    };
+	const updateEmailAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setEmailAddress(e.target.value);
+	};
 
-    const updateYourMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setYourMessage(e.target.value);
-    };
-
-
+	const updateYourMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		setYourMessage(e.target.value);
+	};
 
 	return (
-		<Form
-			name="contact_info"
-			colon={false}
-			layout="vertical"
-		>
+		<Form name="contact_info" colon={false} layout="vertical">
 			<Form.Item
 				label="Name"
 				name="name"
 				rules={[
 					{
 						required: true,
-						message: 'Enter your name'
-					}
+						message: 'Enter your name',
+					},
 				]}
 			>
-				<Input 
-					value={name}
-					onChange={updateName}
-				/>
+				<Input value={name} onChange={updateName} />
 			</Form.Item>
 
 			<Form.Item
@@ -84,14 +73,11 @@ const ContactInfoForm = (): ReactElement => {
 				rules={[
 					{
 						required: true,
-						message: 'Enter your email address'
-					}
+						message: 'Enter your email address',
+					},
 				]}
 			>
-				<Input 
-					value={email_address}
-					onChange={updateEmailAddress}
-				/>
+				<Input value={email_address} onChange={updateEmailAddress} />
 			</Form.Item>
 
 			<Form.Item
@@ -100,16 +86,12 @@ const ContactInfoForm = (): ReactElement => {
 				rules={[
 					{
 						required: true,
-						message: 'Enter your message'
-					}
+						message: 'Enter your message',
+					},
 				]}
 			>
-				<Input.TextArea
-					value={your_message}
-					onChange={updateYourMessage}
-				/>
+				<Input.TextArea value={your_message} onChange={updateYourMessage} />
 			</Form.Item>
-
 		</Form>
 	);
 };

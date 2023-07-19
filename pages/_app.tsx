@@ -60,15 +60,15 @@ const DMSApp = ({
 
 	return (
 		<Root pageContext={ctx} egoJwt={initialToken}>
-            <ConfigProvider
-                theme={{
-                    token: {
-                        colorPrimary: '#B76142',
-                    },
-                }}
-            >
-			    <Component {...pageProps} />
-            </ConfigProvider>
+			<ConfigProvider
+				theme={{
+					token: {
+						colorPrimary: '#B76142',
+					},
+				}}
+			>
+				<Component {...pageProps} />
+			</ConfigProvider>
 		</Root>
 	);
 };

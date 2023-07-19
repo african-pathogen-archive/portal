@@ -37,11 +37,7 @@ import ContactInfoForm from '@/components/ContactInfo/ContactInfoForm';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
 
-import {
-	PhoneOutlined,
-	MailOutlined,
-	PushpinOutlined,
-} from '@ant-design/icons';
+import { PhoneOutlined, MailOutlined, PushpinOutlined } from '@ant-design/icons';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -75,7 +71,7 @@ const contentStyle: React.CSSProperties = {
 	lineHeight: '120px',
 	color: '#fff',
 	backgroundColor: '#F5F5F5',
-	display: 'flex',	
+	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'start',
 	alignItems: 'center',
@@ -83,20 +79,20 @@ const contentStyle: React.CSSProperties = {
 
 const cardDiv: React.CSSProperties = {
 	width: '96%',
-}
+};
 
 const contactCard: React.CSSProperties = {
 	width: '48%',
 	display: 'inline-block',
 	justifyContent: 'center',
 	textAlign: 'center',
-	verticalAlign: 'top',	
+	verticalAlign: 'top',
 };
 
 const contactMap: React.CSSProperties = {
 	paddingTop: '10px',
 	// borderRadius: '5%'
-}
+};
 
 const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
@@ -117,8 +113,8 @@ const ContactInfo: React.FC = () => {
 	const router = useRouter();
 
 	const navigateToContactPage = () => {
-		router.push(INTERNAL_PATHS.CONTACT)
-	}
+		router.push(INTERNAL_PATHS.CONTACT);
+	};
 
 	const { logout, token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
@@ -181,48 +177,63 @@ const ContactInfo: React.FC = () => {
 									<b>Find us</b>
 									<Row>
 										<Col span={12}>
-												<Row>
-													<Col span={4}>< MailOutlined /></Col>
-													<Col>email@address.co.za</Col>
-												</Row>
-												<Row>
-													<Col span={4}><PhoneOutlined /></Col>
-													<Col>+27 73 657 4766</Col>												
-												</Row>
-												<Row>
-													<Col span={4}><PushpinOutlined /></Col>
-													<Col>1 Modderdam Road</Col>
-												</Row>
-												<Row>
-													<Col span={4}></Col>
-													<Col>UWC, Bellville</Col>
-												</Row>
-												<Row>
-													<Col span={4}></Col>
-													<Col>Cape Town</Col>
-												</Row>
-												<Row>
-													<Col span={4}></Col>
-													<Col>Western Cape</Col>
-												</Row>
-												<Row>
-													<Col span={4}></Col>
-													<Col>South Africa</Col>
-												</Row>
+											<Row>
+												<Col span={4}>
+													<MailOutlined />
+												</Col>
+												<Col>email@address.co.za</Col>
+											</Row>
+											<Row>
+												<Col span={4}>
+													<PhoneOutlined />
+												</Col>
+												<Col>+27 73 657 4766</Col>
+											</Row>
+											<Row>
+												<Col span={4}>
+													<PushpinOutlined />
+												</Col>
+												<Col>1 Modderdam Road</Col>
+											</Row>
+											<Row>
+												<Col span={4}></Col>
+												<Col>UWC, Bellville</Col>
+											</Row>
+											<Row>
+												<Col span={4}></Col>
+												<Col>Cape Town</Col>
+											</Row>
+											<Row>
+												<Col span={4}></Col>
+												<Col>Western Cape</Col>
+											</Row>
+											<Row>
+												<Col span={4}></Col>
+												<Col>South Africa</Col>
+											</Row>
 										</Col>
 										<Col span={12}>
-												<a href="https://goo.gl/maps/QBZ5pYFtioSbLEFLA" target="_blank"><img style={contactMap} width="100%" height="100%" src="/images/contact_us_map.png" alt="APA logo" /></a>																							
+											<a href="https://goo.gl/maps/QBZ5pYFtioSbLEFLA" target="_blank">
+												<img
+													style={contactMap}
+													width="100%"
+													height="100%"
+													src="/images/contact_us_map.png"
+													alt="APA logo"
+												/>
+											</a>
 										</Col>
-									</Row>									
-									
+									</Row>
 								</Card>
 
 								<Card style={contactCard}>
 									<b>Send us a message</b>
 									<ContactInfoForm />
-									
-									<div>									
-										<Button htmlType='button' type="primary" size="large">Send</Button>
+
+									<div>
+										<Button htmlType="button" type="primary" size="large">
+											Send
+										</Button>
 									</div>
 								</Card>
 							</div>
