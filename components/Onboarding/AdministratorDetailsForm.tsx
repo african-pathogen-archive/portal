@@ -17,7 +17,8 @@ const AdministratorDetailsForm = (): ReactElement => {
     const [reasonForAccess, setReasonForAccess] = useState(''); 
 
     const navigateToHomePage = () => {
-        router.push(INTERNAL_PATHS.ONBOARDING_REQUEST_SUBMITTED)
+        // router.push(INTERNAL_PATHS.ONBOARDING_REQUEST_SUBMITTED)
+        router.push(INTERNAL_PATHS.APA_ONBOARDING_REQUEST_SUBMITTED)
     }
     
     const updateFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -24,6 +24,8 @@ const MenuItemUrls = new Map<string, string>([
 	['faqs', '/apa/faqs'],
 	['contact', '/apa/contact'],
 	['terms', '/apa/terms'],
+	['onboarding_administrators', '/apa/onboarding_administrators'],
+	['administrator_details', '/apa/onboarding_administrators/AdministratorDetailsPage'],
 ]);
 
 type MenuItem = Required<MenuProps>['items'][number];
