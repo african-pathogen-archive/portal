@@ -19,11 +19,9 @@
  *
  */
 
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { useRouter } from 'next/router';
-
-import { useState } from 'react';
 import { Form, Input } from 'antd';
 
 import useAuthContext from '../../global/hooks/useAuthContext';

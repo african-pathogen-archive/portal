@@ -6,7 +6,7 @@
 		"clearNextTemp": "rm -rf ./.next",
 		"build": "npm run clearNextTemp && next build",
 		"dev": "npm run clearNextTemp && next dev",
-		"lint": "eslint --ext .ts,.tsx '.'",
+		"lint": "eslint --ext .ts,.tsx '.' --fix",
 		"start": "next start",
 		"test": "npm run build && jest",
         "format": "prettier --write \"**/*.{js,ts,tsx}\"",

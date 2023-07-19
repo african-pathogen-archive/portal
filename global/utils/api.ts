@@ -1,6 +1,6 @@
 import { HttpMethods } from './constants';
 
-export async function apiRequest(method: HttpMethods, url: string = '', data = {}) {
+export async function apiRequest(method: HttpMethods, url = '', data = {}) {
 	const BASE_URL = 'https://us-central1-apa-beta-e5aa0.cloudfunctions.net/app/api/';
 	// Default options are marked with *
 	const response = await fetch(`${BASE_URL}${url}`, {

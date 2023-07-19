@@ -31,7 +31,6 @@ import useAuthContext from '../../../../global/hooks/useAuthContext';
 import CurrentUser from '../../../NavBar/CurrentUser';
 import SideMenu from '../../../SideMenu';
 import { getConfig } from '../../../../global/config';
-
 import PartnerLogosBanner from '../PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;

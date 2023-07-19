@@ -22,22 +22,19 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography, Card, Col, Row } from 'antd';
 import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
+import { PhoneOutlined, MailOutlined, PushpinOutlined } from '@ant-design/icons';
 
 import { InternalLink } from '@/components/Link';
-
-import { useRouter } from 'next/router';
 import { INTERNAL_PATHS } from '@/global/utils/constants';
+import ContactInfoForm from '@/components/ContactInfo/ContactInfoForm';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
 import { getConfig } from '../../../global/config';
 
-import ContactInfoForm from '@/components/ContactInfo/ContactInfoForm';
-
 import PartnerLogosBanner from './PartnerLogosBanner';
-
-import { PhoneOutlined, MailOutlined, PushpinOutlined } from '@ant-design/icons';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;

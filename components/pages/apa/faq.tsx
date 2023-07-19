@@ -22,10 +22,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography, Card, Col, Row, Collapse } from 'antd';
 import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
 
 import { InternalLink } from '@/components/Link';
-
-import { useRouter } from 'next/router';
 import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';

@@ -1,11 +1,9 @@
 import { css } from '@emotion/react';
-import React, { ReactElement } from 'react';
-
+import React, { ReactElement, useState } from 'react';
 import { useRouter } from 'next/router';
-import { INTERNAL_PATHS } from '@/global/utils/constants';
-
-import { useState } from 'react';
 import { Button, Form, Input } from 'antd';
+
+import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 const AdministratorDetailsForm = (): ReactElement => {
 	const router = useRouter();

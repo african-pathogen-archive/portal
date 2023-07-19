@@ -24,7 +24,6 @@ import { Layout, Space, Typography } from 'antd';
 import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
-
 import useAuthContext from '@/global/hooks/useAuthContext';
 import SideMenu from '@/components/SideMenu';
 import { getConfig } from '@/global/config';

@@ -22,13 +22,12 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography } from 'antd';
 import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
 
 import { InternalLink } from '@/components/Link';
-
 import useAuthContext from '@/global/hooks/useAuthContext';
 import SideMenu from '@/components/SideMenu';
 import { getConfig } from '@/global/config';
-import { useRouter } from 'next/router';
 import { ROOT_PATH } from '@/global/utils/constants';
 
 import PartnerLogosBanner from '../PartnerLogosBanner';

@@ -1,5 +1,6 @@
-import { createPage } from '../../../global/utils/pages';
 import OnboardingAdministrators from '@/components/pages/apa/onboarding_administrators';
+
+import { createPage } from '../../../global/utils/pages';
 
 const OnboardingAdministratorsPage = createPage({
 	getInitialProps: async () => null,
