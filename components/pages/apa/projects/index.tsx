@@ -31,7 +31,6 @@ import useAuthContext from '../../../../global/hooks/useAuthContext';
 import CurrentUser from '../../../NavBar/CurrentUser';
 import SideMenu from '../../../SideMenu';
 import { getConfig } from '../../../../global/config';
-
 import PartnerLogosBanner from '../PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -114,12 +113,12 @@ const Projects: React.FC = () => {
 						`}
 					>
 						<InternalLink path={''}>
-                            <a
+							<a
 								css={css`
 									align-items: left;
 									text-decoration: none;
-                                    display: flex;
-                                    height: 100%;
+									display: flex;
+									height: 100%;
 								`}
 							>
 								<img src="/images/logo.svg" alt="APA logo" width="180" />

@@ -110,12 +110,12 @@ const Resources: React.FC = () => {
 						`}
 					>
 						<InternalLink path={''}>
-                            <a
+							<a
 								css={css`
 									align-items: left;
 									text-decoration: none;
-                                    display: flex;
-                                    height: 100%;
+									display: flex;
+									height: 100%;
 								`}
 							>
 								<img src="/images/logo.svg" alt="APA logo" width="180" />
@@ -150,18 +150,15 @@ const Resources: React.FC = () => {
 					<Layout>
 						<Content style={contentStyle}>
 							<Title style={{ width: '94%' }}>Resources</Title>
-							
+
 							<Paragraph style={{ width: '94%' }}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-								sed do eiusmod tempor incididunt ut labore et dolore magna 
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-								Duis aute irure dolor in reprehenderit in voluptate velit 
-								esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-								sint occaecat cupidatat non proident, sunt in culpa qui 
-								officia deserunt mollit anim id est laborum.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+								irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+								pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+								deserunt mollit anim id est laborum.
 							</Paragraph>
-						
 						</Content>
 						<Footer style={footerStyle}>
 							<div>

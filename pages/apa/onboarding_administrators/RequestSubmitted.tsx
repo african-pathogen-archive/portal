@@ -1,6 +1,7 @@
+import RequestSubmitted from '@/components/pages/apa/onboarding_administrators/request_submitted';
+
 import { createPage } from '../../../global/utils/pages';
 // import RequestSubmitted from '@/components/pages/apa/onboarding_administrators/request_submitted';
-import RequestSubmitted from '@/components/pages/apa/onboarding_administrators/request_submitted';
 
 const RequestSubmittedPage = createPage({
 	getInitialProps: async () => null,

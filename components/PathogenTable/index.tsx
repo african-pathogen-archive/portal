@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+
 import { apiRequest } from '@/global/utils/api';
 import { HttpMethods } from '@/global/utils/constants';
 
@@ -49,31 +50,29 @@ const columns: ColumnsType<DataType> = [
 ];
 
 function convertToTableData(responseData: []): DataType[] {
-    return responseData.map((element: any) => {
-        console.log(element.item.noOfSamples);
-        return {
-            key: element.id,
-            pathogen: element.item.pathogen,
-            numberOfSamples: {
-                count: element.item.noOfSamples,
-                new: 0,
-            },
-        };
-    });
+	return responseData.map((element: any) => {
+		console.log(element.item.noOfSamples);
+		return {
+			key: element.id,
+			pathogen: element.item.pathogen,
+			numberOfSamples: {
+				count: element.item.noOfSamples,
+				new: 0,
+			},
+		};
+	});
 }
 
 const PathogenTable: React.FC = () => {
+	const [data, setData] = useState<any[]>([]);
 
-    const [data, setData] = useState<any[]>([]);
-    
-    useEffect(() => {
-        apiRequest(HttpMethods.GET,'read').then((res) => {
-            setData(convertToTableData(res));
-        });
-    }, []);
+	useEffect(() => {
+		apiRequest(HttpMethods.GET, 'read').then((res) => {
+			setData(convertToTableData(res));
+		});
+	}, []);
 
-    return (
-        <Table columns={columns} dataSource={data} style={{ width: '80%' }} />	
-    )};
+	return <Table columns={columns} dataSource={data} style={{ width: '80%' }} />;
+};
 
 export default PathogenTable;

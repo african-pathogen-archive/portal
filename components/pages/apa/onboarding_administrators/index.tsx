@@ -22,13 +22,12 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography } from 'antd';
 import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
 
 import { InternalLink } from '@/components/Link';
-
 import useAuthContext from '@/global/hooks/useAuthContext';
 import SideMenu from '@/components/SideMenu';
 import { getConfig } from '@/global/config';
-import { useRouter } from 'next/router';
 import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 import PartnerLogosBanner from '../PartnerLogosBanner';
@@ -37,124 +36,142 @@ const { Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const headerStyle: React.CSSProperties = {
-    textAlign: 'center',
-    color: '#000',
-    height: 68,
-    paddingInline: 50,
-    lineHeight: '64px',
-    backgroundColor: '#ffffff',
-    display: 'flex',
-    justifyItems: 'center',
-    justifyContent: 'space-between',
-    position: 'sticky',
-    top: 0,
-    zIndex: 1,
-    width: '100%',
+	textAlign: 'center',
+	color: '#000',
+	height: 68,
+	paddingInline: 50,
+	lineHeight: '64px',
+	backgroundColor: '#ffffff',
+	display: 'flex',
+	justifyItems: 'center',
+	justifyContent: 'space-between',
+	position: 'sticky',
+	top: 0,
+	zIndex: 1,
+	width: '100%',
 };
 
 const contentStyleTest: React.CSSProperties = {
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    paddingBottom: '24px',
-}
+	textAlign: 'center',
+	display: 'flex',
+	flexDirection: 'column',
+	paddingBottom: '24px',
+};
 
 const siderStyle: React.CSSProperties = {
-    textAlign: 'center',
-    lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#3ba0e9',
+	textAlign: 'center',
+	lineHeight: '120px',
+	color: '#fff',
+	backgroundColor: '#3ba0e9',
 };
 
 const footerStyle: React.CSSProperties = {
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#ffffff',
+	textAlign: 'center',
+	color: '#fff',
+	backgroundColor: '#ffffff',
 };
 
 const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
 
 const OnboardingAdministrators: React.FC = () => {
-    const { logout, token, userHasAccessToStudySvc } = useAuthContext();
-    const [origin, setOrigin] = useState('');
-    useEffect(() => {
-        window && setOrigin(window.location.origin);
-    }, []);
+	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
+	const [origin, setOrigin] = useState('');
+	useEffect(() => {
+		window && setOrigin(window.location.origin);
+	}, []);
 
-    const router = useRouter();
+	const router = useRouter();
 
-    const navigateToAdministratorDetails = () => {
-        router.push('/apa/onboarding_administrators/AdministratorDetailsPage')
-    }
+	const navigateToAdministratorDetails = () => {
+		router.push('/apa/onboarding_administrators/AdministratorDetailsPage');
+	};
 
-    return (
-        <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
-            <Layout>
-                <Header style={headerStyle}>
-                    <div
-                        css={css`
-                            display: flex;
-                            align-items: center;
-                            cursor: pointer;
-                        `}
-                    >
-                        <InternalLink path={''}>
-                            <a
-                                css={css`
-                                    align-items: left;
-                                    text-decoration: none;
-                                    display: flex;
-                                    height: 100%;
-                                `}
-                            >
-                                <img src="/images/logo.svg" alt="APA logo" width="180" />
-                            </a>
-                        </InternalLink>
-                    </div>					
-                </Header>
-                <Layout>
-                    <Sider style={siderStyle} width={256}>
-                        <SideMenu selectedKey={'home'} />
-                    </Sider>
-                    <Layout>
-                        <Content style={contentStyleTest}>                        
-                            <Title style={{ width: '94%' }}>Onboarding Administrator</Title>
+	return (
+		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
+			<Layout>
+				<Header style={headerStyle}>
+					<div
+						css={css`
+							display: flex;
+							align-items: center;
+							cursor: pointer;
+						`}
+					>
+						<InternalLink path={''}>
+							<a
+								css={css`
+									align-items: left;
+									text-decoration: none;
+									display: flex;
+									height: 100%;
+								`}
+							>
+								<img src="/images/logo.svg" alt="APA logo" width="180" />
+							</a>
+						</InternalLink>
+					</div>
+				</Header>
+				<Layout>
+					<Sider style={siderStyle} width={256}>
+						<SideMenu selectedKey={'home'} />
+					</Sider>
+					<Layout>
+						<Content style={contentStyleTest}>
+							<Title style={{ width: '94%' }}>Onboarding Administrator</Title>
 
-                            <div>
-                                <h2>Request access</h2>
-                                <h4>Welcome to African Pathogen Archive</h4>
-                                <p>
-                                    Currently this platform only allows the African<br />
-                                    Institutional Heads of verified Departments to<br />
-                                    onboard before the colleagues.<br />
-                                </p>        
-                                <p>
-                                    Once they have been onboarded, they become administrators,<br />
-                                    which allows them to invite and assign roles to their<br />
-                                    templateSettings.<br />
-                                </p>
-                                <p>
-                                    Our administrator will get into contact with you and<br />
-                                    review your application.  This process may take<br />
-                                    between 14-28 days.<br />
-                                </p>
-                                <Button htmlType='button' onClick={navigateToAdministratorDetails} type="primary" size="large">Register</Button>
-                                <div>
-                                    <span>Already have an account? <InternalLink path={INTERNAL_PATHS.LOGIN}>Login</InternalLink></span>
-                                </div>
-                            </div>
-                    
-                        </Content>
-                        <Footer style={footerStyle}>
-                            <div>
-                                <PartnerLogosBanner />
-                            </div>
-                        </Footer>
-                    </Layout>
-                </Layout>
-            </Layout>
-        </Space>
-    );
+							<div>
+								<h2>Request access</h2>
+								<h4>Welcome to African Pathogen Archive</h4>
+								<p>
+									Currently this platform only allows the African
+									<br />
+									Institutional Heads of verified Departments to
+									<br />
+									onboard before the colleagues.
+									<br />
+								</p>
+								<p>
+									Once they have been onboarded, they become administrators,
+									<br />
+									which allows them to invite and assign roles to their
+									<br />
+									templateSettings.
+									<br />
+								</p>
+								<p>
+									Our administrator will get into contact with you and
+									<br />
+									review your application. This process may take
+									<br />
+									between 14-28 days.
+									<br />
+								</p>
+								<Button
+									htmlType="button"
+									onClick={navigateToAdministratorDetails}
+									type="primary"
+									size="large"
+								>
+									Register
+								</Button>
+								<div>
+									<span>
+										Already have an account?{' '}
+										<InternalLink path={INTERNAL_PATHS.LOGIN}>Login</InternalLink>
+									</span>
+								</div>
+							</div>
+						</Content>
+						<Footer style={footerStyle}>
+							<div>
+								<PartnerLogosBanner />
+							</div>
+						</Footer>
+					</Layout>
+				</Layout>
+			</Layout>
+		</Space>
+	);
 };
 
 export default OnboardingAdministrators;

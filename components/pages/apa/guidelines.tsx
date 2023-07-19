@@ -110,12 +110,12 @@ const Guidelines: React.FC = () => {
 						`}
 					>
 						<InternalLink path={''}>
-                            <a
+							<a
 								css={css`
 									align-items: left;
 									text-decoration: none;
-                                    display: flex;
-                                    height: 100%;
+									display: flex;
+									height: 100%;
 								`}
 							>
 								<img src="/images/logo.svg" alt="APA logo" width="180" />
@@ -150,50 +150,71 @@ const Guidelines: React.FC = () => {
 					<Layout>
 						<Content style={contentStyle}>
 							<Title style={{ width: '94%' }}>Guidelines</Title>
-							
-							<Card style={ descriptiveText }>
+
+							<Card style={descriptiveText}>
 								<Title>SARS-COV2 metadata</Title>
 								<Paragraph>
-								The APA uses standardized metadata to ensure harmonization and interoperability. The metadata is derived from work done by the Public Health Alliance for Genomic Epidemiology (PHA4GE), a global coalition that is actively working to establish consensus standards, document and share best practices, improve the availability of critical bioinformatic tools and resources, and advocate for greater openness, interoperability, accessibility and reproducibility in public health microbial bioinformatics.
+									The APA uses standardized metadata to ensure harmonization and interoperability.
+									The metadata is derived from work done by the Public Health Alliance for Genomic
+									Epidemiology (PHA4GE), a global coalition that is actively working to establish
+									consensus standards, document and share best practices, improve the availability
+									of critical bioinformatic tools and resources, and advocate for greater openness,
+									interoperability, accessibility and reproducibility in public health microbial
+									bioinformatics.
 								</Paragraph>
 								<Paragraph>
-								The SARS-CoV-2 contextual data specification includes a metadata collection template, reference guides, controlled vocabulary, and mapping to existing standards. 
+									The SARS-CoV-2 contextual data specification includes a metadata collection
+									template, reference guides, controlled vocabulary, and mapping to existing
+									standards.
 								</Paragraph>
 								<Paragraph>
-								For more information and links to the SARS-COV2 contextual metadata template, developed by the PHA4GE consortium, please visit <a href="https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification">https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification</a>
+									For more information and links to the SARS-COV2 contextual metadata template,
+									developed by the PHA4GE consortium, please visit{' '}
+									<a href="https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification">
+										https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+									</a>
 								</Paragraph>
 							</Card>
-							
-							<Card style={ descriptiveText }>
+
+							<Card style={descriptiveText}>
 								<Title>File formats</Title>
 								<Paragraph>
-								The APA currently allows for the uploading of FASTA files in combination with the associated metadata file, in .tsv format. Note that both files must be uploaded together for each submission.
-								</Paragraph>	
-								<Paragraph>
-								Tab-separated values (TSV) is a simple, text-based file format for storing tabular data. Records are separated by newlines, and values within a record are separated by tab characters. The TSV format is thus a delimiter-separated values format, similar to comma-separated values.
-								</Paragraph>	
-								<Paragraph>
-								Consensus Fasta sequence
-								</Paragraph>	
-								<Paragraph>
-								Besides the vcf file, a consensus file is also generated which represents the nucleotide present at each position of your sample’s genome. That is, a blueprint copy of your sample’s entire genome. However, even this file is QC’d to show only results where the coverage is more than twenty times.
+									The APA currently allows for the uploading of FASTA files in combination with the
+									associated metadata file, in .tsv format. Note that both files must be uploaded
+									together for each submission.
 								</Paragraph>
 								<Paragraph>
-								However, you may want to tailor your parameters so that your files are fit for downstream analyses. For example, recovering a complete genome is important for phylogenetic analysis. Nextstrain will only accept genomes where more than 92% of your genome is covered and if it has at least 27,510 informative bases (A,C,T,G). So, you may want to make sure there are not many stretches of Ns in the consensus genome.
+									Tab-separated values (TSV) is a simple, text-based file format for storing tabular
+									data. Records are separated by newlines, and values within a record are separated
+									by tab characters. The TSV format is thus a delimiter-separated values format,
+									similar to comma-separated values.
+								</Paragraph>
+								<Paragraph>Consensus Fasta sequence</Paragraph>
+								<Paragraph>
+									Besides the vcf file, a consensus file is also generated which represents the
+									nucleotide present at each position of your sample’s genome. That is, a blueprint
+									copy of your sample’s entire genome. However, even this file is QC’d to show only
+									results where the coverage is more than twenty times.
 								</Paragraph>
 								<Paragraph>
-								For more guidance on FASTA file formats <a href="https://www.ncbi.nlm.nih.gov/genbank/fastaformat/" target="_blank">https://www.ncbi.nlm.nih.gov/genbank/fastaformat/</a>
-								</Paragraph>	
-								
+									However, you may want to tailor your parameters so that your files are fit for
+									downstream analyses. For example, recovering a complete genome is important for
+									phylogenetic analysis. Nextstrain will only accept genomes where more than 92% of
+									your genome is covered and if it has at least 27,510 informative bases (A,C,T,G).
+									So, you may want to make sure there are not many stretches of Ns in the consensus
+									genome.
+								</Paragraph>
+								<Paragraph>
+									For more guidance on FASTA file formats{' '}
+									<a href="https://www.ncbi.nlm.nih.gov/genbank/fastaformat/" target="_blank">
+										https://www.ncbi.nlm.nih.gov/genbank/fastaformat/
+									</a>
+								</Paragraph>
 							</Card>
-							<Card style={ descriptiveText }>
+							<Card style={descriptiveText}>
 								<Title>Data Submitters Guidelines</Title>
 								Nothing yet, but stay tuned ...
-
-								
-								
 							</Card>
-							
 						</Content>
 						<Footer style={footerStyle}>
 							<div>

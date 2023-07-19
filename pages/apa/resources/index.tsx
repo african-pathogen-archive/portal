@@ -1,5 +1,6 @@
-import { createPage } from '../../../global/utils/pages';
 import Resources from '@/components/pages/apa/resources';
+
+import { createPage } from '../../../global/utils/pages';
 
 const ResourcesPage = createPage({
 	getInitialProps: async () => null,

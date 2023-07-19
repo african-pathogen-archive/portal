@@ -69,11 +69,7 @@ const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	// getItem('Onboarding Administrators', 'onboarding_administrators', <ProfileOutlined />),
 ];
 
-const SideMenu = ({
-	selectedKey,
-}: {
-	selectedKey: string;
-}) => {
+const SideMenu = ({ selectedKey }: { selectedKey: string }) => {
 	const router = useRouter();
 	const onClick: MenuProps['onClick'] = (e) => {
 		router.push(MenuItemUrls.get(e.key) as string);
