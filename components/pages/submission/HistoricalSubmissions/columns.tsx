@@ -23,57 +23,48 @@ import { ReactElement } from 'react';
 import type { ColumnsType } from 'antd/es/table';
 import { format } from 'date-fns';
 import { css } from '@emotion/react';
-
+import Link from 'next/link';
 
 import getInternalLink from '../../../../global/utils/getInternalLink';
 import { numberSort, uuidSort } from '../../../GenericTable/helpers';
 import StyledLink from '../../../Link';
-import Link from 'next/link';
 
-const columnData:any[] = [
+const columnData: any[] = [
 	{
 		key: 'submissionId',
-        dataIndex: 'submissionId',
-        render: (_:any, { submissionId }:any) => (
-            <Link href={getInternalLink({ path: `/submission/${submissionId}` })}>
-                {submissionId}
-            </Link>
-        ),
+		dataIndex: 'submissionId',
+		render: (_: any, { submissionId }: any) => (
+			<Link href={getInternalLink({ path: `/submission/${submissionId}` })}>{submissionId}</Link>
+		),
 		title: 'Submission ID',
 		sortType: uuidSort,
 	},
 	{
 		key: 'studyIds',
-        dataIndex: 'studyIds',
-        render: (_:any, { studyIds }:any) => (
-            <>
-                {studyIds?.map((id:string) => (<li key={id}>{id}</li>))}
-            </>
-        ),
-        title: 'Study IDs',
+		dataIndex: 'studyIds',
+		render: (_: any, { studyIds }: any) => (
+			<>
+				{studyIds?.map((id: string) => (
+					<li key={id}>{id}</li>
+				))}
+			</>
+		),
+		title: 'Study IDs',
 	},
 	{
 		key: 'createdAt',
-        dataIndex: 'createdAt',
+		dataIndex: 'createdAt',
 		Cell: ({ value }: { value: unknown }) =>
 			format(new Date(value as number), 'yyyy-MM-dd') as unknown as ReactElement,
-        render: (_:any, { createdAt }:any) => (
-            <>
-                {format(new Date(createdAt), 'yyyy-MM-dd')}
-            </>
-        ),
+		render: (_: any, { createdAt }: any) => <>{format(new Date(createdAt), 'yyyy-MM-dd')}</>,
 		title: 'Submission Date',
 		sortType: numberSort,
 	},
 	{
 		key: 'totalRecords',
-        dataIndex: 'originalFileNames',
+		dataIndex: 'originalFileNames',
 		title: '# Viral Genomes',
-        render: (_:any, { originalFileNames }:any) => (
-			<>
-				{originalFileNames?.length}
-			</>
-		),
+		render: (_: any, { originalFileNames }: any) => <>{originalFileNames?.length}</>,
 		sortType: numberSort,
 	},
 ];

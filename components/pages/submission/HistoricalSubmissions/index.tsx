@@ -54,8 +54,10 @@ const HistoricalSubmissions = (): ReactElement => {
 	}, [token]);
 
 	return (
-		<div style={{width: '100%'}}>
-			<Title level={4} style={{ width: '100%' }}>Historical uploads</Title>
+		<div style={{ width: '100%' }}>
+			<Title level={4} style={{ width: '100%' }}>
+				Historical uploads
+			</Title>
 
 			{userHasWriteScopes ? (
 				<LoaderWrapper loading={awaitingResponse} message="Retrieving your submissions.">

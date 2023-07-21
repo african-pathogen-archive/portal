@@ -46,7 +46,7 @@ const FileRow = ({
 
 	return (
 		<tr data-type={getFileExtension(name)} data-upload={active}>
-			<td style={{color: theme.colors.grey_6}}>
+			<td style={{ color: theme.colors.grey_6 }}>
 				<File fill={'#B76142'} />
 				{` ${name}`}
 			</td>

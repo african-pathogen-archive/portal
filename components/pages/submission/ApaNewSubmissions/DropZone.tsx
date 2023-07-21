@@ -96,7 +96,7 @@ const DropZone = ({
 
 				> span {
 					margin: 0 10px 0 7px;
-                    color: rgba(0, 0, 0, 0.88);
+					color: rgba(0, 0, 0, 0.88);
 				}
 			`}
 			{...rootProps}

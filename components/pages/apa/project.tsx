@@ -24,16 +24,16 @@ import { Layout, Space, Button, Typography, Input, Breadcrumb, Upload } from 'an
 import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
+import UploadInstructions from '@/components/UploadInstructions';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
 import { getConfig } from '../../../global/config';
-
-import PartnerLogosBanner from './PartnerLogosBanner';
-import UploadInstructions from '@/components/UploadInstructions';
 import HistoricalSubmissions from '../submission/HistoricalSubmissions';
 import NewSubmissions from '../submission/ApaNewSubmissions';
+
+import PartnerLogosBanner from './PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -68,16 +68,16 @@ const contentStyle: React.CSSProperties = {
 	lineHeight: '120px',
 	color: '#fff',
 	backgroundColor: '#ffffff',
-    borderRadius: '16px',
+	borderRadius: '16px',
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'start',
 	alignItems: 'center',
 	paddingLeft: '16px',
-    paddingRight: '16px',
-    marginLeft: '16px',
+	paddingRight: '16px',
+	marginLeft: '16px',
 	marginTop: '16px',
-    width: '95%',
+	width: '95%',
 };
 
 const descriptiveText: React.CSSProperties = {
@@ -163,30 +163,30 @@ const Project: React.FC = () => {
 					<Sider style={siderStyle} width={256}>
 						<SideMenu selectedKey={'projects'} />
 					</Sider>
-					<Layout style={{backgroundColor: '#F5F5F5'}}>
-                    <Breadcrumb
-                                style={{
-                                    alignSelf: 'left',
-                                    width: '80%',
-                                    marginTop: '16px',
-                                    marginLeft: '16px',
-                                }}
-								items={[
-									{
-										title: 'Projects',
-									},
-									{
-										title: 'SARS-Cov-2',
-									},
-								]}
-							/>
+					<Layout style={{ backgroundColor: '#F5F5F5' }}>
+						<Breadcrumb
+							style={{
+								alignSelf: 'left',
+								width: '80%',
+								marginTop: '16px',
+								marginLeft: '16px',
+							}}
+							items={[
+								{
+									title: 'Projects',
+								},
+								{
+									title: 'SARS-Cov-2',
+								},
+							]}
+						/>
 						<Content style={contentStyle}>
 							<Title level={4} style={{ width: '100%' }}>
 								Submit your data
 							</Title>
-                            <UploadInstructions />
-                            <NewSubmissions />
-                            <HistoricalSubmissions />
+							<UploadInstructions />
+							<NewSubmissions />
+							<HistoricalSubmissions />
 						</Content>
 						<Footer style={footerStyle}>
 							<div>

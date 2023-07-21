@@ -117,7 +117,7 @@ const NewSubmissions = (): ReactElement => {
 		<article
 			css={css`
 				flex-direction: column;
-                width: 100%;
+				width: 100%;
 			`}
 		>
 			<DropZone
@@ -207,18 +207,18 @@ const NewSubmissions = (): ReactElement => {
 							text-align: center;
 						}
 
-                        thead {
-                            line-height: 0;
-                        }
+						thead {
+							line-height: 0;
+						}
 
 						tbody {
 							max-height: 100px;
-                            line-height: 0;
+							line-height: 0;
 						}
 
 						tfoot {
 							background: ${theme.colors.grey_2};
-                            line-height: 0;
+							line-height: 0;
 						}
 
 						td {
