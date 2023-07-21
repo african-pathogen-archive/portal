@@ -12,7 +12,6 @@ const PartnerLogosBanner: React.FC = () => {
 			<img src={'/images/partners/sanbi.svg'} />
 			<img src={'/images/partners/africa-cdc.svg'} />
 			<img src={'/images/partners/african-union.svg'} />
-			<img src={'/images/partners/gates-foundation.svg'} />
 		</div>
 	);
 };

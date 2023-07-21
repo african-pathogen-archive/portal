@@ -24,11 +24,10 @@ import { css } from '@emotion/react';
 
 import { IconProps } from './types';
 
-const Bin = ({ fill = '#28519D', size = 18, style }: IconProps): ReactElement => {
+const Bin = ({ fill = '#B76142', size = 18, style }: IconProps): ReactElement => {
 	return (
 		<svg
 			css={css`
-				${style};
 				height: ${size}px;
 				width: ${size}px;
 			`}
