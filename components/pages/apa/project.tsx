@@ -21,11 +21,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography, Input, Breadcrumb, Upload } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
-import ProjectsTable from '@/components/ProjectsTable';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
@@ -33,10 +31,12 @@ import SideMenu from '../../SideMenu';
 import { getConfig } from '../../../global/config';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
+import UploadInstructions from '@/components/UploadInstructions';
+import HistoricalSubmissions from '../submission/HistoricalSubmissions';
+import NewSubmissions from '../submission/ApaNewSubmissions';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
-const { Search } = Input;
 const { Dragger } = Upload;
 
 const headerStyle: React.CSSProperties = {
@@ -67,13 +67,17 @@ const contentStyle: React.CSSProperties = {
 	minHeight: '80vh',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#F5F5F5',
+	backgroundColor: '#ffffff',
+    borderRadius: '16px',
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'start',
-	alignItems: 'left',
-	paddingLeft: '120px',
-	paddingTop: '50px',
+	alignItems: 'center',
+	paddingLeft: '16px',
+    paddingRight: '16px',
+    marginLeft: '16px',
+	marginTop: '16px',
+    width: '95%',
 };
 
 const descriptiveText: React.CSSProperties = {
@@ -159,9 +163,14 @@ const Project: React.FC = () => {
 					<Sider style={siderStyle} width={256}>
 						<SideMenu selectedKey={'projects'} />
 					</Sider>
-					<Layout>
-						<Content style={contentStyle}>
-							<Breadcrumb
+					<Layout style={{backgroundColor: '#F5F5F5'}}>
+                    <Breadcrumb
+                                style={{
+                                    alignSelf: 'left',
+                                    width: '80%',
+                                    marginTop: '16px',
+                                    marginLeft: '16px',
+                                }}
 								items={[
 									{
 										title: 'Projects',
@@ -171,17 +180,13 @@ const Project: React.FC = () => {
 									},
 								]}
 							/>
-							<Title level={4} style={{ width: '80%' }}>
+						<Content style={contentStyle}>
+							<Title level={4} style={{ width: '100%' }}>
 								Submit your data
 							</Title>
-							<Dragger style={{ width: '80%' }}>
-								<p className="ant-upload-drag-icon">
-									<InboxOutlined />
-								</p>
-								<p className="ant-upload-text">Click or drag file to this area to upload</p>
-								<p className="ant-upload-hint">Support for a single or bulk upload.</p>
-							</Dragger>
-							<ProjectsTable />
+                            <UploadInstructions />
+                            <NewSubmissions />
+                            <HistoricalSubmissions />
 						</Content>
 						<Footer style={footerStyle}>
 							<div>

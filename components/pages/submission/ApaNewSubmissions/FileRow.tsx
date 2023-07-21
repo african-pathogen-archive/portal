@@ -19,32 +19,44 @@
  *
  */
 
-import { ReactElement } from 'react';
-import { css } from '@emotion/react';
+import { MouseEventHandler, ReactElement } from 'react';
+import { useTheme } from '@emotion/react';
 
-import { IconProps } from './types';
+import { UnStyledButton } from '../../../Button';
+import defaultTheme from '../../../theme';
+import { Bin, File } from '../../../theme/icons';
 
-const File = ({ fill = '#B76142', height = 16, width = 16, style }: IconProps): ReactElement => {
+import { getFileExtension } from './validationHelpers';
+
+const FileRow = ({
+	active = false,
+	file: { name = '', type = '' },
+	handleRemove = () => {
+		// console.log('clicked');
+	},
+}: {
+	active: boolean;
+	file: File;
+	handleRemove?: MouseEventHandler<HTMLButtonElement>;
+}): ReactElement => {
+	const theme: typeof defaultTheme = useTheme();
+
+	const iconFill =
+		getFileExtension(name) === 'tsv' ? theme.colors.secondary_dark : theme.colors.accent3_dark;
+
 	return (
-		<svg
-			css={css`
-				height: ${height};
-				width: ${width};
-			`}
-			width={width}
-			height={height}
-			viewBox={'0 0 16 16'}
-		>
-			<g fill="none" fillRule="evenodd">
-				<g fill={fill}>
-					<path
-						d="M10.626.41l2.871 2.872h-2.871V.41zM1.6 0h8.205v3.692c0 .215.196.41.41.41h3.693V16H1.6V0z"
-						transform="translate(-630 -327) translate(-31 -9) translate(0 73) translate(659 255) translate(2) translate(0 8)"
-					/>
-				</g>
-			</g>
-		</svg>
+		<tr data-type={getFileExtension(name)} data-upload={active}>
+			<td style={{color: theme.colors.grey_6}}>
+				<File fill={'#B76142'} />
+				{` ${name}`}
+			</td>
+			<td>
+				<UnStyledButton onClick={handleRemove}>
+					<Bin />
+				</UnStyledButton>
+			</td>
+		</tr>
 	);
 };
 
-export default File;
+export default FileRow;

@@ -37,7 +37,7 @@ export enum INTERNAL_PATHS {
 	LOGIN = '/login',
 	POLICIES = '/policies',
 	RELEASES = '/releases',
-	SUBMISSION = '/submission',
+	SUBMISSION = '/apa/projects/sars-cov-2',
 	STUDIES = '/studies',
 	TEAM = '/team',
 	USER = '/user',

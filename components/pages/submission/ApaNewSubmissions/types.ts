@@ -19,32 +19,50 @@
  *
  */
 
-import { ReactElement } from 'react';
-import { css } from '@emotion/react';
+export type ErrorTypes =
+	| 'invalidFields'
+	| 'missingHeaders'
+	| 'fastaHeaderInFileMissingInTsv'
+	| 'fastaHeaderInRecordMissingInFile'
+	| 'unknownHeaders'
+	| string; // in case new error types are added, the app won't just crash
 
-import { IconProps } from './types';
-
-const File = ({ fill = '#B76142', height = 16, width = 16, style }: IconProps): ReactElement => {
-	return (
-		<svg
-			css={css`
-				height: ${height};
-				width: ${width};
-			`}
-			width={width}
-			height={height}
-			viewBox={'0 0 16 16'}
-		>
-			<g fill="none" fillRule="evenodd">
-				<g fill={fill}>
-					<path
-						d="M10.626.41l2.871 2.872h-2.871V.41zM1.6 0h8.205v3.692c0 .215.196.41.41.41h3.693V16H1.6V0z"
-						transform="translate(-630 -327) translate(-31 -9) translate(0 73) translate(659 255) translate(2) translate(0 8)"
-					/>
-				</g>
-			</g>
-		</svg>
-	);
+export type InvalidFieldsType = {
+	fieldName: string;
+	index: number;
+	reason: 'EXPECTING_NUMBER_TYPE' | 'NOT_ALLOWED_TO_BE_EMPTY' | 'UNAUTHORIZED_FOR_STUDY_UPLOAD';
+	value: string;
 };
 
-export default File;
+export type NoUploadErrorType = {
+	errorInfo?: {
+		invalidFields?: InvalidFieldsType[];
+		missingHeaders?: string[];
+		sampleIdInFileMissingInTsv?: string[];
+		sampleIdInRecordMissingInFile?: string[];
+		unknownHeaders?: string[];
+	};
+	message?: string;
+	status?: string;
+};
+
+export type ReaderCallbackType = (result: string | ArrayBuffer | null) => void;
+
+export type ValidationActionType =
+	| {
+			type: 'add fasta' | 'add tsv';
+			file: File;
+	  }
+	| {
+			type: 'remove fasta' | 'remove tsv';
+			file: string;
+	  }
+	| {
+			type: 'clear all' | 'is ready' | 'not ready';
+	  };
+
+export type ValidationParametersType = {
+	oneTSV: File[];
+	oneOrMoreFasta: File[];
+	readyToUpload: boolean;
+};
