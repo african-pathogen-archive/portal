@@ -43,7 +43,8 @@ const columns: ColumnsType<DataType> = [
 		key: 'action',
 		render: (_, record) => (
 			<Space size="middle">
-				<Link href={`/apa/pathogens/${record.key}`}>View</Link>
+				{(record.key === 'sars-cov-2') ? <Link  href={`/apa/pathogens/${record.key}`}>View</Link>
+                : <span style={{color: '#999'}}>View</span>}
 			</Space>
 		),
 	},
@@ -51,7 +52,6 @@ const columns: ColumnsType<DataType> = [
 
 function convertToTableData(responseData: []): DataType[] {
 	return responseData.map((element: any) => {
-		console.log(element.item.noOfSamples);
 		return {
 			key: element.id,
 			pathogen: element.item.pathogen,

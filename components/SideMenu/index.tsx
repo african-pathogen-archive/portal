@@ -18,7 +18,6 @@ const MenuItemUrls = new Map<string, string>([
 	['home', '/apa'],
 	['pathogen', '/apa/pathogens'],
 	['projects', '/apa/projects'],
-	['submission', '/apa/projects/sars-cov-2'],
 	['resources', '/apa/resources'],
 	['guides', '/apa/guides'],
 	['faqs', '/apa/faqs'],

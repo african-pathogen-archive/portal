@@ -152,7 +152,7 @@ const Home: React.FC = () => {
 						<Content style={contentStyle}>
 							<ProjectsTable />
 							<Title level={4} style={{ width: '80%' }}>
-								Pathogen available
+								Pathogens available
 							</Title>
 							<PathogenTable />
 						</Content>

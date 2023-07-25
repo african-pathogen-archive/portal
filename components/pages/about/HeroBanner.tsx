@@ -97,7 +97,7 @@ const HeroBanner = (): ReactElement => {
 						}
 					`}
 				>
-					African Pathogen Archive and Data Sharing Portal
+					African Pathogen Data Sharing and Archive Portal
 				</h1>
 
 				<p
