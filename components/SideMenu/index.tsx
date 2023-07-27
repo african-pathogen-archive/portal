@@ -60,7 +60,6 @@ const itemsWhenAuthenticated: MenuProps['items'] = [
 const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('Home', 'home', <HomeOutlined />),
 	getItem('Pathogen', 'pathogen', <AlignLeftOutlined />),
-	getItem('Submission', 'submission', <UploadOutlined />),
 	getItem('Resources', 'resources', <ReadOutlined />),
 	getItem('Guides', 'guides', <FolderOutlined />),
 	getItem('FAQs', 'faqs', <QuestionCircleOutlined />),

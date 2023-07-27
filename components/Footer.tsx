@@ -56,21 +56,6 @@ const Footer = (): ReactElement => {
 		>
 			<section
 				css={css`
-					align-items: center;
-					display: flex;
-
-					> :not(:last-of-type) {
-						margin-right: 1rem;
-					}
-				`}
-			>
-				<a href="https://www.genomecanada.ca/" rel="noopener noreferrer" target="_blank">
-					<img src="/images/sanbi-logo.png" alt="SANBI logo" />
-				</a>
-			</section>
-
-			<section
-				css={css`
 					display: flex;
 					flex-direction: column;
 					height: 60%;
@@ -137,7 +122,7 @@ const Footer = (): ReactElement => {
 					&#169;
 					{` ${new Date()
 						.toISOString()
-						.slice(0, 4)} African Pathogen Archive and Data Sharing Portal`}
+						.slice(0, 4)} African Pathogen Data Sharing and Archive Portal`}
 				</span>
 			</section>
 

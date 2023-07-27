@@ -160,7 +160,7 @@ const Pathogens: React.FC = () => {
 									alignItems: 'center',
 								}}
 							>
-								<Title level={4}>Pathogen available</Title>
+								<Title level={4}>Pathogens available</Title>
 								<Search
 									style={{ width: 300 }}
 									placeholder="Search"

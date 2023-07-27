@@ -150,7 +150,7 @@ const App: React.FC = () => {
 					<Layout>
 						<Content style={contentStyle}>
 							<Title style={{ width: '80%', color: '#5D4528E0' }}>
-								Welcome to African Data Sharing and Archive Platform
+								Welcome to the African Pathogen Data Sharing and Archive Platform
 							</Title>
 							<Paragraph style={{ width: '80%' }}>
 								The Africa CDC’s Institute for Pathogen Genomics (IPG) has, since 2020, been
@@ -173,7 +173,7 @@ const App: React.FC = () => {
 								<PartnerLogosBanner />
 							</div>
 							<Title level={4} style={{ width: '80%' }}>
-								Pathogen available
+								Pathogens available
 							</Title>
 							<PathogenTable />
 							<div style={descriptiveText}>
