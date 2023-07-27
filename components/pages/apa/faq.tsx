@@ -188,7 +188,7 @@ const FAQ: React.FC = () => {
 													key="apa_initiative"
 												>
 													<Paragraph>
-                                                        African Pathogen Data Sharing and Archive Platform was created as an
+														African Pathogen Data Sharing and Archive Platform was created as an
 														alternative to traditional public-domain data archives to address
 														concerns such as loss of ownership over intellectual property rights and
 														lack of proper acknowledgement for scientific contributions. The APA

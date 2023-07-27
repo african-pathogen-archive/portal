@@ -54,7 +54,6 @@ const Footer = (): ReactElement => {
 				right: 0px;
 			`}
 		>
-		
 			<section
 				css={css`
 					display: flex;
