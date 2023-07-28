@@ -151,19 +151,19 @@ const TermsAndConditions: React.FC = () => {
 
 							<Card style={descriptiveText}>
 								<Paragraph>
-                                    The Africa Pathogen Data sharing  and Archive platform is embedded within the Pathogen Genomics Initiative (PGI) 
-                                    at the Africa CDC to support sharing of pathogen genomic data between Africa Union member states and their 
-                                    associated National Public Health Institutions.
+									The Africa Pathogen Data sharing and Archive platform is embedded within the
+									Pathogen Genomics Initiative (PGI) at the Africa CDC to support sharing of
+									pathogen genomic data between Africa Union member states and their associated
+									National Public Health Institutions.
 								</Paragraph>
-                                <Paragraph>
-                                    This platform was conceptualized and designed during the COVID-19 pandemic and aims to offer a resource where scientists 
-                                    can securely share and collaborate around genomic sequences of disease-causing pathogens. 
-                                    This provides a unique proposition that goes beyond archiving data, and ensures transparency and accountability
-                                     to African member states supported by good governance.
-                                </Paragraph>
+								<Paragraph>
+									This platform was conceptualized and designed during the COVID-19 pandemic and
+									aims to offer a resource where scientists can securely share and collaborate
+									around genomic sequences of disease-causing pathogens. This provides a unique
+									proposition that goes beyond archiving data, and ensures transparency and
+									accountability to African member states supported by good governance.
+								</Paragraph>
 							</Card>
-
-						
 						</Content>
 						<Footer style={footerStyle}>
 							<div>

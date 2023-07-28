@@ -76,8 +76,8 @@ const contentStyle: React.CSSProperties = {
 
 const cardDiv: React.CSSProperties = {
 	width: '96%',
-    display: 'flex',
-    justifyContent: 'space-between',
+	display: 'flex',
+	justifyContent: 'space-between',
 };
 
 const contactCard: React.CSSProperties = {
@@ -89,11 +89,11 @@ const contactCard: React.CSSProperties = {
 };
 
 const contactMap: React.CSSProperties = {
-	borderRadius: '5%'
+	borderRadius: '5%',
 };
 
 const infoText: React.CSSProperties = {
-    marginLeft: '1rem',
+	marginLeft: '1rem',
 };
 
 const siderStyle: React.CSSProperties = {
@@ -179,16 +179,20 @@ const ContactInfo: React.FC = () => {
 									<b>Find us</b>
 									<Row style={{ width: '100%', fontSize: '8px' }}>
 										<Col span={12}>
-                                            <Row>
-                                                <MailOutlined />
-												<a style={{marginLeft:'4px'}} href='mailto:support@africa-union.org '>support@africa-union.org </a>
+											<Row>
+												<MailOutlined />
+												<a style={{ marginLeft: '4px' }} href="mailto:support@africa-union.org ">
+													support@africa-union.org{' '}
+												</a>
 											</Row>
 											<Row>
-                                                <PushpinOutlined/>
-												<Col style={{marginLeft:'4px'}}>Pathogen Genomics Initiative</Col>
+												<PushpinOutlined />
+												<Col style={{ marginLeft: '4px' }}>Pathogen Genomics Initiative</Col>
 											</Row>
 											<Row>
-												<Col style={infoText}>Africa Centres for Disease Control and Prevention</Col>
+												<Col style={infoText}>
+													Africa Centres for Disease Control and Prevention
+												</Col>
 											</Row>
 											<Row>
 												<Col style={infoText}>African Union Commission</Col>
@@ -199,10 +203,9 @@ const ContactInfo: React.FC = () => {
 											<Row>
 												<Col style={infoText}>Addis Ababa</Col>
 											</Row>
-                                            <Row>
-                                                <Col style={infoText}>P.O. Box 3243, Addis Ababa, Ethiopia</Col>
-                                            </Row>
-
+											<Row>
+												<Col style={infoText}>P.O. Box 3243, Addis Ababa, Ethiopia</Col>
+											</Row>
 										</Col>
 										<Col span={12}>
 											<a href="https://goo.gl/maps/QBZ5pYFtioSbLEFLA" target="_blank">
@@ -222,9 +225,9 @@ const ContactInfo: React.FC = () => {
 									<b>Send us a message</b>
 									<ContactInfoForm />
 
-										<Button htmlType="button" type="primary" size="large" style={{width:'100%'}}>
-											Send
-										</Button>
+									<Button htmlType="button" type="primary" size="large" style={{ width: '100%' }}>
+										Send
+									</Button>
 								</Card>
 							</div>
 						</Content>
