@@ -76,19 +76,24 @@ const contentStyle: React.CSSProperties = {
 
 const cardDiv: React.CSSProperties = {
 	width: '96%',
+    display: 'flex',
+    justifyContent: 'space-between',
 };
 
 const contactCard: React.CSSProperties = {
 	width: '48%',
 	display: 'inline-block',
 	justifyContent: 'center',
-	textAlign: 'center',
+	textAlign: 'left',
 	verticalAlign: 'top',
 };
 
 const contactMap: React.CSSProperties = {
-	paddingTop: '10px',
-	// borderRadius: '5%'
+	borderRadius: '5%'
+};
+
+const infoText: React.CSSProperties = {
+    marginLeft: '1rem',
 };
 
 const siderStyle: React.CSSProperties = {
@@ -137,7 +142,7 @@ const ContactInfo: React.FC = () => {
 									text-decoration: none;
 								`}
 							>
-								<img src="/images/new-navbar-logo.png" alt="APA logo" width="182" />
+								<img src="/images/logo.svg" alt="APA logo" width="182" />
 							</a>
 						</InternalLink>
 					</div>
@@ -172,42 +177,32 @@ const ContactInfo: React.FC = () => {
 							<div style={cardDiv}>
 								<Card style={contactCard}>
 									<b>Find us</b>
-									<Row>
+									<Row style={{ width: '100%', fontSize: '8px' }}>
 										<Col span={12}>
-											<Row>
-												<Col span={4}>
-													<MailOutlined />
-												</Col>
-												<Col>email@address.co.za</Col>
+                                            <Row>
+                                                <MailOutlined />
+												<a style={{marginLeft:'4px'}} href='mailto:support@africa-union.org '>support@africa-union.org </a>
 											</Row>
 											<Row>
-												<Col span={4}>
-													<PhoneOutlined />
-												</Col>
-												<Col>+27 73 657 4766</Col>
+                                                <PushpinOutlined/>
+												<Col style={{marginLeft:'4px'}}>Pathogen Genomics Initiative</Col>
 											</Row>
 											<Row>
-												<Col span={4}>
-													<PushpinOutlined />
-												</Col>
-												<Col>1 Modderdam Road</Col>
+												<Col style={infoText}>Africa Centres for Disease Control and Prevention</Col>
 											</Row>
 											<Row>
-												<Col span={4}></Col>
-												<Col>UWC, Bellville</Col>
+												<Col style={infoText}>African Union Commission</Col>
 											</Row>
 											<Row>
-												<Col span={4}></Col>
-												<Col>Cape Town</Col>
+												<Col style={infoText}>Roosevelt Street (Old Airport Area)</Col>
 											</Row>
 											<Row>
-												<Col span={4}></Col>
-												<Col>Western Cape</Col>
+												<Col style={infoText}>Addis Ababa</Col>
 											</Row>
-											<Row>
-												<Col span={4}></Col>
-												<Col>South Africa</Col>
-											</Row>
+                                            <Row>
+                                                <Col style={infoText}>P.O. Box 3243, Addis Ababa, Ethiopia</Col>
+                                            </Row>
+
 										</Col>
 										<Col span={12}>
 											<a href="https://goo.gl/maps/QBZ5pYFtioSbLEFLA" target="_blank">
@@ -227,11 +222,9 @@ const ContactInfo: React.FC = () => {
 									<b>Send us a message</b>
 									<ContactInfoForm />
 
-									<div>
-										<Button htmlType="button" type="primary" size="large">
+										<Button htmlType="button" type="primary" size="large" style={{width:'100%'}}>
 											Send
 										</Button>
-									</div>
 								</Card>
 							</div>
 						</Content>
