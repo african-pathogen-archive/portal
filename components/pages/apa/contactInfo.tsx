@@ -94,13 +94,15 @@ const contactMap: React.CSSProperties = {
 
 const infoText: React.CSSProperties = {
 	marginLeft: '1rem',
+	borderRadius: '5%'
 };
 
 const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
+	width: '256px',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -169,7 +171,7 @@ const ContactInfo: React.FC = () => {
 				</Header>
 				<Layout>
 					<Sider style={siderStyle} width={256}>
-						<SideMenu selectedKey={'home'} />
+						<SideMenu selectedKey={'contact'} />
 					</Sider>
 					<Layout>
 						<Content style={contentStyle}>

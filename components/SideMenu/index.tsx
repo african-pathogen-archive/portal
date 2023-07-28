@@ -16,6 +16,7 @@ import useAuthContext from '../../global/hooks/useAuthContext';
 
 const MenuItemUrls = new Map<string, string>([
 	['home', '/apa'],
+	['about', '/apa/about'],
 	['pathogen', '/apa/pathogens'],
 	['projects', '/apa/projects'],
 	['submission', '/apa/projects/sars-cov-2'],
@@ -47,10 +48,10 @@ function getItem(
 	} as MenuItem;
 }
 const itemsWhenAuthenticated: MenuProps['items'] = [
-	getItem('Home', 'home', <HomeOutlined />),
 	getItem('Pathogen', 'pathogen', <AlignLeftOutlined />),
 	getItem('Projects', 'projects', <UploadOutlined />),
 	getItem('Submission', 'submission', <UploadOutlined />),
+	getItem('About Us', 'about', <HomeOutlined />),
 	getItem('Resources', 'resources', <ReadOutlined />),
 	getItem('Guides', 'guides', <FolderOutlined />),
 	getItem('FAQs', 'faqs', <QuestionCircleOutlined />),
@@ -61,6 +62,7 @@ const itemsWhenAuthenticated: MenuProps['items'] = [
 const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('Home', 'home', <HomeOutlined />),
 	getItem('Pathogen', 'pathogen', <AlignLeftOutlined />),
+	getItem('About Us', 'about', <HomeOutlined />),
 	getItem('Resources', 'resources', <ReadOutlined />),
 	getItem('Guides', 'guides', <FolderOutlined />),
 	getItem('FAQs', 'faqs', <QuestionCircleOutlined />),
@@ -80,7 +82,7 @@ const SideMenu = ({ selectedKey }: { selectedKey: string }) => {
 	return (
 		<Menu
 			onClick={onClick}
-			style={{ height: '100%' }}
+			style={{ height: '100%', position: 'fixed', width: '256px' }}
 			defaultSelectedKeys={[selectedKey]}
 			defaultOpenKeys={['home']}
 			mode="inline"

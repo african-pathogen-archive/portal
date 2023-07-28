@@ -105,7 +105,7 @@ const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
 };
 
 const footerStyle: React.CSSProperties = {
