@@ -8,6 +8,7 @@ import {
 	NotificationOutlined,
 	ProfileOutlined,
 	UploadOutlined,
+    TeamOutlined,
 } from '@ant-design/icons';
 import { Menu, MenuProps } from 'antd';
 import { useRouter } from 'next/router';
@@ -18,6 +19,7 @@ const MenuItemUrls = new Map<string, string>([
 	['home', '/apa'],
 	['pathogen', '/apa/pathogens'],
 	['projects', '/apa/projects'],
+    ['team', '/apa/team'],
 	['submission', '/apa/projects/sars-cov-2'],
 	['resources', '/apa/resources'],
 	['guides', '/apa/guides'],
@@ -48,7 +50,7 @@ function getItem(
 const itemsWhenAuthenticated: MenuProps['items'] = [
 	getItem('Home', 'home', <HomeOutlined />),
 	getItem('Pathogen', 'pathogen', <AlignLeftOutlined />),
-	getItem('Projects', 'projects', <UploadOutlined />),
+	getItem('Projects', 'projects', <UploadOutlined />),    
 	getItem('Submission', 'submission', <UploadOutlined />),
 	getItem('Resources', 'resources', <ReadOutlined />),
 	getItem('Guides', 'guides', <FolderOutlined />),
@@ -60,6 +62,7 @@ const itemsWhenAuthenticated: MenuProps['items'] = [
 const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('Home', 'home', <HomeOutlined />),
 	getItem('Pathogen', 'pathogen', <AlignLeftOutlined />),
+    getItem('Team', 'team', <TeamOutlined />),    // Move to is authenticated later.  Just below Projects
 	getItem('Resources', 'resources', <ReadOutlined />),
 	getItem('Guides', 'guides', <FolderOutlined />),
 	getItem('FAQs', 'faqs', <QuestionCircleOutlined />),
