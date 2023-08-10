@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Select, Space, Table, Tag } from 'antd';
+import { Select, Space, Table, Tag, } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
 // import { apiRequest } from '@/global/utils/api';
@@ -55,7 +55,7 @@ const columns: ColumnsType<TeamDataType> = [
 	{
 		title: '',
 		key: 'action',
-		render: (_, record) => (
+		render: (_, { role }) => (
 			<Select>
                 options={[
                     {
@@ -84,6 +84,17 @@ const columns: ColumnsType<TeamDataType> = [
 	},
 ];
 
+const dropdownlist = (
+    <select>
+        <option value=''></option>
+        <option value='Uploader'>Uploader</option>
+        <option value='Downloader'>Downloader</option>
+        <option value='Collaborator'>Collaborator</option>
+        <option value='Administrator'>Administrator</option>
+        <option value='Remove'>Remove from Team</option>
+    </select>
+)
+
 function convertToTableData(responseData: any[]): TeamDataType[] {
 	return responseData.map((element: any) => {
 		return {
@@ -91,7 +102,8 @@ function convertToTableData(responseData: any[]): TeamDataType[] {
             name: element.item.name,
             email: element.item.email,
             institution: element.item.institution,
-            role: element.item.role,			
+            role: element.item.role,	
+            action: dropdownlist,		
 		};
 	});
 }
@@ -99,31 +111,43 @@ function convertToTableData(responseData: any[]): TeamDataType[] {
 const TeamTable: React.FC = () => {
 	const [data, setData] = useState<any[]>([]);
 
-    const team_data = [
-        {
-            id: "jameswatt",
-            item: {
-                name: "James Watt",
-                email: "jameswatt@gmail.com",
-                institution: "UWC",
-                role: "uploader"
-            }
-        }
-    ]
+    const columns = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+    },
+    {
+        title: 'Email',
+        dataIndex: 'email',
+        key: 'email',
+    },
+    {
+        title: 'Institute',
+        dataIndex: 'institution',
+        key: 'institution',
+    },
+    {
+        title: 'Role',
+        dataIndex: 'role',
+        key: 'role',
+    },
+    {
+        title: '',
+        dataIndex: 'action',
+        key: 'action',
+    },
+    ];
+    
+    
+    useEffect(() => {        
+        var dummy_data = dummyApiRequest(HttpMethods.GET, 'teamdata');        
+        setData(convertToTableData(dummy_data));
 
-	useEffect(() => {
+    });
 
-        const table_data = convertToTableData(team_data);
-
-        console.log(table_data);
-        setData(table_data);
-
-        // dummyApiRequest(HttpMethods.GET, 'teamdata').then((res) => {
-		// 	setData(convertToTableData(team_data));
-		// });
-	}, []);
-
-	return <Table columns={columns} dataSource={data} style={{ width: '80%' }} />;
+    return <Table dataSource={data} columns={columns} style={{ width: '80%' }} />;
+	
 };
 
 export default TeamTable;

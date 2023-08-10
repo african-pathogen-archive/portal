@@ -1,6 +1,6 @@
 import { HttpMethods } from './constants';
 
-export async function dummyApiRequest(method: HttpMethods, url = '', data = []) {
+export function dummyApiRequest(method: HttpMethods, url = '', data = []) {
 	const BASE_URL = 'https://us-central1-apa-beta-e5aa0.cloudfunctions.net/app/api/';
 
     if (url == 'read') {
@@ -19,19 +19,14 @@ const GetPathogenData = () => {
 }
 
 const GetTeamData = () => {
-    const data = [{"id":"jameswatt","item":{"name":"James Watt","email":"jameswatt@gmail.com","institute":"UWC","role":"uploader"}}]
-    return data 
+    const data = [
+        {"id":"jameswatt","item":{"name":"James Watt","email":"jameswatt@gmail.com","institution":"UWC","role":"uploader"}},
+        {"id":"calvincole","item":{"name":"Calvin Cole","email":"calvincole@gmail.com","institution":"Stellenbosch","role":"downloader"}},
+        {"id":"alanwhite","item":{"name":"Alan White","email":"alanwhite@gmail.com","institution":"UWC","role":"downloader"}},
+        {"id":"karynwhite","item":{"name":"Karyn White","email":"karynwhite@gmail.com","institution":"UCT","role":"collaborator"}},
+        {"id":"tinacousins","item":{"name":"Tina Cousins","email":"tinacousins@gmail.com","institution":"UP","role":"administrator"}},
+        {"id":"aerinstone","item":{"name":"Aerin Stone","email":"aerinstone@gmail.com","institution":"CTIV","role":"uploader"}},
+        {"id":"hestermeek","item":{"name":"Hester Meek","email":"hestermeek@gmail.com","institution":"CTIV","role":"collaborator"}},        
+    ]
+    return data
 }
-
-// const GetTeamData = () => {
-//     const data = [
-//         {"id":"jameswatt","item":{"name":"James Watt","email":"jameswatt@gmail.com","institute":"UWC","role":"uploader"}},
-//         {"id":"albertcole","item":{"name":"Albert Cole","email":"albertcole@gmail.com","institute":"UWC","role":"downloader"}},
-//         {"id":"alanwhite","item":{"name":"Alan White","email":"alanwhite@gmail.com","institute":"UWC","role":"downloader"}},
-//         {"id":"karynwhite","item":{"name":"Karyn White","email":"karynwhite@gmail.com","institute":"UCT","role":"collaborator"}},
-//         {"id":"tinacousins","item":{"name":"Tina Cousins","email":"tinacousins@gmail.com","institute":"UP","role":"administrator"}},
-//         {"id":"aerinstone","item":{"name":"Aerin Stone","email":"aerinstone@gmail.com","institute":"CTIV","role":"uploader"}},
-//         {"id":"hestermeek","item":{"name":"Hester Meek","email":"hestermeek@gmail.com","institute":"CTIV","role":"collaborator"}},        
-//     ]
-//     return data
-// }
