@@ -32,6 +32,7 @@ import SideMenu from '../../SideMenu';
 import { getConfig } from '../../../global/config';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
+import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -202,10 +203,7 @@ const App: React.FC = () => {
 								<div style={{ width: '45%' }}>
 									<Title level={3}>How to use this platform </Title>
 									<Paragraph>
-										Lorem ipsum dolor sit amet consectetur. Dolor dolor vulputate ac at. Mi ipsum
-										augue netus ullamcorper diam vitae id ac morbi. Neque adipiscing faucibus ut
-										proin enim urna nisl suspendisse integer. Lorem nulla malesuada netus magna
-										convallis feugiat fames faucibus pellentesque.
+										For how to use this platform, see our <InternalLink path={INTERNAL_PATHS.GUIDELINES}>Guidelines</InternalLink> page.
 									</Paragraph>
 								</div>
 							</div>

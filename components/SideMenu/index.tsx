@@ -26,6 +26,7 @@ const MenuItemUrls = new Map<string, string>([
 	['terms', '/apa/terms'],
 	['onboarding_administrators', '/apa/onboarding_administrators'],
 	['administrator_details', '/apa/onboarding_administrators/AdministratorDetailsPage'],
+	['edit_profile', '/apa/edit_profile/EditProfileDetailsPage'],
 ]);
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -66,6 +67,7 @@ const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('Contact', 'contact', <NotificationOutlined />),
 	getItem('Terms & conditions', 'terms', <ProfileOutlined />),
 	// getItem('Onboarding Administrators', 'onboarding_administrators', <ProfileOutlined />),
+    // getItem('Edit Profile', 'edit_profile', <ProfileOutlined />),
 ];
 
 const SideMenu = ({ selectedKey }: { selectedKey: string }) => {
