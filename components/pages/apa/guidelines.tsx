@@ -25,6 +25,7 @@ import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
 import PathogenTable from '@/components/PathogenTable';
+import { INTERNAL_PATHS, ROOT_PATH } from '../../../global/utils/constants'
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
@@ -150,6 +151,75 @@ const Guidelines: React.FC = () => {
 					<Layout>
 						<Content style={contentStyle}>
 							<Title style={{ width: '94%' }}>Guidelines</Title>
+
+                            <Card style={descriptiveText}>
+								<Title>How to use this platform</Title>
+								<Paragraph>
+                                    <h4>Data browsing</h4>
+									You do not need to be registered as an authenticated user in order to browse or download <strong>publicaly</strong> available
+                                    data that has been deposited into the APA database.
+                                    <ol>
+                                        <li>Starting on the APA landing page, select the pathogen of interest from the table of available pathogens, using the 'view' button.</li>
+                                        <li>Submitted datasets that are accessible are shown in tabular format.</li>
+                                        <li>A left-hand panel provides filtering options and by selecting the check box on the desired filter, the data table will automatically update.</li>
+                                        <li>
+                                            You can modify which column information is displayed on the data table by selecting the ‘columns’ on the right top 
+                                            corner of the data table. This allows the user to ‘select all’, ‘reset’, or ‘search’ column headers to be displayed.                                            
+                                        </li>
+                                    </ol>
+								</Paragraph>
+								<Paragraph>
+									<h4>Data downloading</h4>
+                                    You do not need to be registered as an authenticated user in order to browse or download <strong>publicaly</strong> available
+                                    data that has been deposited into the APA database.
+                                    <ol>
+                                        <li>
+                                            Follow the same procedure as indicated for data browsing.
+                                        </li>
+                                        <li>
+                                            To download the dataset(s) of interest, select the data using the checkbox in the first column of the data 
+                                            table. Users can select one, or multiple datasets.</li>
+                                        <li>
+                                            Select the ‘Download dataset’ button, located in the right upper corner of the data table. Two 
+                                            options will be provided and the user can select to download the metadata only, or metadata and FASTA files. 
+                                        </li>
+                                        <li>
+                                            Once selected, a download process will be initiated and files downloaded in .zip format.                                        
+                                        </li>
+                                    </ol>
+								</Paragraph>
+								<Paragraph>
+									<h4>Data submission</h4>
+                                    In order to submit data to the portal, you must be an authenticated and registered user.
+                                    <ol>
+                                        <li>
+                                            Register by selecting the ‘Register’ button on the right top panel of the landing page. This 
+                                            will redirect you to the APA registration form on the Keycloak server. Complete the registration 
+                                            process and submit the form. Authentication will be actioned by the administrator and you 
+                                            will receive an email once complete.
+                                        </li>
+                                        <li>
+                                            Once registered, select the ‘login’ button located on the right top panel of the landing 
+                                            page. You will be directed to the sign-in page, and you can log in using the credentials 
+                                            supplied in the registration form.
+                                        </li>
+                                    </ol>
+                                    You will be directed to the data submission page. 
+                                    <ol>
+                                        <li>
+                                            Please note both .tsv metadata files and corresponding FASTA files must be submitted 
+                                            together through ‘drag and drop’ or selecting files to upload. More guidance can be found 
+                                            on the submission page. For additional information, consult the <InternalLink path={INTERNAL_PATHS.FAQS}>‘FAQs’</InternalLink> on the left-hand 
+                                            panel, or alternatively, you can <InternalLink path={INTERNAL_PATHS.CONTACT}>Contact</InternalLink> Us.
+                                        </li>
+                                        <li>
+                                            Once you have submitted the data files, the system will validate the upload and if there 
+                                            are no errors, a successful upload will be completed and will be included in your historical 
+                                            uploads section.
+                                        </li>
+                                    </ol>
+								</Paragraph>
+							</Card>
 
 							<Card style={descriptiveText}>
 								<Title>SARS-COV2 metadata</Title>
