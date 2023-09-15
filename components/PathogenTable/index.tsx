@@ -71,6 +71,7 @@ const PathogenTable: React.FC = () => {
 
 	useEffect(() => {
 		apiRequest(HttpMethods.GET, 'read').then((res) => {
+            console.log(res);
 			setData(convertToTableData(res));
 		});
 	}, []);
