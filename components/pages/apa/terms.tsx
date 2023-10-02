@@ -80,7 +80,7 @@ const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -143,7 +143,7 @@ const TermsAndConditions: React.FC = () => {
 				</Header>
 				<Layout>
 					<Sider style={siderStyle} width={256}>
-						<SideMenu selectedKey={'home'} />
+						<SideMenu selectedKey={'terms'} />
 					</Sider>
 					<Layout>
 						<Content style={contentStyle}>
@@ -159,9 +159,9 @@ const TermsAndConditions: React.FC = () => {
 								<Paragraph>
 									This platform was conceptualized and designed during the COVID-19 pandemic and
 									aims to offer a resource where scientists can securely share and collaborate
-									around genomic sequences of disease-causing pathogens. This provides a unique
-									proposition that goes beyond archiving data, and ensures transparency and
-									accountability to African member states supported by good governance.
+									around data for disease-causing pathogens. This provides a unique proposition that
+									goes beyond archiving data, and ensures transparency and accountability to African
+									member states supported by good governance.
 								</Paragraph>
 							</Card>
 						</Content>

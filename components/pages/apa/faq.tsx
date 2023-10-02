@@ -91,7 +91,7 @@ const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -161,7 +161,7 @@ const FAQ: React.FC = () => {
 				</Header>
 				<Layout>
 					<Sider style={siderStyle} width={256}>
-						<SideMenu selectedKey={'home'} />
+						<SideMenu selectedKey={'faqs'} />
 					</Sider>
 					<Layout>
 						<Content style={contentStyle}>

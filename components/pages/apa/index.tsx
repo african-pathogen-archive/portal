@@ -82,7 +82,7 @@ const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -154,21 +154,18 @@ const App: React.FC = () => {
 								Welcome to the African Pathogen Data Sharing and Archive Platform
 							</Title>
 							<Paragraph style={{ width: '80%' }}>
-								The Africa CDC’s Institute for Pathogen Genomics (IPG) has, since 2020, been
-								developing a Bill and Melinda Gates Foundation funded project called the African
-								Pathogen Genomics Initiative (PGI). One component of the PGI is support for regional
-								data management and exchange platform for a seamless pathogen genomic data analysis,
-								visualization, reporting, sharing, and archiving, between African Union member
-								states and their associated National Public Health Institutions.
+								APA is a continental platform for National Public Health Institutions (NPHIs),
+								National Reference Labs (NRLs), Research and Academic institutions to upload and
+								share pathogen sequence and associated metadata.
 							</Paragraph>
 							<Paragraph style={{ width: '80%' }}>
-								The African Pathogen Archive pilot programme (the Pilot) aims to provide a proof of
-								concept implementation of such a data sharing platform as a first step towards
-								further development and adoption. The primary goal is to develop a comprehensive
-								digital solution for pathogen genomics data management and exchange and pilot in
-								selected Member States across the Africa PGI laboratory network. The aim is to have
-								highly secured, robustly performing and a user-friendly solution from the end-user
-								perspective.
+								This platform is being piloted for real time pathogen genomics data management,
+								sharing and exchange in Africa. The platform allows users to upload, share, explore,
+								and download pathogen sequence and associated metadata as per data use guidelines
+								provided by each country. The data contained in this platform is shared by Member
+								States and made available by the Africa CDC. Africa CDC’s goal is to deliver a
+								highly secured, trusted, public health oriented and seamless solution to facilitate
+								the real-time sharing of pathogen sequence data.
 							</Paragraph>
 							<div style={{ width: '80%' }}>
 								<PartnerLogosBanner />
@@ -181,29 +178,28 @@ const App: React.FC = () => {
 								<div style={{ width: '45%' }}>
 									<Title level={3}>What the platform does</Title>
 									<Paragraph>
-										The APA pilot implementation is based on the CanCoGen VirusSeq data portal,
-										developed by the Ontario Institute of Cancer Research (OICR). VirusSeq is a
-										React / Next.js front-end to a set of services for data upload, metadata
-										management, bulk data storage, metadata indexing, authorisation and so forth. As
-										part of the deployment of this platform, SANBI is deploying the various services
-										of VirusSeq on a Kubenetes cluster hosted on the Ilifu cloud. Based on user
-										feedback and in line with Africa CDC branding and design work undertaken by
-										Hominum, we aim to develop a custom front-end that draws components from the
-										VirusSeq portal while also being visually distinct.
+										The APA pilot development and implementation is based on the CanCoGen VirusSeq
+										data portal, developed at the Ontario Institute of Cancer Research (OICR). The
+										APA platform provides its services on a Kubernetes cluster. The landing page
+										allows the public to see summary information of what is in the data portal.
 									</Paragraph>
 									<Paragraph>
-										The APA front-end (the above-mentioned combination of novel development and
-										existing VirusSeq components) needs to communicate with existing services,
-										including Arranger for querying data, Muse for uploading data, Song for managing
-										metadata schemas and Ego for managing users, groups and roles (access policies).
-										While some elements of this capacity are already present in the VirusSeq
-										platform, they will need to be enhanced to meet the needs of the APA platform.
+										A registration button facilitates authorisation and authentication. Registered
+										users are able to upload NGS data and associated metadata. The metadata is
+										indexed and allows rapid customised query searches. Dashboards are used to
+										provide visual summaries of datasets and provenance information.
 									</Paragraph>
 								</div>
 								<div style={{ width: '45%' }}>
 									<Title level={3}>How to use this platform </Title>
 									<Paragraph>
-										For how to use this platform, see our <InternalLink path={INTERNAL_PATHS.GUIDELINES}>Guidelines</InternalLink> page.
+										There is adequate information on the landing page that can be accessed without
+										the need to register for an account. The navigation panel to the left provides
+										quick access to information about the portal. The registration link provides
+										users with a mechanism to request an account. Registered users are able to
+										upload within-country generated datasets and associated metadata, download
+										datasets, browse metadata and have access to a record of previous activity on
+										the portal.
 									</Paragraph>
 								</div>
 							</div>

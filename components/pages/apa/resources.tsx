@@ -81,7 +81,7 @@ const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
 	color: '#fff',
-	backgroundColor: '#3ba0e9',
+	backgroundColor: '#fff',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -145,13 +145,13 @@ const Resources: React.FC = () => {
 				</Header>
 				<Layout>
 					<Sider style={siderStyle} width={256}>
-						<SideMenu selectedKey={'home'} />
+						<SideMenu selectedKey={'resources'} />
 					</Sider>
 					<Layout>
 						<Content style={contentStyle}>
-							<Title style={{ width: '94%' }}>Resources</Title>
+							<Title style={{ width: '80%' }}>Resources</Title>
 
-							<Paragraph style={{ width: '94%' }}>
+							<Paragraph style={{ width: '80%' }}>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
