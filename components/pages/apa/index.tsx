@@ -119,7 +119,7 @@ const App: React.FC = () => {
 									height: 100%;
 								`}
 							>
-								<img src="/images/agari-final-logo.svg" alt="APA logo" width="180" />
+								<img src="/images/logo.svg" alt="APA logo" width="180" />
 							</a>
 						</InternalLink>
 					</div>
