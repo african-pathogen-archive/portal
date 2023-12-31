@@ -156,7 +156,7 @@ const Guidelines: React.FC = () => {
 							<Card style={descriptiveTextCard}>
 								<Title>SARS-COV2 metadata</Title>
 								<Paragraph>
-									The APA uses standardized metadata to ensure harmonization and interoperability.
+									The Agari uses standardized metadata to ensure harmonization and interoperability.
 									The metadata is derived from work done by the Public Health Alliance for Genomic
 									Epidemiology (PHA4GE), a global coalition that is actively working to establish
 									consensus standards, document and share best practices, improve the availability
@@ -181,7 +181,7 @@ const Guidelines: React.FC = () => {
 							<Card style={descriptiveTextCard}>
 								<Title>File formats</Title>
 								<Paragraph>
-									The APA currently allows for the uploading of FASTA files in combination with the
+									The Agari currently allows for the uploading of FASTA files in combination with the
 									associated metadata file, in .tsv format. Note that both files must be uploaded
 									together for each submission.
 								</Paragraph>
