@@ -25,6 +25,7 @@ import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
 import PathogenTable from '@/components/PathogenTable';
+import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
@@ -32,7 +33,6 @@ import SideMenu from '../../SideMenu';
 import { getConfig } from '../../../global/config';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
-import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -154,9 +154,10 @@ const App: React.FC = () => {
 								Welcome to the African Pathogen Data Sharing and Archive Platform
 							</Title>
 							<Paragraph style={{ width: '80%' }}>
-                                Agari (an Amharic word meaning to share and benefit) is a continental platform is a continental platform for National Public Health Institutions (NPHIs),
-								National Reference Labs (NRLs), Research and Academic institutions to upload and
-								share pathogen sequence and associated metadata.
+								Agari (an Amharic word meaning to share and benefit) is a continental platform is a
+								continental platform for National Public Health Institutions (NPHIs), National
+								Reference Labs (NRLs), Research and Academic institutions to upload and share
+								pathogen sequence and associated metadata.
 							</Paragraph>
 							<Paragraph style={{ width: '80%' }}>
 								This platform is being piloted for real time pathogen genomics data management,
@@ -185,9 +186,9 @@ const App: React.FC = () => {
 									</Paragraph>
 									<Paragraph>
 										A registration button facilitates authorisation and authentication. Registered
-										users can upload NGS data and associated metadata. The metadata is
-										indexed and allows rapid customised query searches. Dashboards are used to
-										provide visual summaries of datasets and provenance information.
+										users can upload NGS data and associated metadata. The metadata is indexed and
+										allows rapid customised query searches. Dashboards are used to provide visual
+										summaries of datasets and provenance information.
 									</Paragraph>
 								</div>
 								<div style={{ width: '45%' }}>
@@ -196,10 +197,9 @@ const App: React.FC = () => {
 										There is adequate information on the landing page that can be accessed without
 										the need to register for an account. The navigation panel to the left provides
 										quick access to information about the portal. The registration link provides
-										users with a mechanism to request an account. Registered users can
-										upload within-country generated datasets and associated metadata, download
-										datasets, browse metadata and have access to a record of previous activity on
-										the portal.
+										users with a mechanism to request an account. Registered users can upload
+										within-country generated datasets and associated metadata, download datasets,
+										browse metadata and have access to a record of previous activity on the portal.
 									</Paragraph>
 								</div>
 							</div>

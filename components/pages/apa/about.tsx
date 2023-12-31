@@ -231,10 +231,10 @@ const About: React.FC = () => {
 								Mission
 							</Title>
 							<Paragraph style={{ width: '80%' }}>
-                                Agari promotes timely sharing of pathogen sequence and related clinical and
-								epidemiological data to inform public health decision making. Agari strives to ensure
-								responsible, equitable, accessible, transparent, fair and secure sharing of high
-								quality and complete data.
+								Agari promotes timely sharing of pathogen sequence and related clinical and
+								epidemiological data to inform public health decision making. Agari strives to
+								ensure responsible, equitable, accessible, transparent, fair and secure sharing of
+								high quality and complete data.
 							</Paragraph>
 							<Title style={{ width: '80%' }} level={4}>
 								Vision

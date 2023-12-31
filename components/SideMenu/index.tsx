@@ -69,7 +69,7 @@ const itemsWhenNotAuthenticated: MenuProps['items'] = [
 	getItem('Contact', 'contact', <NotificationOutlined />),
 	getItem('Terms & conditions', 'terms', <ProfileOutlined />),
 	// getItem('Onboarding Administrators', 'onboarding_administrators', <ProfileOutlined />),
-    // getItem('Edit Profile', 'edit_profile', <ProfileOutlined />),
+	// getItem('Edit Profile', 'edit_profile', <ProfileOutlined />),
 ];
 
 const SideMenu = ({ selectedKey }: { selectedKey: string }) => {

@@ -94,7 +94,7 @@ const contactMap: React.CSSProperties = {
 
 const infoText: React.CSSProperties = {
 	marginLeft: '1rem',
-	borderRadius: '5%'
+	borderRadius: '5%',
 };
 
 const siderStyle: React.CSSProperties = {

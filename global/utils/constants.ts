@@ -48,7 +48,7 @@ export enum INTERNAL_PATHS {
 	GUIDELINES = '/apa/guides',
 	CONTACT = '/apa/contact',
 	TERMS = '/apa/terms',
-    FAQS = '/apa/faqs',
+	FAQS = '/apa/faqs',
 	APA_ONBOARDING_ADMINISTRATOR_DETAILS = '/apa/onboarding_administrators/AdministratorDetailsPage',
 	APA_ONBOARDING_REQUEST_SUBMITTED = '/apa/onboarding_administrators/RequestSubmitted',
 }

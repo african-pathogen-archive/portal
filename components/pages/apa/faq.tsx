@@ -188,12 +188,13 @@ const FAQ: React.FC = () => {
 													key="apa_initiative"
 												>
 													<Paragraph>
-														African Pathogen Data Sharing and Archive Platform, Agari, was created as an
-														alternative to traditional public-domain data archives to address
+														African Pathogen Data Sharing and Archive Platform, Agari, was created
+														as an alternative to traditional public-domain data archives to address
 														concerns such as loss of ownership over intellectual property rights and
-														lack of proper acknowledgement for scientific contributions. Agari provides a space for 
-                                                        registered users to access disease surveillance data for cross border analyses in a trusted space. 
-                                                        Agari launched in 2023.
+														lack of proper acknowledgement for scientific contributions. Agari
+														provides a space for registered users to access disease surveillance
+														data for cross border analyses in a trusted space. Agari launched in
+														2023.
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -211,8 +212,8 @@ const FAQ: React.FC = () => {
 													key="accessible_to_public"
 												>
 													<Paragraph>
-														Genetic sequences and associated metadata uploaded to Agari will be
-														made accessible immediately to data owners after successful submission,
+														Genetic sequences and associated metadata uploaded to Agari will be made
+														accessible immediately to data owners after successful submission,
 														unlike many conventional public-domain archives. Public accessible
 														datasets will be defined by data submitters.
 													</Paragraph>
@@ -222,9 +223,8 @@ const FAQ: React.FC = () => {
 													key="store_restricted_sequences"
 												>
 													<Paragraph>
-														Yes, Agari allows submitters to choose whether datasets and
-														accompanying metadata are publicly available or restricted data
-														(private).
+														Yes, Agari allows submitters to choose whether datasets and accompanying
+														metadata are publicly available or restricted data (private).
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -242,14 +242,14 @@ const FAQ: React.FC = () => {
 													key="publish_using_apa_accession"
 												>
 													<Paragraph style={{ color: 'red' }}>
-                                                        At this stage project ID numbers are specific to the resource and would 
-                                                        not have any value to outside viewers. Requests to reference the Agari 
-                                                        platform should cite as follows Christoffels, A., Mboowa, G., 
-                                                        van Heusden, P. et al. A pan-African pathogen genomics data 
-                                                        sharing platform to support disease outbreaks. Nat Med 29, 1052-1055 (2023).
-                                                        <a href="https://doi.org/10.1038/s41591-023-02266-y">
-                                                            https://doi.org/10.1038/s41591-023-02266-y
-									                    </a>
+														At this stage project ID numbers are specific to the resource and would
+														not have any value to outside viewers. Requests to reference the Agari
+														platform should cite as follows Christoffels, A., Mboowa, G., van
+														Heusden, P. et al. A pan-African pathogen genomics data sharing platform
+														to support disease outbreaks. Nat Med 29, 1052-1055 (2023).
+														<a href="https://doi.org/10.1038/s41591-023-02266-y">
+															https://doi.org/10.1038/s41591-023-02266-y
+														</a>
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -266,8 +266,8 @@ const FAQ: React.FC = () => {
 													key="genetic_sequence_release"
 												>
 													<Paragraph>
-														No, Agari does not release data to databases. APIs will be provided for any 
-                                                        data generator who requests data to be submitted to public archives.
+														No, Agari does not release data to databases. APIs will be provided for
+														any data generator who requests data to be submitted to public archives.
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -278,7 +278,10 @@ const FAQ: React.FC = () => {
 														Yes, Agari provides users with an automated process to recover their
 														password or username. In case of lost access to the email used in
 														registration, users may contact their administrative representative or
-														<a href="mailto:support@africa-union.org">log a ticket with Agari</a> for assistance.
+														<a href="mailto:support@africa-union.org">
+															log a ticket with Agari
+														</a>{' '}
+														for assistance.
 													</Paragraph>
 												</Panel>
 												<Panel header="Data available" key="data_available">
@@ -321,15 +324,16 @@ const FAQ: React.FC = () => {
 												</Panel>
 												<Panel header="Data users guidelines" key="users_guidelines">
 													<Paragraph>
-														Users can gain access to the data available on Agari free of charge in
-														a fully transparent manner, intended for members of the scientific
-														community with acceses permissions and other interested parties. However, it is mandatory for
-														users to obtain permissions from the data producers including the required acknowledgment of
-														the data contributors' work. Any attempts to exploit the data present on
-														the platform to re-identify any individuals are strictly prohibited. In
-														case any such personally identifiable information is encountered, the
-														user must immediately report the incident and specify the dataset
-														causing the issue at support@africa-union.org.
+														Users can gain access to the data available on Agari free of charge in a
+														fully transparent manner, intended for members of the scientific
+														community with acceses permissions and other interested parties.
+														However, it is mandatory for users to obtain permissions from the data
+														producers including the required acknowledgment of the data
+														contributors' work. Any attempts to exploit the data present on the
+														platform to re-identify any individuals are strictly prohibited. In case
+														any such personally identifiable information is encountered, the user
+														must immediately report the incident and specify the dataset causing the
+														issue at support@africa-union.org.
 													</Paragraph>
 												</Panel>
 												<Panel header="Data standards guidelines" key="standards_guidelines">
@@ -360,22 +364,22 @@ const FAQ: React.FC = () => {
 												</Panel>
 												<Panel header="Privacy Policy" key="privacy_policy">
 													<Paragraph>
-														The Agari platform is committed to protecting the privacy and security of the
-														personal information and data of its users to the greatest extent
+														The Agari platform is committed to protecting the privacy and security
+														of the personal information and data of its users to the greatest extent
 														possible subject in accordance with the{' '}
 														<a href="https://popia.co.za/" target="_blank">
 															Protection of Personal Information Act (POPI Act)
 														</a>
 														. Personal information is defined as information that can reasonably be
 														used to identify an individual either alone or in combination with other
-														available information. The Agari staff will only use your personal information
-														for consented purposes. This policy will be followed, except
+														available information. The Agari staff will only use your personal
+														information for consented purposes. This policy will be followed, except
 														for cases in which legal requirements demand access or when subpoenas or
 														other legal instruments allow personal data access. Your explicit
-														permission is required before sharing personal data outside of the Agari platform
-														and its affiliated personnel or contractors. Personal data will be
-														stored only as long as necessary to meet its purposes, as permitted by
-														applicable legal regulations.
+														permission is required before sharing personal data outside of the Agari
+														platform and its affiliated personnel or contractors. Personal data will
+														be stored only as long as necessary to meet its purposes, as permitted
+														by applicable legal regulations.
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -399,12 +403,12 @@ const FAQ: React.FC = () => {
 													</Paragraph>
 													<Paragraph>
 														By providing your personal information, you are consenting to its use
-														for specific purposes such as communicating with you about Agari services,
-														troubleshooting website issues, and providing services like data
-														submission and access. The primary objective of the Agari platform is to
-														facilitate scientific research by providing a centralized access point
-														to pathogen genomic data and relevant contextual metadata from Africa
-														for researchers and interested parties.
+														for specific purposes such as communicating with you about Agari
+														services, troubleshooting website issues, and providing services like
+														data submission and access. The primary objective of the Agari platform
+														is to facilitate scientific research by providing a centralized access
+														point to pathogen genomic data and relevant contextual metadata from
+														Africa for researchers and interested parties.
 													</Paragraph>
 													<Paragraph>
 														Although personal information is not mandatory for accessing the
@@ -416,9 +420,9 @@ const FAQ: React.FC = () => {
 														password protection.
 													</Paragraph>
 													<Paragraph>
-														The Agari website and its affiliated servers collect certain analytics for
-														web presentation, troubleshooting, and web functionality purposes, such
-														as the internet protocol (IP) address of the device being used, the
+														The Agari website and its affiliated servers collect certain analytics
+														for web presentation, troubleshooting, and web functionality purposes,
+														such as the internet protocol (IP) address of the device being used, the
 														requested web pages, the referring web page, the browser employed, and
 														the date and time of activities. This information is not linked with
 														individual user identities and will not be used to identify any users in
@@ -449,12 +453,13 @@ const FAQ: React.FC = () => {
 												</Panel>
 												<Panel header="Hyperlinks and other privacy policies" key="hyperlinks">
 													<Paragraph>
-														If you click on a hyperlink from the Agari portal leading
-														to the website(s) of another entity, it is possible that said entity may
-														maintain a privacy policy that differs from that of Agari. The Agari portal or technical team
-														cannot be held accountable for the user’s privacy that may occur from
-														the use of these offsite websites. In such cases we strongly recommend
-														that you carefully review the privacy policies of these other entities.
+														If you click on a hyperlink from the Agari portal leading to the
+														website(s) of another entity, it is possible that said entity may
+														maintain a privacy policy that differs from that of Agari. The Agari
+														portal or technical team cannot be held accountable for the user’s
+														privacy that may occur from the use of these offsite websites. In such
+														cases we strongly recommend that you carefully review the privacy
+														policies of these other entities.
 													</Paragraph>
 												</Panel>
 												<Panel header="Contact Us" key="contact">

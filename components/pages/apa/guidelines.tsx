@@ -25,8 +25,8 @@ import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
 import PathogenTable from '@/components/PathogenTable';
-import { INTERNAL_PATHS, ROOT_PATH } from '../../../global/utils/constants'
 
+import { INTERNAL_PATHS, ROOT_PATH } from '../../../global/utils/constants';
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
@@ -181,9 +181,9 @@ const Guidelines: React.FC = () => {
 							<Card style={descriptiveTextCard}>
 								<Title>File formats</Title>
 								<Paragraph>
-									The Agari currently allows for the uploading of FASTA files in combination with the
-									associated metadata file, in .tsv format. Note that both files must be uploaded
-									together for each submission.
+									The Agari currently allows for the uploading of FASTA files in combination with
+									the associated metadata file, in .tsv format. Note that both files must be
+									uploaded together for each submission.
 								</Paragraph>
 								<Paragraph>
 									Tab-separated values (TSV) is a simple, text-based file format for storing tabular
