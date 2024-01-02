@@ -25,8 +25,8 @@ import { css } from '@emotion/react';
 
 import { InternalLink } from '@/components/Link';
 import PathogenTable from '@/components/PathogenTable';
-import { INTERNAL_PATHS, ROOT_PATH } from '../../../global/utils/constants'
 
+import { INTERNAL_PATHS, ROOT_PATH } from '../../../global/utils/constants';
 import useAuthContext from '../../../global/hooks/useAuthContext';
 import CurrentUser from '../../NavBar/CurrentUser';
 import SideMenu from '../../SideMenu';
@@ -156,7 +156,7 @@ const Guidelines: React.FC = () => {
 							<Card style={descriptiveTextCard}>
 								<Title>SARS-COV2 metadata</Title>
 								<Paragraph>
-									The APA uses standardized metadata to ensure harmonization and interoperability.
+									The Agari uses standardized metadata to ensure harmonization and interoperability.
 									The metadata is derived from work done by the Public Health Alliance for Genomic
 									Epidemiology (PHA4GE), a global coalition that is actively working to establish
 									consensus standards, document and share best practices, improve the availability
@@ -181,9 +181,9 @@ const Guidelines: React.FC = () => {
 							<Card style={descriptiveTextCard}>
 								<Title>File formats</Title>
 								<Paragraph>
-									The APA currently allows for the uploading of FASTA files in combination with the
-									associated metadata file, in .tsv format. Note that both files must be uploaded
-									together for each submission.
+									The Agari currently allows for the uploading of FASTA files in combination with
+									the associated metadata file, in .tsv format. Note that both files must be
+									uploaded together for each submission.
 								</Paragraph>
 								<Paragraph>
 									Tab-separated values (TSV) is a simple, text-based file format for storing tabular

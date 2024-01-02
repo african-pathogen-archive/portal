@@ -184,24 +184,26 @@ const FAQ: React.FC = () => {
 										<div style={{ padding: '10px' }}>
 											<Collapse accordion>
 												<Panel
-													header="What is the APA Initiative and why was it created?"
+													header="What is the Agari Initiative and why was it created?"
 													key="apa_initiative"
 												>
 													<Paragraph>
-														African Pathogen Data Sharing and Archive Platform was created as an
-														alternative to traditional public-domain data archives to address
+														African Pathogen Data Sharing and Archive Platform, Agari, was created
+														as an alternative to traditional public-domain data archives to address
 														concerns such as loss of ownership over intellectual property rights and
-														lack of proper acknowledgement for scientific contributions. The APA
-														launched in 2023.
+														lack of proper acknowledgement for scientific contributions. Agari
+														provides a space for registered users to access disease surveillance
+														data for cross border analyses in a trusted space. Agari launched in
+														2023.
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="Why do users need to register to access the APA database?"
+													header="Why do users need to register to access the Agari database?"
 													key="need_to_register"
 												>
 													<Paragraph>
 														Registration and agreeing to terms of use are necessary to uphold the
-														integrity of the APA user community and enforce the APA sharing
+														integrity of the Agari user community and enforce the Agari sharing
 														mechanism that assures reciprocity of the data for future generations.
 													</Paragraph>
 												</Panel>
@@ -210,24 +212,23 @@ const FAQ: React.FC = () => {
 													key="accessible_to_public"
 												>
 													<Paragraph>
-														Genetic sequences and associated metadata uploaded to the APA will be
-														made accessible immediately to data owners after successful submission,
+														Genetic sequences and associated metadata uploaded to Agari will be made
+														accessible immediately to data owners after successful submission,
 														unlike many conventional public-domain archives. Public accessible
 														datasets will be defined by data submitters.
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="Does the APA store restricted sequences and metadata in its database?"
+													header="Does Agari store restricted sequences and metadata in its database?"
 													key="store_restricted_sequences"
 												>
 													<Paragraph>
-														Yes, the APA allows submitters to choose whether datasets and
-														accompanying metadata are publicly available or restricted data
-														(private).
+														Yes, Agari allows submitters to choose whether datasets and accompanying
+														metadata are publicly available or restricted data (private).
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="How can I get access to restricted data on the APA?"
+													header="How can I get access to restricted data on Agari?"
 													key="access_restricted_data"
 												>
 													<Paragraph>
@@ -237,52 +238,59 @@ const FAQ: React.FC = () => {
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="Can I publish using the APA accession/project ID numbers?"
+													header="Can I publish using Agari accession/project ID numbers?"
 													key="publish_using_apa_accession"
 												>
 													<Paragraph style={{ color: 'red' }}>
-														Yes, APA accession numbers are accepted without limitation by
-														peer-reviewed journals in manuscript submissions for publication.????
+														At this stage project ID numbers are specific to the resource and would
+														not have any value to outside viewers. Requests to reference the Agari
+														platform should cite as follows Christoffels, A., Mboowa, G., van
+														Heusden, P. et al. A pan-African pathogen genomics data sharing platform
+														to support disease outbreaks. Nat Med 29, 1052-1055 (2023).
+														<a href="https://doi.org/10.1038/s41591-023-02266-y">
+															https://doi.org/10.1038/s41591-023-02266-y
+														</a>
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="What is happening to the ownership of the data in the APA?"
+													header="What is happening to the ownership of the data in Agari?"
 													key="data_ownership"
 												>
 													<Paragraph>
 														Ownership to data remains unchanged, and submitters do not forfeit their
-														rights to the data they deposit in the APA. All rights are explicitly
-														preserved under the licence provided through the APA's{' '}
-														<a href={INTERNAL_PATHS.TERMS}>Terms of Use. (must still be defined)</a>
+														rights to the data they deposit in Agari.
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="Does the APA release genetic sequences to public-domain archives?"
+													header="Does Agari release genetic sequences to public-domain archives?"
 													key="genetic_sequence_release"
 												>
 													<Paragraph>
-														No, the APA does not release data to databases where access to data is
-														anonymous and the rights of the submitter are relinquished.
+														No, Agari does not release data to databases. APIs will be provided for
+														any data generator who requests data to be submitted to public archives.
 													</Paragraph>
 												</Panel>
 												<Panel
-													header="Can I recover my password or username for the APA?"
+													header="Can I recover my password or username for Agari?"
 													key="can_i_recover_my_account"
 												>
 													<Paragraph>
-														Yes, the APA provides users with an automated process to recover their
+														Yes, Agari provides users with an automated process to recover their
 														password or username. In case of lost access to the email used in
 														registration, users may contact their administrative representative or
-														<a href="">log a ticket with the APA</a> for assistance.
+														<a href="mailto:support@africa-union.org">
+															log a ticket with Agari
+														</a>{' '}
+														for assistance.
 													</Paragraph>
 												</Panel>
 												<Panel header="Data available" key="data_available">
 													<Paragraph>
-														Currently, the APA focuses on providing access to data types that do not
+														Currently, Agari focuses on providing access to data types that do not
 														constitute "personal data/information". These include: consensus viral
 														sequence
 														<br />
-														raw de-hosted viral sequences????
+														raw de-hosted viral sequences
 														<br />
 														sample collection date
 														<br />
@@ -316,61 +324,62 @@ const FAQ: React.FC = () => {
 												</Panel>
 												<Panel header="Data users guidelines" key="users_guidelines">
 													<Paragraph>
-														Users can gain access to the data available on the APA free of charge in
-														a fully transparent manner, intended for members of the scientific
-														community and other interested parties. However, it is mandatory for
-														users to adhere to the policy of the APA regarding the acknowledgment of
-														the data contributors' work. Any attempts to exploit the data present on
-														the platform to re-identify any individuals are strictly prohibited. In
-														case any such personally identifiable information is encountered, the
-														user must immediately report the incident and specify the dataset
-														causing the issue at…..
+														Users can gain access to the data available on Agari free of charge in a
+														fully transparent manner, intended for members of the scientific
+														community with acceses permissions and other interested parties.
+														However, it is mandatory for users to obtain permissions from the data
+														producers including the required acknowledgment of the data
+														contributors' work. Any attempts to exploit the data present on the
+														platform to re-identify any individuals are strictly prohibited. In case
+														any such personally identifiable information is encountered, the user
+														must immediately report the incident and specify the dataset causing the
+														issue at support@africa-union.org.
 													</Paragraph>
 												</Panel>
 												<Panel header="Data standards guidelines" key="standards_guidelines">
 													<Paragraph>
 														The Data Portal's implemented data standard is subject to modifications
 														with changing data requirements over time (e.g., introduction of
-														additional fields and terms, updating of prerequisites, etc.).
+														additional fields and terms and updating of prerequisites).
 														Consequently, it can bring about changes in the database schema as well
 														as the nature of data furnished by data stewards. For further details,
 														please get in touch with us by
-														<a href="">logging a ticket</a>.
+														<a href="mailto:support@africa-union.org">logging a ticket</a>.
 													</Paragraph>
 												</Panel>
 												<Panel header="Disclaimer" key="disclaimer">
 													<Paragraph>
-														The APA releases virus sequences and basic information with the goal of
+														Agari releases virus sequences and basic information with the goal of
 														encouraging collaboration, research, and surveillance related to public
 														health.
 													</Paragraph>
 													<Paragraph>
-														While the APA implements some quality control measures and integrity
+														While Agari implements some quality control measures and integrity
 														checks, the accuracy and quality of the data ultimately falls on the
-														submitters, not the APA. Submitters must also confirm that they have
-														permission to provide the data. The APA team collaborates with
+														submitters, not Agari. Submitters must also confirm that they have
+														permission to provide the data. The Agari team collaborates with
 														submitters to improve the metadata and sequence data, aiming to enhance
 														the overall quality and consistency of the submitted data.
 													</Paragraph>
 												</Panel>
 												<Panel header="Privacy Policy" key="privacy_policy">
 													<Paragraph>
-														The APA is committed to protecting the privacy and security of the
-														personal information and data of its users to the greatest extent
+														The Agari platform is committed to protecting the privacy and security
+														of the personal information and data of its users to the greatest extent
 														possible subject in accordance with the{' '}
 														<a href="https://popia.co.za/" target="_blank">
 															Protection of Personal Information Act (POPI Act)
 														</a>
 														. Personal information is defined as information that can reasonably be
 														used to identify an individual either alone or in combination with other
-														available information. The APA will only use your personal information
-														for specific and consented purposes.This policy will be followed, except
+														available information. The Agari staff will only use your personal
+														information for consented purposes. This policy will be followed, except
 														for cases in which legal requirements demand access or when subpoenas or
 														other legal instruments allow personal data access. Your explicit
-														permission is required before sharing personal data outside of the APA
-														and its affiliated personnel or contractors. Personal data will be
-														stored only as long as necessary to meet its purposes, as permitted by
-														applicable legal regulations.
+														permission is required before sharing personal data outside of the Agari
+														platform and its affiliated personnel or contractors. Personal data will
+														be stored only as long as necessary to meet its purposes, as permitted
+														by applicable legal regulations.
 													</Paragraph>
 												</Panel>
 												<Panel
@@ -378,7 +387,7 @@ const FAQ: React.FC = () => {
 													key="collect_information"
 												>
 													<Paragraph>
-														The primary objective of the APA database is to facilitate scientific
+														The primary objective of the Agari platform is to facilitate scientific
 														research by providing a centralized access point to pathogen genomic
 														data and relevant contextual metadata from Africa for researchers and
 														interested parties.
@@ -394,12 +403,12 @@ const FAQ: React.FC = () => {
 													</Paragraph>
 													<Paragraph>
 														By providing your personal information, you are consenting to its use
-														for specific purposes such as communicating with you about APA services,
-														troubleshooting website issues, and providing services like data
-														submission and access. The primary objective of the APA database is to
-														facilitate scientific research by providing a centralized access point
-														to pathogen genomic data and relevant contextual metadata from Africa
-														for researchers and interested parties.
+														for specific purposes such as communicating with you about Agari
+														services, troubleshooting website issues, and providing services like
+														data submission and access. The primary objective of the Agari platform
+														is to facilitate scientific research by providing a centralized access
+														point to pathogen genomic data and relevant contextual metadata from
+														Africa for researchers and interested parties.
 													</Paragraph>
 													<Paragraph>
 														Although personal information is not mandatory for accessing the
@@ -411,51 +420,46 @@ const FAQ: React.FC = () => {
 														password protection.
 													</Paragraph>
 													<Paragraph>
-														By providing your personal information, you are consenting to its use
-														for specific purposes such as communicating with you about APA services,
-														troubleshooting website issues, and providing services like data
-														submission and access.
-													</Paragraph>
-													<Paragraph>
-														The APA website and its affiliated servers collect certain analytics for
-														web presentation, troubleshooting, and web functionality purposes, such
-														as the internet protocol (IP) address of the device being used, the
+														The Agari website and its affiliated servers collect certain analytics
+														for web presentation, troubleshooting, and web functionality purposes,
+														such as the internet protocol (IP) address of the device being used, the
 														requested web pages, the referring web page, the browser employed, and
 														the date and time of activities. This information is not linked with
 														individual user identities and will not be used to identify any users in
-														accordance with the APA Privacy Policy.
+														accordance with the Agari Privacy Policy.
 													</Paragraph>
 													<Paragraph>
 														Third-party contractors or agents may be involved in maintaining and
-														improving the functions of the APA database, particularly IT services.
+														improving the functions of the Agari platform, particularly IT services.
 														In these cases, personal information will be kept confidential and
 														secure in line with the Protection of Personal Information (POPI) Act
-														and the APA Privacy Policy. Any third parties who access personal
+														and the Agari Privacy Policy. Any third parties who access personal
 														information are only authorized to use it for legitimate purposes
-														permitted by the APA.
+														permitted by the Agari portal.
 													</Paragraph>
 												</Panel>
 												<Panel header="Cookies" key="cookies">
 													<Paragraph>
 														This website uses 'Cookies', which are digital data files that may
 														gather information such as your email address, username, or track the
-														pages viewed and documents downloaded. The APA may use 'cookies' to
+														pages viewed and documents downloaded. Agari may use 'cookies' to
 														provide web content tailored to the user's preferences or to maintain
 														user sessions when this feature is enabled. Users have the option to
 														enable or disable cookies on this website, and no such data will be
 														collected if the feature is deactivated. It should be noted that while
-														disabling cookies will not limit access to the APA website, it may
+														disabling cookies will not limit access to the Agari portal, it may
 														interfere with the normal functioning of certain features.
 													</Paragraph>
 												</Panel>
 												<Panel header="Hyperlinks and other privacy policies" key="hyperlinks">
 													<Paragraph>
-														In the event that you click on a hyperlink from the APA website leading
-														to the website(s) of another entity, it is possible that said entity may
-														maintain a privacy policy that differs from that of the APA. The APA
-														cannot be held accountable for the user’s privacy that may occur from
-														the use of these offsite websites. In such cases we strongly recommend
-														that you carefully review the privacy policies of these other entities.
+														If you click on a hyperlink from the Agari portal leading to the
+														website(s) of another entity, it is possible that said entity may
+														maintain a privacy policy that differs from that of Agari. The Agari
+														portal or technical team cannot be held accountable for the user’s
+														privacy that may occur from the use of these offsite websites. In such
+														cases we strongly recommend that you carefully review the privacy
+														policies of these other entities.
 													</Paragraph>
 												</Panel>
 												<Panel header="Contact Us" key="contact">

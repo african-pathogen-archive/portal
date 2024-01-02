@@ -152,12 +152,13 @@ const Resources: React.FC = () => {
 							<Title style={{ width: '80%' }}>Resources</Title>
 
 							<Paragraph style={{ width: '80%' }}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-								irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-								pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-								deserunt mollit anim id est laborum.
+								The SARS-CoV-2 contextual data specification includes a metadata collection
+								template, reference guides, controlled vocabulary, and mapping to existing
+								standards. For more information and links to the SARS-COV2 contextual metadata
+								template, developed by the PHA4GE consortium, please visit{' '}
+								<a href="https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification">
+									https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+								</a>
 							</Paragraph>
 						</Content>
 						<Footer style={footerStyle}>
