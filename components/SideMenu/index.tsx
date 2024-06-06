@@ -15,19 +15,19 @@ import { useRouter } from 'next/router';
 import useAuthContext from '../../global/hooks/useAuthContext';
 
 const MenuItemUrls = new Map<string, string>([
-	['home', '/apa'],
-	['about', '/apa/about'],
-	['pathogen', '/apa/pathogens'],
-	['projects', '/apa/projects'],
-	['submission', '/apa/projects/sars-cov-2'],
-	['resources', '/apa/resources'],
-	['guides', '/apa/guides'],
-	['faqs', '/apa/faqs'],
-	['contact', '/apa/contact'],
-	['terms', '/apa/terms'],
-	['onboarding_administrators', '/apa/onboarding_administrators'],
-	['administrator_details', '/apa/onboarding_administrators/AdministratorDetailsPage'],
-	['edit_profile', '/apa/edit_profile/EditProfileDetailsPage'],
+	['home', '/'],
+	['about', '/about'],
+	['pathogen', '/pathogens'],
+	['projects', '/projects'],
+	['submission', '/projects/sars-cov-2'],
+	['resources', '/resources'],
+	['guides', '/guides'],
+	['faqs', '/faqs'],
+	['contact', '/contact'],
+	['terms', '/terms'],
+	['onboarding_administrators', '/onboarding_administrators'],
+	['administrator_details', '/onboarding_administrators/AdministratorDetailsPage'],
+	['edit_profile', '/edit_profile/EditProfileDetailsPage'],
 ]);
 
 type MenuItem = Required<MenuProps>['items'][number];
