@@ -44,7 +44,7 @@ const columns: ColumnsType<DataType> = [
 		render: (_, record) => (
 			<Space size="middle">
 				{record.key === 'sars-cov-2' ? (
-					<Link href={`/apa/pathogens/${record.key}`}>View</Link>
+					<Link href={`/pathogens/${record.key}`}>View</Link>
 				) : (
 					<span style={{ color: '#999' }}>View</span>
 				)}

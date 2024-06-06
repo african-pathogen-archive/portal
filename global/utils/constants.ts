@@ -32,12 +32,12 @@ export const ROOT_PATH = '/';
 
 export enum INTERNAL_PATHS {
 	ACKNOWLEDGEMENTS = '/acknowledgements',
-	APA = '/apa',
+	APA = '/',
 	EXPLORER = '/explorer',
 	LOGIN = '/login',
 	POLICIES = '/policies',
 	RELEASES = '/releases',
-	SUBMISSION = '/apa/projects/sars-cov-2',
+	SUBMISSION = '/projects/sars-cov-2',
 	STUDIES = '/studies',
 	TEAM = '/team',
 	USER = '/user',
@@ -45,12 +45,12 @@ export enum INTERNAL_PATHS {
 	ONBOARDING_REGISTER = '/onboarding',
 	ONBOARDING_ADMINISTRATOR_DETAILS = '/onboarding/administrator_details',
 	ONBOARDING_REQUEST_SUBMITTED = '/onboarding/request_submitted',
-	GUIDELINES = '/apa/guides',
-	CONTACT = '/apa/contact',
-	TERMS = '/apa/terms',
-	FAQS = '/apa/faqs',
-	APA_ONBOARDING_ADMINISTRATOR_DETAILS = '/apa/onboarding_administrators/AdministratorDetailsPage',
-	APA_ONBOARDING_REQUEST_SUBMITTED = '/apa/onboarding_administrators/RequestSubmitted',
+	GUIDELINES = '/guides',
+	CONTACT = '/contact',
+	TERMS = '/terms',
+	FAQS = '/faqs',
+	APA_ONBOARDING_ADMINISTRATOR_DETAILS = '/onboarding_administrators/AdministratorDetailsPage',
+	APA_ONBOARDING_REQUEST_SUBMITTED = '/onboarding_administrators/RequestSubmitted',
 }
 
 // external docs links
