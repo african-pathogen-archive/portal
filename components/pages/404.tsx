@@ -20,15 +20,26 @@
  */
 
 import { ReactElement } from 'react';
+import { Col, Row } from 'antd';
 
 import DMSAdminContact from '../DMSAdminContact';
 import { ErrorPageLayout } from '../PageLayout';
 
 const Error404 = (): ReactElement => {
 	return (
-		<ErrorPageLayout errorTitle="404: Page not found" subtitle="Error 404 - Page not found">
-			The page you requested could not be found. Please check that you have entered the correct URL.
-			If the problem persists, contact the <DMSAdminContact /> for help.
+		<ErrorPageLayout
+			status="404"
+			title="404: Page not found"
+			subtitle="Error 404 - Page not found"
+			iconImageUrl="/images/404.svg"
+		>
+			<Row justify="center">
+				<Col span={12}>
+					The page you requested could not be found. Please check that you have entered the correct
+					URL. If the problem persists, contact the
+					<DMSAdminContact /> for help.
+				</Col>
+			</Row>
 		</ErrorPageLayout>
 	);
 };

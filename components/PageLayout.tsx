@@ -19,13 +19,27 @@
  *
  */
 
+import { url } from 'inspector';
+
 import { ReactElement, ReactNode } from 'react';
 import { css } from '@emotion/react';
+import { Layout, Result, Button, Image } from 'antd';
+
+import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 import NavBar from './NavBar';
-import Footer from './Footer';
 import PageHead from './Head';
-import ErrorNotification from './ErrorNotification';
+// import ErrorNotification from './ErrorNotification';
+import TopBar from './TopBar';
+import PartnerLogosBanner from './pages/PartnerLogosBanner';
+
+const { Header, Footer, Sider, Content } = Layout;
+
+const footerStyle: React.CSSProperties = {
+	textAlign: 'center',
+	color: '#fff',
+	backgroundColor: '#ffffff',
+};
 
 const PageLayout = ({
 	children,
@@ -42,14 +56,19 @@ const PageLayout = ({
 					display: grid;
 					grid-template-rows: ${theme.dimensions.navbar.height}px 1fr ${theme.dimensions.footer
 							.height}px;
-					height: 100%;
+					height: 95%;
 					${theme.typography.regular}
 					color: ${theme.colors.black};
+					background-color: #f5f5f5;
 				`}
 			>
-				<NavBar />
+				<TopBar />
 				{children}
-				<Footer />
+				<Footer style={footerStyle}>
+					<div>
+						<PartnerLogosBanner />
+					</div>
+				</Footer>
 			</div>
 		</>
 	);
@@ -58,17 +77,29 @@ const PageLayout = ({
 export const ErrorPageLayout = ({
 	children,
 	subtitle,
-	errorTitle,
+	title,
+	status,
+	iconImageUrl,
 }: {
 	children: ReactNode;
 	subtitle: string;
-	errorTitle: string;
+	title: string;
+	status: string;
+	iconImageUrl: string;
 }): ReactElement => {
 	return (
 		<PageLayout subtitle={subtitle}>
-			<ErrorNotification size="lg" title={errorTitle}>
-				{children}
-			</ErrorNotification>
+			<Result
+				status={'error'}
+				title={title}
+				subTitle={children}
+				extra={
+					<Button href={INTERNAL_PATHS.APA} size="large" type="primary">
+						Back Home
+					</Button>
+				}
+				icon={<Image preview={false} width={200} src={iconImageUrl} />}
+			/>
 		</PageLayout>
 	);
 };

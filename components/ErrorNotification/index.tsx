@@ -35,10 +35,16 @@ const ErrorContentContainer = styled('div')`
 		border-radius: 5px;
 		${theme?.typography.subheading};
 		font-weight: normal;
-		background-color: ${theme?.colors.error_1};
+		background-color: ${theme?.colors.primary};
 		color: ${theme?.colors.accent_dark};
 		${getContainerStyles(size)};
 		max-width: 600px;
+		height: min-content;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 100px;
 	`}
 `;
 
@@ -46,6 +52,10 @@ const ErrorTitle = styled('h1')`
 	${({ size }: { size: ErrorSize }) => css`
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color: #4a0601;
+		text-decoration: underline;
 		${getTitleStyle(size)}
 	`}
 `;
