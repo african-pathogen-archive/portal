@@ -20,15 +20,25 @@
  */
 
 import { ReactElement } from 'react';
+import { Col, Row } from 'antd';
 
 import DMSAdminContact from './DMSAdminContact';
 import { ErrorPageLayout } from './PageLayout';
 
 const ClientError = (): ReactElement => {
 	return (
-		<ErrorPageLayout errorTitle="Oops! Something went wrong" subtitle="Oops! Something went wrong">
-			An unknown error has occurred. If the problem persists, contact the <DMSAdminContact /> for
-			help.
+		<ErrorPageLayout
+			status="404"
+			title="Oops! Something went wrong"
+			subtitle="Oops! Something went wrong"
+			iconImageUrl="/images/404.svg"
+		>
+			<Row justify="center">
+				<Col span={16}>
+					An unknown error has occurred. If the problem persists, contact the <DMSAdminContact />{' '}
+					for help.
+				</Col>
+			</Row>
 		</ErrorPageLayout>
 	);
 };

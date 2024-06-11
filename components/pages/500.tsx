@@ -20,15 +20,25 @@
  */
 
 import { ReactElement } from 'react';
+import { Col, Row } from 'antd';
 
 import DMSAdminContact from '../DMSAdminContact';
 import { ErrorPageLayout } from '../PageLayout';
 
 const Error500 = (): ReactElement => {
 	return (
-		<ErrorPageLayout errorTitle="500: Server Error" subtitle="Error 500 - Server Error">
-			The page you requested could not be accessed due to a server error. If the problem persists,
-			please contact the <DMSAdminContact /> for help.
+		<ErrorPageLayout
+			status="404"
+			title="500: Server Error"
+			subtitle="Error 500 - Server Error"
+			iconImageUrl="/images/500and403.svg"
+		>
+			<Row justify="center">
+				<Col span={16}>
+					The page you requested could not be accessed due to a server error. If the problem
+					persists, please contact the <DMSAdminContact /> for help.
+				</Col>
+			</Row>
 		</ErrorPageLayout>
 	);
 };

@@ -20,6 +20,7 @@
  */
 
 import { ReactElement } from 'react';
+import { Col, Row } from 'antd';
 
 import { DMS_EMAIL_SETTING_URL } from '../../global/utils/constants';
 import providerMap from '../../global/utils/providerTypeMap';
@@ -55,39 +56,57 @@ const Error403 = ({
 		case EgoLoginError.NO_PRIMARY_EMAIL:
 			return (
 				<ErrorPageLayout
+					status="403"
+					title={`${errorSubtitles[errorType]}`}
 					subtitle={`Error 403 - ${errorSubtitles[errorType]}`}
-					errorTitle={`${errorSubtitles[errorType]}`}
+					iconImageUrl="/images/500and403.svg"
 				>
-					No primary email could be found on your {providerTypeDisplayName} profile. An email is
-					required to log in to the Data Explorer. Make sure an email exists on your{' '}
-					{providerTypeDisplayName} profile and that it is accessible by external parties (i.e. not
-					private). See{' '}
-					<StyledLink href={DMS_EMAIL_SETTING_URL} target="_blank">
-						here
-					</StyledLink>{' '}
-					for instructions on how to do this.
+					<Row justify="center">
+						<Col span={16}>
+							No primary email could be found on your {providerTypeDisplayName} profile. An email is
+							required to log in to the Data Explorer. Make sure an email exists on your{' '}
+							{providerTypeDisplayName} profile and that it is accessible by external parties (i.e.
+							not private). See{' '}
+							<StyledLink href={DMS_EMAIL_SETTING_URL} target="_blank">
+								here
+							</StyledLink>{' '}
+							for instructions on how to do this.
+						</Col>
+					</Row>
 				</ErrorPageLayout>
 			);
 		case EgoLoginError.ACCESS_DENIED:
 			return (
 				<ErrorPageLayout
+					status="403"
+					title={`${errorSubtitles[errorType]}`}
 					subtitle={`Error 403 - ${errorSubtitles[errorType]}`}
-					errorTitle={`${errorSubtitles[errorType]}`}
+					iconImageUrl="/images/500and403.svg"
 				>
-					You have denied the DMS access to your {providerTypeDisplayName} profile or cancelled your
-					log in attempt. Please try again and approve access for {providerTypeDisplayName}, or log
-					in with a different provider for which you would prefer to allow access.
+					<Row justify="center">
+						<Col span={16}>
+							You have denied the DMS access to your {providerTypeDisplayName} profile or cancelled
+							your log in attempt. Please try again and approve access for {providerTypeDisplayName}
+							, or log in with a different provider for which you would prefer to allow access.
+						</Col>
+					</Row>
 				</ErrorPageLayout>
 			);
 		default:
 			return (
 				<ErrorPageLayout
+					status="403"
+					title="Permission required"
 					subtitle="Error 403 - Permission required"
-					errorTitle="Permission required"
+					iconImageUrl="/images/500and403.svg"
 				>
-					You do not have permission to access the requested page. Please check that you have
-					entered the correct URL. If the problem persists, contact the <DMSAdminContact /> for
-					help.
+					<Row justify="center">
+						<Col span={16}>
+							You do not have permission to access the requested page. Please check that you have
+							entered the correct URL. If the problem persists, contact the <DMSAdminContact /> for
+							help.
+						</Col>
+					</Row>
 				</ErrorPageLayout>
 			);
 	}
