@@ -77,6 +77,7 @@ const App: React.FC = () => {
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
 	}, []);
+    
 	return (
 		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>

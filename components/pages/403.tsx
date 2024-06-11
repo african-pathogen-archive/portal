@@ -101,7 +101,7 @@ const Error403 = ({
 					iconImageUrl="/images/500and403.svg"
 				>
 					<Row justify="center">
-						<Col span={16}>
+						<Col span={12}>
 							You do not have permission to access the requested page. Please check that you have
 							entered the correct URL. If the problem persists, contact the <DMSAdminContact /> for
 							help.

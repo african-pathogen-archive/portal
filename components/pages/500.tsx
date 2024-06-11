@@ -34,8 +34,8 @@ const Error500 = (): ReactElement => {
 			iconImageUrl="/images/500and403.svg"
 		>
 			<Row justify="center">
-				<Col span={16}>
-					The page you requested could not be accessed due to a server error. If the problem
+				<Col span={12}>
+					The page you requested could not be accessed due to an application error. If the problem
 					persists, please contact the <DMSAdminContact /> for help.
 				</Col>
 			</Row>

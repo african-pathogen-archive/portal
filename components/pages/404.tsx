@@ -34,9 +34,9 @@ const Error404 = (): ReactElement => {
 			iconImageUrl="/images/404.svg"
 		>
 			<Row justify="center">
-				<Col span={16}>
+				<Col span={12}>
 					The page you requested could not be found. Please check that you have entered the correct
-					URL.If the problem persists, contact the
+					URL. If the problem persists, contact the
 					<DMSAdminContact /> for help.
 				</Col>
 			</Row>
