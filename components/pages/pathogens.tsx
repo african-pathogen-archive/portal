@@ -30,6 +30,7 @@ import useAuthContext from '../../global/hooks/useAuthContext';
 import CurrentUser from '../NavBar/CurrentUser';
 import SideMenu from '../SideMenu';
 import { getConfig } from '../../global/config';
+import TopBar from '../TopBar';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
 
@@ -104,48 +105,7 @@ const Pathogens: React.FC = () => {
 	return (
 		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>
-				<Header style={headerStyle}>
-					<div
-						css={css`
-							display: flex;
-							align-items: center;
-							cursor: pointer;
-						`}
-					>
-						<InternalLink path={''}>
-							<a
-								css={css`
-									align-items: left;
-									text-decoration: none;
-									display: flex;
-									height: 100%;
-								`}
-							>
-								<img src="/images/logo.svg" alt="APA logo" width="180" />
-							</a>
-						</InternalLink>
-					</div>
-					{token === undefined && (
-						<div style={headerButtons}>
-							<Button
-								href={`${NEXT_PUBLIC_EGO_API_ROOT}/oauth/login/keycloak?client_id=${NEXT_PUBLIC_EGO_CLIENT_ID}`}
-							>
-								Login
-							</Button>
-							<Button
-								href={`${NEXT_PUBLIC_KEYCLOAK}registrations?client_id=ego&response_type=code&redirect_uri=${origin}`}
-								type="primary"
-							>
-								Register
-							</Button>
-						</div>
-					)}
-					{token && (
-						<div>
-							<CurrentUser />
-						</div>
-					)}
-				</Header>
+				<TopBar />
 				<Layout>
 					<Sider style={siderStyle} width={256}>
 						<SideMenu selectedKey={'pathogen'} />

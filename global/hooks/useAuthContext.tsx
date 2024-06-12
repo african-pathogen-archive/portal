@@ -22,7 +22,7 @@
 import { createContext, ReactElement, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { EGO_JWT_KEY } from '../utils/constants';
+import { EGO_JWT_KEY, INTERNAL_PATHS } from '../utils/constants';
 import { decodeToken, extractUser, isValidJwt } from '../utils/egoTokenUtils';
 import { getConfig } from '../config';
 import { UserWithId } from '../types';
@@ -74,8 +74,9 @@ export const AuthProvider = ({
 			category: 'User',
 			action: 'Logged out using dropdown',
 		});
+
 		setTimeout(
-			() => router.push(`${NEXT_PUBLIC_KEYCLOAK}logout?redirect_uri=${window.location.origin}`),
+			() => router.push(`${NEXT_PUBLIC_KEYCLOAK}logout?redirect_url=${window.location.origin}`),
 			2000,
 		);
 	};

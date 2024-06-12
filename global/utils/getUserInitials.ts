@@ -1,4 +1,4 @@
-export default function GetUsernameInitials(firstNane?: String) {
+export default function getUserInitials(firstNane?: String) {
 	if (!firstNane) {
 		return '';
 	}
