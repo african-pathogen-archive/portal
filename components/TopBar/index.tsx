@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
-import { FC, useEffect, useState } from 'react';
-import { Button, Layout } from 'antd';
+import React, { FC, useEffect, useState } from 'react';
+import { Avatar, Button, Dropdown, Layout, MenuProps } from 'antd';
 
 import useAuthContext from '@/global/hooks/useAuthContext';
 import { getConfig } from '@/global/config';
+import getUserInitials from '@/global/utils/getUserInitials';
 
 import { InternalLink } from '../Link';
 import CurrentUser from '../NavBar/CurrentUser';
@@ -32,6 +33,12 @@ const headerButtons: React.CSSProperties = {
 	alignItems: 'center',
 	width: 180,
 };
+const logoutSection: React.CSSProperties = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-around',
+	gap: '15px',
+};
 
 const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
 
@@ -40,10 +47,26 @@ interface propInterface {}
 export default function TopBar() {
 	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
 	const [origin, setOrigin] = useState('');
+	const { user } = useAuthContext();
 
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
 	}, []);
+
+	const items: MenuProps['items'] = [
+		{
+			key: '1',
+			label: (
+				<Button
+					onClick={() => logout(({ category = 'Button', action = 'Logout' }) => {})}
+					style={{ color: '#B76142' }}
+					type="link"
+				>
+					Logout
+				</Button>
+			),
+		},
+	];
 
 	return (
 		<Header style={headerStyle}>
@@ -83,8 +106,13 @@ export default function TopBar() {
 				</div>
 			)}
 			{token && (
-				<div>
+				<div style={logoutSection}>
 					<CurrentUser />
+					<Dropdown menu={{ items }}>
+						<a onClick={(e) => e.preventDefault()}>
+							<Avatar size="large">{getUserInitials(user?.firstName)}</Avatar>
+						</a>
+					</Dropdown>
 				</div>
 			)}
 		</Header>
