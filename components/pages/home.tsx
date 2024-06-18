@@ -21,21 +21,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography } from 'antd';
-import { css } from '@emotion/react';
 
-import { InternalLink } from '@/components/Link';
 import PathogenTable from '@/components/PathogenTable';
 import ProjectsTable from '@/components/ProjectsTable';
 
-import useAuthContext from '../../global/hooks/useAuthContext';
-import CurrentUser from '../NavBar/CurrentUser';
 import SideMenu from '../SideMenu';
-import { getConfig } from '../../global/config';
 import TopBar from '../TopBar';
 
 import PartnerLogosBanner from './PartnerLogosBanner';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 
 const contentStyle: React.CSSProperties = {
@@ -63,10 +58,7 @@ const footerStyle: React.CSSProperties = {
 	backgroundColor: '#ffffff',
 };
 
-const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
-
 const Home: React.FC = () => {
-	const { token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
