@@ -20,9 +20,8 @@
  */
 
 import { createContext, ReactElement, useContext, useState } from 'react';
-import { useRouter } from 'next/router';
 
-import { EGO_JWT_KEY, INTERNAL_PATHS } from '../utils/constants';
+import { EGO_JWT_KEY, INTERNAL_PATHS, ROOT_PATH } from '../utils/constants';
 import { decodeToken, extractUser, isValidJwt } from '../utils/egoTokenUtils';
 import { getConfig } from '../config';
 import { UserWithId } from '../types';
@@ -61,24 +60,28 @@ export const AuthProvider = ({
 		NEXT_PUBLIC_SCOPE_MUSE_STUDY_SYSTEM_WRITE,
 	} = getConfig();
 	const [token, setTokenState] = useState(egoJwt);
-	const router = useRouter();
 
 	const removeToken = () => {
 		localStorage.removeItem(EGO_JWT_KEY);
 		setTokenState('');
 	};
 
-	const logout = (logEvent: LogEventFunctionType) => {
+	const logout = async (logEvent: LogEventFunctionType) => {
 		removeToken();
 		logEvent({
 			category: 'User',
 			action: 'Logged out using dropdown',
 		});
 
-		setTimeout(
-			() => router.push(`${NEXT_PUBLIC_KEYCLOAK}logout?redirect_url=${window.location.origin}`),
-			2000,
-		);
+		await fetch(`${NEXT_PUBLIC_KEYCLOAK}logout/logout-confirm`, {
+			method: 'POST',
+			headers: {
+				'User-Agent': 'Mozilla/5.0',
+			},
+			mode: 'no-cors',
+		});
+
+		window.location.href = ROOT_PATH;
 	};
 
 	if (!token) {

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import React, { FC, useEffect, useState } from 'react';
-import { Avatar, Button, Dropdown, Layout, MenuProps } from 'antd';
+import { Avatar, Button, Dropdown, Layout, MenuProps, Modal } from 'antd';
 
 import useAuthContext from '@/global/hooks/useAuthContext';
 import { getConfig } from '@/global/config';
@@ -42,10 +42,8 @@ const logoutSection: React.CSSProperties = {
 
 const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
 
-interface propInterface {}
-
 export default function TopBar() {
-	const { logout, token, userHasAccessToStudySvc } = useAuthContext();
+	const { logout, token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
 	const { user } = useAuthContext();
 
@@ -53,15 +51,26 @@ export default function TopBar() {
 		window && setOrigin(window.location.origin);
 	}, []);
 
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const showModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const handleOk = () => {
+		logout(({ category = 'Button', action = 'Logout' }) => {});
+		setIsModalOpen(false);
+	};
+
+	const handleCancel = () => {
+		setIsModalOpen(false);
+	};
+
 	const items: MenuProps['items'] = [
 		{
 			key: '1',
 			label: (
-				<Button
-					onClick={() => logout(({ category = 'Button', action = 'Logout' }) => {})}
-					style={{ color: '#B76142' }}
-					type="link"
-				>
+				<Button onClick={() => showModal()} style={{ color: '#B76142' }} type="link">
 					Logout
 				</Button>
 			),
@@ -70,6 +79,9 @@ export default function TopBar() {
 
 	return (
 		<Header style={headerStyle}>
+			<Modal title="Confirm Logout" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+				<p>Are you sure you want to logout?</p>
+			</Modal>
 			<div
 				css={css`
 					display: flex;
