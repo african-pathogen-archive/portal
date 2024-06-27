@@ -56,7 +56,10 @@ const fetchEgoToken = (logEvent: (action: string) => void) => {
 			if (isValidJwt(jwt)) {
 				localStorage.setItem(EGO_JWT_KEY, jwt);
 				logEvent('Logged in');
-				setTimeout(() => Router.push(getInternalLink({ path: INTERNAL_PATHS.SUBMISSION })), 2000);
+				setTimeout(
+					() => (window.location.href = getInternalLink({ path: INTERNAL_PATHS.SUBMISSION })),
+					2000,
+				);
 			} else {
 				logEvent('Invalid JWT provided by Ego/Keycloak');
 				throw new Error('Invalid jwt, cannot login.');
@@ -66,7 +69,7 @@ const fetchEgoToken = (logEvent: (action: string) => void) => {
 			console.warn(err);
 			localStorage.removeItem(EGO_JWT_KEY);
 			logEvent('Failed to login');
-			Router.push(getInternalLink({ path: INTERNAL_PATHS.LOGIN }));
+			window.location.href = getInternalLink({ path: INTERNAL_PATHS.LOGIN });
 		});
 };
 
