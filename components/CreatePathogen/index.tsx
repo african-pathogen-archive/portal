@@ -65,7 +65,7 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 	};
 
 	return (
-		<div className="" style={{ width: '100%' }}>
+		<div style={{ width: '100%' }}>
 			<Toaster />
 			<Space
 				size={'small'}
@@ -130,13 +130,7 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 							/>
 						</Form.Item>
 						<Form.Item style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
-							<Button
-								loading={loading}
-								size="large"
-								block
-								type="primary"
-								htmlType="submit"
-							>
+							<Button loading={loading} size="large" block type="primary" htmlType="submit">
 								Create pathogen
 							</Button>
 						</Form.Item>
