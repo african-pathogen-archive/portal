@@ -72,7 +72,6 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 				direction={'horizontal'}
 				style={{ display: 'flex', justifyContent: 'end', lineHeight: '0', marginBottom: '1rem' }}
 			>
-				{/*<div className=""></div>*/}
 				<Button type="primary" size="middle" onClick={showModal}>
 					Create new pathogen
 				</Button>
@@ -137,7 +136,6 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 								block
 								type="primary"
 								htmlType="submit"
-								className="login-form-button"
 							>
 								Create pathogen
 							</Button>
