@@ -3,18 +3,16 @@ import Link from 'next/link';
 import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
-import { apiRequest } from '@/global/utils/api';
-import { HttpMethods } from '@/global/utils/constants';
+import { apiRequest, authorizedApiRequest } from '@/global/utils/api';
+import { API_ROUTES_PATHS, HttpMethods } from '@/global/utils/constants';
+import useAuthContext from '@/global/hooks/useAuthContext';
 
-interface NumberOfSamplesType {
-	count: number;
-	new: number;
-}
+import CreatePathogen from '../CreatePathogen';
 
 interface DataType {
 	key: string;
 	pathogen: string;
-	numberOfSamples: NumberOfSamplesType;
+	numberOfProjects: number;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -24,30 +22,16 @@ const columns: ColumnsType<DataType> = [
 		key: 'pathogen',
 	},
 	{
-		title: 'No. of samples',
-		key: 'numberOfSamples',
-		dataIndex: 'numberOfSamples',
-		render: (_, { numberOfSamples }) => (
-			<>
-				<span style={{ marginRight: 10 }}>{numberOfSamples.count}</span>
-				{numberOfSamples.new > 0 && (
-					<Tag color={'blue'} key={numberOfSamples.new}>
-						{`${numberOfSamples.new} new`}
-					</Tag>
-				)}
-			</>
-		),
+		title: 'No. of projects',
+		key: 'numberOfProjects',
+		dataIndex: 'numberOfProjects',
 	},
 	{
 		title: '',
 		key: 'action',
 		render: (_, record) => (
 			<Space size="middle">
-				{record.key === 'sars-cov-2' ? (
-					<Link href={`/pathogens/${record.key}`}>View</Link>
-				) : (
-					<span style={{ color: '#999' }}>View</span>
-				)}
+				{record.key && <Link href={`/pathogens/${record.key}`}>View</Link>}
 			</Space>
 		),
 	},
@@ -57,25 +41,49 @@ function convertToTableData(responseData: []): DataType[] {
 	return responseData.map((element: any) => {
 		return {
 			key: element.id,
-			pathogen: element.item.pathogen,
-			numberOfSamples: {
-				count: element.item.noOfSamples,
-				new: 0,
-			},
+			pathogen: element.common_name,
+			numberOfProjects: element.project_count,
 		};
 	});
 }
 
 const PathogenTable: React.FC = () => {
 	const [data, setData] = useState<any[]>([]);
+	const [tableDataLoading, setTableDataLoading] = useState<boolean>(true);
+
+	const { userHasProjectWriteAccess } = useAuthContext();
 
 	useEffect(() => {
-		apiRequest(HttpMethods.GET, 'read').then((res) => {
-			setData(convertToTableData(res));
-		});
+		getPathogens();
+		return () => {
+			setData([]);
+		};
 	}, []);
 
-	return <Table columns={columns} dataSource={data} style={{ width: '80%' }} />;
+	const getPathogens = () => {
+		apiRequest(HttpMethods.GET, API_ROUTES_PATHS.PATHOGENS)
+			.then((data) => {
+				setData(convertToTableData(data));
+				setTableDataLoading(false);
+			})
+			.catch((error) => {
+				console.log(error);
+				setTableDataLoading(false);
+			});
+	};
+
+	return (
+		<div style={{ width: '80%' }}>
+			{userHasProjectWriteAccess && <CreatePathogen refetchPathogens={getPathogens} />}
+			<Table
+				columns={columns}
+				dataSource={data}
+				style={{ width: '100%' }}
+				loading={tableDataLoading}
+			/>
+			;
+		</div>
+	);
 };
 
 export default PathogenTable;

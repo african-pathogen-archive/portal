@@ -20,6 +20,7 @@
  */
 
 import getNextConfig from 'next/config';
+import { boolean } from 'yup';
 
 type Config = {
 	NEXT_PUBLIC_VIRUSSEQ_API_URL: string;
@@ -42,6 +43,7 @@ type Config = {
 	NEXT_PUBLIC_LOGO_FILENAME: string;
 	NEXT_PUBLIC_MUSE_API: string;
 	NEXT_PUBLIC_SINGULARITY_API_URL: string;
+	NEXT_PUBLIC_PROJECT_API_URL: string;
 	NEXT_PUBLIC_SSO_PROVIDERS: string;
 	NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: string;
 	NEXT_PUBLIC_RELEASE_DATE: string;
@@ -55,6 +57,7 @@ type Config = {
 	NEXT_PUBLIC_ENABLE_DOWNLOADS: boolean;
 	NEXT_PUBLIC_ENABLE_LOGIN: boolean;
 	NEXT_PUBLIC_ENABLE_REGISTRATION: boolean;
+	NEXT_PUBLIC_SCOPE_PROJECT_SVC_WRITE: string;
 };
 
 export const getConfig = (): Config => {
@@ -86,6 +89,7 @@ export const getConfig = (): Config => {
 		NEXT_PUBLIC_LOGO_FILENAME: publicConfig.NEXT_PUBLIC_LOGO_FILENAME,
 		NEXT_PUBLIC_MUSE_API: publicConfig.NEXT_PUBLIC_MUSE_API || '',
 		NEXT_PUBLIC_SINGULARITY_API_URL: publicConfig.NEXT_PUBLIC_SINGULARITY_API_URL || '',
+		NEXT_PUBLIC_PROJECT_API_URL: publicConfig.NEXT_PUBLIC_PROJECT_API_URL || '',
 		NEXT_PUBLIC_SSO_PROVIDERS: publicConfig.NEXT_PUBLIC_SSO_PROVIDERS || '',
 		NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: publicConfig.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
 		NEXT_PUBLIC_RELEASE_DATE: publicConfig.NEXT_PUBLIC_RELEASE_DATE || '',
@@ -105,5 +109,7 @@ export const getConfig = (): Config => {
 			(publicConfig.NEXT_PUBLIC_ENABLE_LOGIN || '').toLowerCase() === 'true',
 		NEXT_PUBLIC_ENABLE_REGISTRATION:
 			(publicConfig.NEXT_PUBLIC_ENABLE_REGISTRATION || '').toLowerCase() === 'true',
+		NEXT_PUBLIC_SCOPE_PROJECT_SVC_WRITE:
+			publicConfig.NEXT_PUBLIC_SCOPE_PROJECT_SVC_WRITE || 'PROJECTS-SERVICE.WRITE',
 	};
 };

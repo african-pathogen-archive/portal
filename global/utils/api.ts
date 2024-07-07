@@ -1,20 +1,21 @@
-import { HttpMethods } from './constants';
+import { getConfig } from '@/global/config';
+
+import { HttpMethods, INTERNAL_PATHS } from './constants';
+
+const { NEXT_PUBLIC_PROJECT_API_URL } = getConfig();
 
 export async function apiRequest(method: HttpMethods, url = '', data = {}) {
-	const BASE_URL = 'https://us-central1-apa-beta-e5aa0.cloudfunctions.net/app/api/';
-	// Default options are marked with *
-	const response = await fetch(`${BASE_URL}${url}`, {
-		method: method, // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
+	const response = await fetch(`${NEXT_PUBLIC_PROJECT_API_URL}${url}`, {
+		method: method,
+		mode: 'cors',
+		cache: 'no-cache',
+		credentials: 'same-origin',
 		headers: {
 			'Content-Type': 'application/json',
-			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: method !== HttpMethods.GET ? JSON.stringify(data) : null, // body data type must match "Content-Type" header
+		redirect: 'follow',
+		referrerPolicy: 'no-referrer',
+		body: method !== HttpMethods.GET ? JSON.stringify(data) : null,
 	});
 
 	if (!response.ok) {
@@ -22,5 +23,34 @@ export async function apiRequest(method: HttpMethods, url = '', data = {}) {
 		throw errorObj;
 	}
 
-	return await response.json(); // parses JSON response into native JavaScript objects
+	return await response.json();
+}
+
+export async function authorizedApiRequest(method: HttpMethods, url = '', data = {}) {
+	const response = await fetch(`${NEXT_PUBLIC_PROJECT_API_URL}${url}`, {
+		method: method,
+		mode: 'cors',
+		cache: 'default',
+		credentials: 'same-origin',
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem('EGO_JWT')}`,
+			'Content-Type': 'application/json',
+			'Cache-Control': 'public, s-maxage=86400',
+		},
+		redirect: 'follow',
+		referrerPolicy: 'no-referrer',
+		body: method !== HttpMethods.GET ? JSON.stringify(data) : null,
+	});
+
+	if (response.status === 401) {
+		window.location.href = INTERNAL_PATHS.LOGIN;
+		throw new Error('Unauthorized');
+	}
+
+	if (!response.ok) {
+		const errorObj = await response.json();
+		throw errorObj;
+	}
+
+	return response.json();
 }

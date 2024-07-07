@@ -95,3 +95,7 @@ export enum HttpMethods {
 	POST = 'POST',
 	PUT = 'PUT',
 }
+
+export const API_ROUTES_PATHS = {
+	PATHOGENS: '/pathogens',
+};
