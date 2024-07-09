@@ -45,13 +45,12 @@ const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOA
 export default function TopBar() {
 	const { logout, token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { user } = useAuthContext();
 
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
 	}, []);
-
-	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const showModal = () => {
 		setIsModalOpen(true);
