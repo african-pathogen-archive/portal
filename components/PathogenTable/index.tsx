@@ -8,34 +8,13 @@ import { API_ROUTES_PATHS, HttpMethods } from '@/global/utils/constants';
 import useAuthContext from '@/global/hooks/useAuthContext';
 
 import CreatePathogen from '../CreatePathogen';
+import UpdatePathogen from '../UpdatePathogen';
 
 interface DataType {
 	key: string;
 	pathogen: string;
 	numberOfProjects: number;
 }
-
-const columns: ColumnsType<DataType> = [
-	{
-		title: 'Pathogen',
-		dataIndex: 'pathogen',
-		key: 'pathogen',
-	},
-	{
-		title: 'No. of projects',
-		key: 'numberOfProjects',
-		dataIndex: 'numberOfProjects',
-	},
-	{
-		title: '',
-		key: 'action',
-		render: (_, record) => (
-			<Space size="middle">
-				{record.key && <Link href={`/pathogens/${record.key}`}>View</Link>}
-			</Space>
-		),
-	},
-];
 
 function convertToTableData(responseData: []): DataType[] {
 	return responseData.map((element: any) => {
@@ -71,6 +50,40 @@ const PathogenTable: React.FC = () => {
 				setTableDataLoading(false);
 			});
 	};
+
+	const columns: ColumnsType<DataType> = [
+		{
+			title: 'Pathogen',
+			dataIndex: 'pathogen',
+			key: 'pathogen',
+		},
+		{
+			title: 'No. of projects',
+			key: 'numberOfProjects',
+			dataIndex: 'numberOfProjects',
+		},
+		{
+			title: 'View',
+			key: 'action',
+			render: (_, record) => (
+				<Space size="middle">
+					{record.key && <Link href={`/pathogens/${record.key}`}>View</Link>}
+				</Space>
+			),
+		},
+	];
+
+	if (userHasProjectWriteAccess) {
+		columns.push({
+			title: 'Edit',
+			key: 'actionUpdate',
+			render: (_, record) => (
+				<Space size="middle">
+					{record.key && <UpdatePathogen id={record.key} refetchPathogens={getPathogens} />}
+				</Space>
+			),
+		});
+	}
 
 	return (
 		<div style={{ width: '80%' }}>

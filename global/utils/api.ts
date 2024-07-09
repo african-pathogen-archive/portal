@@ -3,7 +3,6 @@ import { getConfig } from '@/global/config';
 import { HttpMethods, INTERNAL_PATHS } from './constants';
 
 const { NEXT_PUBLIC_PROJECT_API_URL } = getConfig();
-
 export async function apiRequest(method: HttpMethods, url = '', data = {}) {
 	const response = await fetch(`${NEXT_PUBLIC_PROJECT_API_URL}${url}`, {
 		method: method,
