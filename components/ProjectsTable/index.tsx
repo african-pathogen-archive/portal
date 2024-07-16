@@ -1,87 +1,137 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button, Space, Table, Tag, Typography, Input } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import dayjs from 'dayjs';
+
+import { authorizedApiRequest } from '@/global/utils/api';
+import { API_ROUTES_PATHS, HttpMethods } from '@/global/utils/constants';
 
 import useAuthContext from '../../global/hooks/useAuthContext';
+import CreateProject from '../CreateProject';
 
 const { Title } = Typography;
-const { Search } = Input;
-
-interface NumberOfSamplesType {
-	count: number;
-	new: number;
-}
 
 interface DataType {
 	key: string;
-	projectId: string;
-	dateCreated: Date;
+	pid: string;
+	title: string;
 	pathogen: string;
-	numberOfSamples: NumberOfSamplesType;
-	collaborators: number;
+	studyCount: number;
+	dateCreated: string;
+}
+
+function convertToTableData(responseData: []): DataType[] {
+	return responseData.map((element: any) => {
+		return {
+			key: element.id,
+			pid: element.pid,
+			title: element.title,
+			pathogen: element.pathogen?.common_name,
+			studyCount: element.study_count,
+			dateCreated: element.created_at,
+		};
+	});
 }
 
 const columns: ColumnsType<DataType> = [
 	{
 		title: 'Project ID',
-		dataIndex: 'projectId',
-		key: 'projectId',
-	},
-	{
-		title: 'No. of samples',
-		key: 'numberOfSamples',
-		dataIndex: 'numberOfSamples',
-		render: (_, { numberOfSamples }) => (
-			<>
-				<span style={{ marginRight: 10 }}>{numberOfSamples.count}</span>
-				{numberOfSamples.new > 0 && (
-					<Tag color={'blue'} key={numberOfSamples.new}>
-						{`${numberOfSamples.new} new`}
-					</Tag>
-				)}
-			</>
+		dataIndex: 'pid',
+		key: 'pid',
+		sorter: (a, b) => a.pid.localeCompare(b.pid),
+		render: (_, record) => (
+			<Space size="middle">
+				<Link href={`/projects/${record.key}`}>{record.pid}</Link>
+			</Space>
 		),
+		filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+			<div style={{ padding: 8 }}>
+				<Input
+					placeholder="Search Project ID"
+					value={selectedKeys[0]}
+					onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+					onPressEnter={() => confirm()}
+					style={{ width: 188, marginBottom: 8, display: 'block' }}
+				/>
+				<Button onClick={() => confirm()}>Filter</Button>
+			</div>
+		),
+		onFilter: (value, record) => record.pid.toLowerCase().includes(value.toString().toLowerCase()),
 	},
 	{
-		title: 'Date created',
-		dataIndex: 'dateCreated',
-		key: 'dateCreated',
+		title: 'Title',
+		dataIndex: 'title',
+		key: 'title',
+		sorter: (a, b) => a.title.localeCompare(b.title),
+		filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+			<div style={{ padding: 8 }}>
+				<Input
+					placeholder="Search Title"
+					value={selectedKeys[0]}
+					onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+					onPressEnter={() => confirm()}
+					style={{ width: 188, marginBottom: 8, display: 'block' }}
+				/>
+				<Button onClick={() => confirm()}>Filter</Button>
+			</div>
+		),
+		onFilter: (value, record) =>
+			record.title.toLowerCase().includes(value.toString().toLowerCase()),
 	},
 	{
 		title: 'Pathogen',
 		dataIndex: 'pathogen',
 		key: 'pathogen',
+		sorter: (a, b) => (a.pathogen && b.pathogen ? a.pathogen.localeCompare(b.pathogen) : 0 - 0),
+		filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+			<div style={{ padding: 8 }}>
+				<Input
+					placeholder="Search Pathogen"
+					value={selectedKeys[0]}
+					onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+					onPressEnter={() => confirm()}
+					style={{ width: 188, marginBottom: 8, display: 'block' }}
+				/>
+				<Button onClick={() => confirm()}>Filter</Button>
+			</div>
+		),
+		onFilter: (value, record) =>
+			record.pathogen != undefined
+				? record.pathogen.toLowerCase().includes(value.toString().toLowerCase())
+				: record.pathogen,
 	},
 	{
-		title: 'Collaborators',
-		dataIndex: 'collaborators',
-		key: 'collaborators',
+		title: 'No. of studies',
+		dataIndex: 'studyCount',
+		key: 'studyCount',
+		sorter: (a, b) => a.studyCount - b.studyCount,
 	},
 	{
-		title: '',
-		key: 'action',
+		title: 'Date Created',
+		dataIndex: 'dateCreated',
+		key: 'dateCreated',
+		sorter: (a, b) => a.dateCreated.localeCompare(b.dateCreated),
 		render: (_, record) => (
-			<Space size="middle">
-				<Link href={`/apa/projects/${record.key}`}>View</Link>
-			</Space>
+			<Space size="middle">{dayjs(record.dateCreated).format('YYYY-MM-DD')}</Space>
 		),
 	},
 ];
 
-const data: DataType[] = [
-	{
-		key: 'sars-cov2-kzn',
-		projectId: 'SARS-cov2 KwaZulu-Natal',
-		dateCreated: new Date(),
-		pathogen: 'SARS-cov-2',
-		collaborators: 2,
-		numberOfSamples: { count: 653, new: 50 },
-	},
-];
-
 const ProjectsTable: React.FC = () => {
-	//const { token } = useAuthContext();
+	const [data, setData] = useState<any[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
+
+	const { userHasProjectWriteAccess } = useAuthContext();
+
+	useEffect(() => {
+		authorizedApiRequest(HttpMethods.GET, API_ROUTES_PATHS.PROJECTS)
+			.then((data) => {
+				setData(convertToTableData(data));
+				setLoading(false);
+			})
+			.catch((error) => console.log(error));
+	}, []);
 
 	return (
 		<>
@@ -90,24 +140,14 @@ const ProjectsTable: React.FC = () => {
 					Your projects
 				</Title>
 				<Space
+					size={'small'}
 					direction={'horizontal'}
-					style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}
+					style={{ display: 'flex', justifyContent: 'end', lineHeight: '0', marginBottom: '1rem' }}
 				>
-					<Search
-						placeholder="input search text"
-						allowClear
-						onSearch={() => {}}
-						style={{ width: 200 }}
-					/>
-					<div>
-						<a style={{ marginRight: 10 }} href="/">
-							View all
-						</a>
-						<Button type={'primary'}>New project</Button>
-					</div>
+					{userHasProjectWriteAccess && <CreateProject />}
 				</Space>
 			</div>
-			<Table columns={columns} dataSource={data} style={{ width: '80%' }} />
+			<Table columns={columns} dataSource={data} loading={loading} style={{ width: '80%' }} />
 		</>
 	);
 };

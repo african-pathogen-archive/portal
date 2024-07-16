@@ -51,6 +51,7 @@ export enum INTERNAL_PATHS {
 	FAQS = '/faqs',
 	APA_ONBOARDING_ADMINISTRATOR_DETAILS = '/onboarding_administrators/AdministratorDetailsPage',
 	APA_ONBOARDING_REQUEST_SUBMITTED = '/onboarding_administrators/RequestSubmitted',
+	PROJECTS = '/projects',
 }
 
 // external docs links
@@ -98,4 +99,5 @@ export enum HttpMethods {
 
 export const API_ROUTES_PATHS = {
 	PATHOGENS: '/pathogens',
+	PROJECTS: '/projects',
 };
