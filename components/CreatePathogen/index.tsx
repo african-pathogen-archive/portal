@@ -73,11 +73,11 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 				style={{ display: 'flex', justifyContent: 'end', lineHeight: '0', marginBottom: '1rem' }}
 			>
 				<Button type="primary" size="middle" onClick={showModal}>
-					Create new pathogen
+					Add new pathogen
 				</Button>
 
 				<Modal
-					title="Create new pathogen"
+					title="Add new pathogen"
 					open={isModalOpen}
 					onOk={handleOk}
 					onCancel={handleCancel}
@@ -131,7 +131,7 @@ const CreatePathogen: React.FC<PropsInterface> = ({ refetchPathogens }) => {
 						</Form.Item>
 						<Form.Item style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
 							<Button loading={loading} size="large" block type="primary" htmlType="submit">
-								Create pathogen
+								Add new pathogen
 							</Button>
 						</Form.Item>
 					</Form>

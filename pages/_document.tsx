@@ -10,6 +10,7 @@ const Document = () => {
 		<Html>
 			<Head>
 				<link rel="shortcut icon" href={urlJoin(NEXT_PUBLIC_BASE_PATH, '/images/favicon.ico')} />
+				<title>Agari</title>
 			</Head>
 
 			<body>

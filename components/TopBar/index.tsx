@@ -5,6 +5,7 @@ import { Avatar, Button, Dropdown, Layout, MenuProps, Modal } from 'antd';
 import useAuthContext from '@/global/hooks/useAuthContext';
 import { getConfig } from '@/global/config';
 import getUserInitials from '@/global/utils/getUserInitials';
+import { INTERNAL_PATHS } from '@/global/utils/constants';
 
 import { InternalLink } from '../Link';
 import CurrentUser from '../NavBar/CurrentUser';
@@ -88,7 +89,7 @@ export default function TopBar() {
 					cursor: pointer;
 				`}
 			>
-				<InternalLink path={''}>
+				<InternalLink path={INTERNAL_PATHS.APA}>
 					<a
 						css={css`
 							align-items: left;
