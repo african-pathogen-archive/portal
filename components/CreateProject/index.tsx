@@ -93,11 +93,11 @@ const CreateProject: React.FC = () => {
 				style={{ display: 'flex', justifyContent: 'end', lineHeight: '0', marginBottom: '1rem' }}
 			>
 				<Button type="primary" size="middle" onClick={showModal}>
-					Create new project
+					Add new project
 				</Button>
 
 				<Modal
-					title="Create new project"
+					title="Add new project"
 					open={isModalOpen}
 					onOk={handleOk}
 					onCancel={handleCancel}
@@ -139,7 +139,7 @@ const CreateProject: React.FC = () => {
 							/>
 						</Form.Item>
 						<Form.Item
-							label="Pathogen ID"
+							label="Pathogen"
 							name="Pathogen ID"
 							rules={[{ required: true, message: 'Please select a pathogen' }]}
 						>
@@ -152,7 +152,7 @@ const CreateProject: React.FC = () => {
 						</Form.Item>
 						<Form.Item style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
 							<Button loading={loading} size="large" block type="primary" htmlType="submit">
-								Create project
+								Add new project
 							</Button>
 						</Form.Item>
 					</Form>

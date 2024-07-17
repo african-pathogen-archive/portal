@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button, Space, Table, Tag, Typography, Input } from 'antd';
+import { Button, Space, Table, Tag, Typography, Input, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
 
@@ -10,7 +10,7 @@ import { API_ROUTES_PATHS, HttpMethods } from '@/global/utils/constants';
 import useAuthContext from '../../global/hooks/useAuthContext';
 import CreateProject from '../CreateProject';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 interface DataType {
 	key: string;
@@ -19,6 +19,7 @@ interface DataType {
 	pathogen: string;
 	studyCount: number;
 	dateCreated: string;
+	description: string;
 }
 
 function convertToTableData(responseData: []): DataType[] {
@@ -30,6 +31,7 @@ function convertToTableData(responseData: []): DataType[] {
 			pathogen: element.pathogen?.common_name,
 			studyCount: element.study_count,
 			dateCreated: element.created_at,
+			description: element.description,
 		};
 	});
 }
@@ -42,7 +44,11 @@ const columns: ColumnsType<DataType> = [
 		sorter: (a, b) => a.pid.localeCompare(b.pid),
 		render: (_, record) => (
 			<Space size="middle">
-				<Link href={`/projects/${record.key}`}>{record.pid}</Link>
+				<Tooltip title={record?.description}>
+					<Text>
+						<Link href={`/projects/${record.key}`}>{record.pid}</Link>
+					</Text>
+				</Tooltip>
 			</Space>
 		),
 		filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -63,6 +69,13 @@ const columns: ColumnsType<DataType> = [
 		title: 'Title',
 		dataIndex: 'title',
 		key: 'title',
+		render: (_, record) => (
+			<Space size="middle">
+				<Tooltip title={record?.description}>
+					<Text>{record.title}</Text>
+				</Tooltip>
+			</Space>
+		),
 		sorter: (a, b) => a.title.localeCompare(b.title),
 		filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
 			<div style={{ padding: 8 }}>
@@ -137,7 +150,7 @@ const ProjectsTable: React.FC = () => {
 		<>
 			<div style={{ width: '80%', lineHeight: 0 }}>
 				<Title level={4} style={{ width: '80%' }}>
-					Your projects
+					Projects
 				</Title>
 				<Space
 					size={'small'}
