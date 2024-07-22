@@ -19,7 +19,7 @@ const MenuItemUrls = new Map<string, string>([
 	['about', '/about'],
 	['pathogen', '/pathogens'],
 	['projects', '/projects'],
-	['submission', '/projects/sars-cov-2'],
+	['submission', '/submission'],
 	['resources', '/resources'],
 	['guides', '/guides'],
 	['faqs', '/faqs'],

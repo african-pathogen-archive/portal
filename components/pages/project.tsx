@@ -23,45 +23,15 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Space, Button, Typography, Input, Breadcrumb, Upload } from 'antd';
 import { css } from '@emotion/react';
 
-import { InternalLink } from '@/components/Link';
-import UploadInstructions from '@/components/UploadInstructions';
-
 import useAuthContext from '../../global/hooks/useAuthContext';
-import CurrentUser from '../NavBar/CurrentUser';
 import SideMenu from '../SideMenu';
 import { getConfig } from '../../global/config';
 import TopBar from '../TopBar';
+import ProjectDetails from '../ProjectDetails';
 
-import HistoricalSubmissions from './submission/HistoricalSubmissions';
-import NewSubmissions from './submission/ApaNewSubmissions';
 import PartnerLogosBanner from './PartnerLogosBanner';
 
 const { Header, Footer, Sider, Content } = Layout;
-const { Title } = Typography;
-const { Dragger } = Upload;
-
-const headerStyle: React.CSSProperties = {
-	textAlign: 'center',
-	color: '#000',
-	height: 64,
-	paddingInline: 50,
-	lineHeight: '64px',
-	backgroundColor: '#ffffff',
-	display: 'flex',
-	justifyItems: 'center',
-	justifyContent: 'space-between',
-	position: 'sticky',
-	top: 0,
-	zIndex: 1,
-	width: '100%',
-};
-
-const headerButtons: React.CSSProperties = {
-	display: 'flex',
-	justifyContent: 'space-around',
-	alignItems: 'center',
-	width: 180,
-};
 
 const contentStyle: React.CSSProperties = {
 	textAlign: 'left',
@@ -81,12 +51,6 @@ const contentStyle: React.CSSProperties = {
 	width: '95%',
 };
 
-const descriptiveText: React.CSSProperties = {
-	width: '80%',
-	display: 'flex',
-	justifyContent: 'space-between',
-};
-
 const siderStyle: React.CSSProperties = {
 	textAlign: 'center',
 	lineHeight: '120px',
@@ -102,19 +66,14 @@ const footerStyle: React.CSSProperties = {
 	height: 64,
 };
 
-const { NEXT_PUBLIC_EGO_API_ROOT, NEXT_PUBLIC_EGO_CLIENT_ID, NEXT_PUBLIC_KEYCLOAK } = getConfig();
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
 const Project: React.FC = () => {
 	const { token } = useAuthContext();
 	const [origin, setOrigin] = useState('');
+
 	useEffect(() => {
 		window && setOrigin(window.location.origin);
 	}, []);
+
 	return (
 		<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
 			<Layout>
@@ -133,20 +92,15 @@ const Project: React.FC = () => {
 							}}
 							items={[
 								{
-									title: 'Projects',
+									title: 'Project',
 								},
 								{
-									title: 'SARS-Cov-2',
+									title: 'Details',
 								},
 							]}
 						/>
 						<Content style={contentStyle}>
-							<Title level={4} style={{ width: '100%' }}>
-								Submit your data
-							</Title>
-							<UploadInstructions />
-							<NewSubmissions />
-							<HistoricalSubmissions />
+							<ProjectDetails />
 						</Content>
 						<Footer style={footerStyle}>
 							<div>
