@@ -22,7 +22,7 @@ interface DataType {
 	description: string;
 }
 
-function convertToTableData(responseData: []): DataType[] {
+function convertToTableData(responseData: any[]): DataType[] {
 	return responseData.map((element: any) => {
 		return {
 			key: element.id,
@@ -140,7 +140,8 @@ const ProjectsTable: React.FC = () => {
 	useEffect(() => {
 		authorizedApiRequest(HttpMethods.GET, API_ROUTES_PATHS.PROJECTS)
 			.then((data) => {
-				setData(convertToTableData(data));
+				const projects: any[] = [...data].filter((project) => project.deleted_at == null);
+				setData(convertToTableData(projects));
 				setLoading(false);
 			})
 			.catch((error) => console.log(error));

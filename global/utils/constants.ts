@@ -37,7 +37,7 @@ export enum INTERNAL_PATHS {
 	LOGIN = '/login',
 	POLICIES = '/policies',
 	RELEASES = '/releases',
-	SUBMISSION = '/projects/sars-cov-2',
+	SUBMISSION = '/submission/holderSubmission',
 	STUDIES = '/studies',
 	TEAM = '/team',
 	USER = '/user',
@@ -95,9 +95,11 @@ export enum HttpMethods {
 	GET = 'GET',
 	POST = 'POST',
 	PUT = 'PUT',
+	DELETE = 'DELETE',
 }
 
 export const API_ROUTES_PATHS = {
 	PATHOGENS: '/pathogens',
 	PROJECTS: '/projects',
+	USERS: '/users',
 };
