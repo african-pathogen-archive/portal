@@ -20,9 +20,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Card, Divider, Modal, Button, message } from 'antd';
+import { Card, Divider, Modal } from 'antd';
 import { useRouter } from 'next/router';
-import { EditOutlined, DeleteOutlined, UserAddOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Toaster } from 'react-hot-toast';
 
 import { authorizedApiRequest } from '@/global/utils/api';
@@ -31,6 +31,7 @@ import toast, { ToastType } from '@/global/utils/toast';
 
 import useAuthContext from '../../global/hooks/useAuthContext';
 import UpdateProject from '../ProjectUpdate';
+import ProjectInviteUsers from '../ProjectInviteUsers';
 
 const CardDivColumn: React.CSSProperties = {
 	display: 'flex',
@@ -69,6 +70,7 @@ function convertToTableData(responseData: any): Project {
 		studyCount: responseData?.study_count,
 	};
 }
+
 const ProjectDetails: React.FC = () => {
 	const [origin, setOrigin] = useState('');
 	const [loading, setLoading] = useState(true);
@@ -201,9 +203,7 @@ const ProjectDetails: React.FC = () => {
 								<span style={{ textAlign: 'right', maxWidth: 600 }}>{project?.description} </span>
 							</div>
 							<Divider />
-							<Button type="primary" icon={<UserAddOutlined />} ghost>
-								Invite users to project
-							</Button>
+							<ProjectInviteUsers />
 						</>
 					}
 				/>

@@ -51,5 +51,10 @@ export async function authorizedApiRequest(method: HttpMethods, url = '', data =
 		throw errorObj;
 	}
 
-	return response.json();
+	const contentLength = response.headers.get('Content-Length');
+	if (contentLength && parseInt(contentLength) > 0) {
+		return response.json();
+	} else {
+		return;
+	}
 }
