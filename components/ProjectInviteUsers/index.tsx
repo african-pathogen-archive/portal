@@ -93,10 +93,10 @@ const ProjectInviteUsers: FC = () => {
 	return (
 		<>
 			<Button onClick={() => showModal()} type="primary" icon={<UserAddOutlined />} ghost>
-				Invite users to project
+				Add users to project
 			</Button>
 			<Modal
-				title="Invite users to the project"
+				title="Add users to project"
 				open={isModalOpen}
 				onOk={handleOk}
 				onCancel={handleCancel}
@@ -117,7 +117,7 @@ const ProjectInviteUsers: FC = () => {
 							onClear={handleClear}
 							value={selectedUsers}
 							style={{ width: '100%' }}
-							placeholder="Please select users to invite"
+							placeholder="Please select users to add"
 							onChange={handleChange}
 							options={users}
 							showSearch
@@ -133,7 +133,7 @@ const ProjectInviteUsers: FC = () => {
 							type="primary"
 							htmlType="submit"
 						>
-							Invite users
+							Add users
 						</Button>
 					</Form.Item>
 				</Form>
