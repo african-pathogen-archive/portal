@@ -92,10 +92,12 @@ const Studies: FC<Props> = ({ isGroupMember }) => {
 					style={{ width: '100%' }}
 					loading={loading}
 					bordered
-					title={() => <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-						<Title level={5}>Studies</Title>
-						{isGroupMember && <AddStudy />}
-					</div>}
+					title={() => (
+						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+							<Title level={5}>Studies</Title>
+							{isGroupMember && <AddStudy />}
+						</div>
+					)}
 				/>
 			</div>
 		</>

@@ -53,11 +53,7 @@ const AddStudy: FC = () => {
 	return (
 		<div>
 			<Toaster />
-			<Space
-				size={'small'}
-				direction={'horizontal'}
-				style={{ marginBottom: '1rem' }}
-			>
+			<Space size={'small'} direction={'horizontal'} style={{ marginBottom: '1rem' }}>
 				<Button type="primary" size="middle" onClick={handleOk}>
 					Add study
 				</Button>
@@ -83,7 +79,11 @@ const AddStudy: FC = () => {
 							name="Study"
 							rules={[{ required: true, message: 'Study ID is required' }]}
 						>
-							<Input value={study} onChange={(e) => setStudy(e.target.value)} placeholder="Study ID" />
+							<Input
+								value={study}
+								onChange={(e) => setStudy(e.target.value)}
+								placeholder="Study ID"
+							/>
 						</Form.Item>
 						<Form.Item
 							label="Description"
