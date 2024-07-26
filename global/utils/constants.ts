@@ -102,4 +102,5 @@ export const API_ROUTES_PATHS = {
 	PATHOGENS: '/pathogens',
 	PROJECTS: '/projects',
 	USERS: '/users',
+	STUDIES: '/studies',
 };

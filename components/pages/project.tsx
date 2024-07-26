@@ -25,7 +25,6 @@ import { css } from '@emotion/react';
 
 import useAuthContext from '../../global/hooks/useAuthContext';
 import SideMenu from '../SideMenu';
-import { getConfig } from '../../global/config';
 import TopBar from '../TopBar';
 import ProjectDetails from '../ProjectDetails';
 
