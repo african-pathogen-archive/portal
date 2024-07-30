@@ -9,9 +9,13 @@ import { authorizedApiRequest } from '@/global/utils/api';
 
 const { TextArea } = Input;
 
-const AddStudy: FC = () => {
+type Props = {
+	refetchStudies: Function;
+};
+
+const AddStudy: FC<Props> = ({ refetchStudies }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [study, setStudy] = useState('');
+	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [loading, setLoading] = useState<boolean>(false);
 
@@ -33,15 +37,15 @@ const AddStudy: FC = () => {
 			return;
 		}
 		authorizedApiRequest(HttpMethods.POST, API_ROUTES_PATHS.STUDIES, {
-			study: study,
+			name: name,
 			project_id: projectId,
 			description: description,
 		})
 			.then((data) => {
-				console.log(data);
 				setLoading(false);
 				toast(ToastType.SUCCESS, 'Study was successfully created');
 				handleCancel();
+				refetchStudies();
 			})
 			.catch((error) => {
 				console.log(error);
@@ -80,8 +84,8 @@ const AddStudy: FC = () => {
 							rules={[{ required: true, message: 'Study ID is required' }]}
 						>
 							<Input
-								value={study}
-								onChange={(e) => setStudy(e.target.value)}
+								value={name}
+								onChange={(e) => setName(e.target.value)}
 								placeholder="Study ID"
 							/>
 						</Form.Item>
