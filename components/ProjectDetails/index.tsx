@@ -19,8 +19,8 @@
  *
  */
 
-import React, { useState, useEffect } from 'react';
-import { Card, Divider, Modal } from 'antd';
+import { useState, useEffect } from 'react';
+import { Card, Divider, Modal, Typography } from 'antd';
 import { useRouter } from 'next/router';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Toaster } from 'react-hot-toast';
@@ -32,6 +32,9 @@ import toast, { ToastType } from '@/global/utils/toast';
 import useAuthContext from '../../global/hooks/useAuthContext';
 import UpdateProject from '../ProjectUpdate';
 import ProjectInviteUsers from '../ProjectInviteUsers';
+import Studies from '../StudiesTable';
+
+const { Title } = Typography;
 
 const CardDivColumn: React.CSSProperties = {
 	display: 'flex',
@@ -187,7 +190,7 @@ const ProjectDetails: React.FC = () => {
 				style={{ minWidth: 300, marginTop: '40px', width: '70%' }}
 			>
 				<Card.Meta
-					title={project?.title}
+					title={<Title level={3}>{project?.title}</Title>}
 					description={
 						<>
 							<div style={CardDivColumn}>
@@ -204,6 +207,8 @@ const ProjectDetails: React.FC = () => {
 							</div>
 							<Divider />
 							<ProjectInviteUsers />
+							<Divider />
+							<Studies isGroupMember={isGroupMember} />
 						</>
 					}
 				/>

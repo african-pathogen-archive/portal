@@ -37,7 +37,7 @@ export enum INTERNAL_PATHS {
 	LOGIN = '/login',
 	POLICIES = '/policies',
 	RELEASES = '/releases',
-	SUBMISSION = '/submission/holderSubmission',
+	SUBMISSION = '/submission/submission',
 	STUDIES = '/studies',
 	TEAM = '/team',
 	USER = '/user',
@@ -102,4 +102,5 @@ export const API_ROUTES_PATHS = {
 	PATHOGENS: '/pathogens',
 	PROJECTS: '/projects',
 	USERS: '/users',
+	STUDIES: '/studies',
 };
