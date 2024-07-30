@@ -17,7 +17,8 @@ type Props = {
 
 interface Study {
 	key: string;
-	description: string;
+	id: string;
+	description?: string;
 	numberOfSamples: number;
 }
 
@@ -25,6 +26,7 @@ function convertToTableData(responseData: []): Study[] {
 	return responseData.map((element: any) => {
 		return {
 			key: element.id,
+			id: element?.study,
 			description: element?.description,
 			numberOfSamples: element?.number_of_samples,
 		};
@@ -39,34 +41,40 @@ const Studies: FC<Props> = ({ isGroupMember }) => {
 	const projectId = router['project-id'];
 
 	useEffect(() => {
+		getStudies();
+	}, []);
+
+	const getStudies = () => {
 		if (projectId) {
 			authorizedApiRequest(HttpMethods.GET, `${API_ROUTES_PATHS.PROJECTS}/${projectId}/studies`)
 				.then((data) => {
 					setLoading(false);
 					setStudies(convertToTableData(data));
-					console.log(data);
 				})
 				.catch((error) => {
 					setLoading(false);
 					console.log(error);
 				});
 		}
-	}, []);
+	};
 
-	const truncateDescription = (value: string): string => {
-		return value.length > 50 ? value.split('').slice(0, 50).join('').concat('...') : value;
+	const truncateDescription = (value?: string): string => {
+		if (!value) {
+			return '';
+		}
+		return value?.length > 50 ? value?.split('').slice(0, 50).join('').concat('...') : value;
 	};
 
 	const columns: ColumnsType<Study> = [
 		{
 			title: 'Study ID',
-			dataIndex: 'key',
+			dataIndex: 'id',
 			key: 'study ID',
 		},
 		{
 			title: 'Description',
 			key: 'description',
-			render: (_, record) => <Text>{truncateDescription(record.description)}</Text>,
+			render: (_, record) => <Text>{truncateDescription(record?.description)}</Text>,
 		},
 		{
 			title: 'No. of samples',
@@ -95,7 +103,7 @@ const Studies: FC<Props> = ({ isGroupMember }) => {
 					title={() => (
 						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 							<Title level={5}>Studies</Title>
-							{isGroupMember && <AddStudy />}
+							{isGroupMember && <AddStudy refetchStudies={getStudies} />}
 						</div>
 					)}
 				/>
