@@ -64,7 +64,7 @@ function convertToTableData(responseData: any): Project {
 		title: responseData?.title,
 		projectId: responseData?.pid,
 		pathogen: {
-			commonName: '',
+			commonName: responseData?.pathogen?.common_name,
 			scientificName: '',
 		},
 		description: responseData?.description,
@@ -196,6 +196,10 @@ const ProjectDetails: React.FC = () => {
 							<div style={CardDivColumn}>
 								<span>Project ID</span>
 								<code>{project?.projectId}</code>
+							</div>
+							<div style={CardDivColumn}>
+								<span>Pathogen</span>
+								<code>{project?.pathogen?.commonName}</code>
 							</div>
 							<div style={CardDivColumn}>
 								<span>Created by:</span>

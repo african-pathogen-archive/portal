@@ -30,6 +30,13 @@ const AddStudy: FC<Props> = ({ refetchStudies }) => {
 		setIsModalOpen(false);
 	};
 
+	const resetFormValues = () => {
+		form.setFieldsValue({ Study: '' });
+		form.setFieldsValue({ Description: '' });
+	};
+
+	const [form] = Form.useForm();
+
 	const createStudy = () => {
 		setLoading(true);
 		if (!projectId) {
@@ -45,6 +52,7 @@ const AddStudy: FC<Props> = ({ refetchStudies }) => {
 				setLoading(false);
 				toast(ToastType.SUCCESS, 'Study was successfully created');
 				handleCancel();
+				resetFormValues();
 				refetchStudies();
 			})
 			.catch((error) => {
@@ -72,6 +80,7 @@ const AddStudy: FC<Props> = ({ refetchStudies }) => {
 					<Form
 						size="large"
 						name="basic"
+						form={form}
 						style={{ minWidth: 400, margin: 'auto' }}
 						onFinish={createStudy}
 						layout="horizontal"
